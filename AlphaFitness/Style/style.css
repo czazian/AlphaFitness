@@ -819,3 +819,7 @@ div#myDropdown a:hover {
 .show {
     display: block;
 }
+
+.is-open {
+    display:block;
+}

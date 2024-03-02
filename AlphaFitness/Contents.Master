@@ -87,13 +87,13 @@
             <div class="right-header">
                 <div class="nofitication-cont">
                     <div>
-                        <i onclick="openMessage()" style="cursor: pointer; position: relative; top: 0; color: black; font-size: 28px;" class="fa-regular fa-bell"></i>
+                        <i onclick="openMessage()" style="cursor: pointer; position: relative; top: 0; color: black; font-size: 28px;" class="fa-regular fa-bell" id="bell"></i>
                         <div style="position: absolute; top: 0; right: 0; border-radius: 100px; background-color: #ff2b2b; height: 11px; width: 11px;">
                         </div>
                     </div>
 
                     <div class="messages">
-                        <ul id="dropdownMessage" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <ul id="dropdownMessage" tabindex="-1" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                             <li>
                                 <a class="dropdown-item">This is a message</a>
                             </li>
@@ -149,42 +149,62 @@
 </html>
 
 <script>
-    function openMessage() {
-        document.getElementById("dropdownMessage").classList.toggle("show");
-    }
+ 
 
-    /* When the user clicks on the button, 
-     toggle between hiding and showing the dropdown content */
-    function dropFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
+        $("#bell").click(function (e) {
+            e.stopPropagation();
+            var container = $(".message");
 
-    //dropping list
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+            //check if the clicked area is dropDown or not
+            if (container.has(e.target).length === 0) {
+                $('#dropdownMessage').show();
+            }
+        })
 
-    function myFunction(id) {
-        var x = document.getElementById(id);
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-            x.previousElementSibling.className += " w3-theme-d1";
-        } else {
-            x.className = x.className.replace("w3-show", "");
-            x.previousElementSibling.className =
-                x.previousElementSibling.className.replace(" w3-theme-d1", "");
+        $(document).click(function (e) {
+            e.stopPropagation();
+            var container = $(".message");
+
+            //check if the clicked area is dropDown or not
+            if (container.has(e.target).length === 0) {
+                $('#dropdownMessage').hide();
+            }
+        })
+
+        /* When the user clicks on the button, 
+         toggle between hiding and showing the dropdown content */
+        function dropFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
         }
-    }
 
-    //left navigation
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".sidebarBtn");
-    sidebarBtn.onclick = function () {
-        sidebar.classList.toggle("active");
-        if (sidebar.classList.contains("active")) {
-            sidebarBtn.classList.replace("bxs-chevron-left", "bxs-chevron-right");
-        } else {
-            sidebarBtn.classList.replace("bxs-chevron-right", "bxs-chevron-left");
+        //dropping list
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+        function myFunction(id) {
+            var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+                x.previousElementSibling.className += " w3-theme-d1";
+            } else {
+                x.className = x.className.replace("w3-show", "");
+                x.previousElementSibling.className =
+                    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+            }
         }
-    }
+
+        //left navigation
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bxs-chevron-left", "bxs-chevron-right");
+            } else {
+                sidebarBtn.classList.replace("bxs-chevron-right", "bxs-chevron-left");
+            }
+        }
+
+
 </script>
 
