@@ -1,0 +1,190 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Contents.master.cs" Inherits="AlphaFitness.Contents" %>
+
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='<%= ResolveUrl("~/Style/reset.css") %>' rel="stylesheet" />
+    <link href='<%= ResolveUrl("~/Style/style.css") %>' rel="stylesheet" />
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Alpha Fitness | A Life On the Palm of Hand</title>
+    <link rel="icon" type="image/x-icon" href="Image/Element/web-icon.jpg">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <%--sidebar--%>
+    <div class="sidebar">
+        <div class="logo-details">
+            <asp:Image runat="server" Style="width: 60%; text-align: center; margin: 0px auto 0px auto;" ImageUrl="~/Image/Element/logo1.png" />
+        </div>
+        <ul class="nav-links">
+            <li id="dashbLi" runat="server">
+                <asp:HyperLink runat="server" ID="dashboardLink">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </asp:HyperLink>
+            </li>
+            <li id="comLi" runat="server">
+                <asp:HyperLink runat="server" ID="communityLink">
+                    <i class='bx bxs-chat'></i>
+                    <span class="links_name">Community</span>
+                </asp:HyperLink>
+            </li>
+            <li id="badgeLi" runat="server">
+                <asp:HyperLink runat="server" ID="badgeLiink">
+                    <i class='bx bxs-badge-check'></i>
+                    <span class="links_name">Badge</span>
+                </asp:HyperLink>
+            </li>
+            <li id="analysisLi" runat="server">
+                <asp:HyperLink runat="server" ID="analysisLink">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Analysis</span>
+                </asp:HyperLink>
+            </li>
+            <li id="foodLi" runat="server">
+                <asp:HyperLink runat="server" ID="foodLink">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span class="links_name">Consumed Food</span>
+                </asp:HyperLink>
+            </li>
+            <li id="shopLi" runat="server">
+                <asp:HyperLink runat="server" ID="shopLink">
+                    <i class='bx bxs-store-alt'></i>
+                    <span class="links_name">Coin Shop</span>
+                </asp:HyperLink>
+            </li>
+            <li class="log_out">
+                <asp:HyperLink runat="server" ID="logoutLink">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </asp:HyperLink>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+
+
+        <%--header--%>
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bxs-chevron-left sidebarBtn'></i>
+                <span class="dashboard"></span>
+            </div>
+            <div class="right-header">
+                <div class="nofitication-cont">
+                    <div>
+                        <i onclick="openMessage()" style="cursor: pointer; position: relative; top: 0; color: black; font-size: 28px;" class="fa-regular fa-bell"></i>
+                        <div style="position: absolute; top: 0; right: 0; border-radius: 100px; background-color: #ff2b2b; height: 11px; width: 11px;">
+                        </div>
+                    </div>
+
+                    <div class="messages">
+                        <ul id="dropdownMessage" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item">This is a message</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item">This is a message</a>
+                            </li>
+                            <li style="background-color: #eae9e9">
+                                <a class="dropdown-item">This is a message</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="coin-amount">
+                    <div>
+                        <i class="fa-solid fa-coins" style="color: gold"></i>
+                    </div>
+                    <div>
+                        <asp:Label runat="server" ID="coinAmount" Text="1500" />
+                    </div>
+                </div>
+                <div class="profile-details" style="background-color: #000000; color: #FFFFFF;">
+                    <div class="p-img" style="margin-top: -3px; border-radius: 150px; width: 30px; height: 30px; overflow: hidden;">
+                        <asp:Image Style="background-color: white; border-radius: 100px; width: 30px; height: 30px; margin-right: -5px;" runat="server" ID="topImage" ImageUrl="~/Image/Profile/user.jpg" />
+                    </div>
+
+                    <asp:Label CssClass="p-name" runat="server" ID="adminNameLabel" Text="YiYang_0519" Style="text-align: center; padding: 5px 5px 5px 10px"></asp:Label>
+
+                    <div onclick="dropFunction()" class="dropbtn">
+                        <i class='bx bx-chevron-down' style="color: #FFFFFF"></i>
+                    </div>
+                    <div id="myDropdown" class="dropdown-content">
+                        <asp:HyperLink runat="server" ID="HyperLink2" Text="Profile">
+                    Profile
+                        </asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="HyperLink1" Text="Edit Profile">
+                        </asp:HyperLink>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+
+    </section>
+</body>
+</html>
+
+<script>
+    function openMessage() {
+        document.getElementById("dropdownMessage").classList.toggle("show");
+    }
+
+    /* When the user clicks on the button, 
+     toggle between hiding and showing the dropdown content */
+    function dropFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    //dropping list
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-theme-d1";
+        } else {
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.className =
+                x.previousElementSibling.className.replace(" w3-theme-d1", "");
+        }
+    }
+
+    //left navigation
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bxs-chevron-left", "bxs-chevron-right");
+        } else {
+            sidebarBtn.classList.replace("bxs-chevron-right", "bxs-chevron-left");
+        }
+    }
+</script>
+

@@ -67,12 +67,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dashboard\Dashboard.aspx" />
+    <Content Include="Dashboard\Dashboard.css" />
+    <Content Include="Image\Element\logo1.png" />
+    <Content Include="Image\Element\logo2.png" />
+    <Content Include="Image\Element\web-icon.jpg" />
+    <Content Include="Image\Profile\user.jpg" />
+    <Content Include="Style\reset.css" />
+    <Content Include="Style\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contents.Master.cs">
+      <DependentUpon>Contents.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contents.Master.designer.cs">
+      <DependentUpon>Contents.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contents.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,6 +103,13 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Analysis\" />
+    <Folder Include="Badge\" />
+    <Folder Include="Community\" />
+    <Folder Include="Food\" />
+    <Folder Include="User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

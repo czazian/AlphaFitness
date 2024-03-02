@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\contents.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\contents.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\style\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\style\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\dashboard\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\dashboard\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\dashboard\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\dashboard\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dashboard.aspx",
+              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\Dashboard.aspx",
+              "RelativeDocumentMoniker": "AlphaFitness\\Dashboard\\Dashboard.aspx",
+              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\Dashboard.aspx",
+              "RelativeToolTip": "AlphaFitness\\Dashboard\\Dashboard.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-02T12:04:10.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dashboard.css",
+              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\Dashboard.css",
+              "RelativeDocumentMoniker": "AlphaFitness\\Dashboard\\Dashboard.css",
+              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\Dashboard.css",
+              "RelativeToolTip": "AlphaFitness\\Dashboard\\Dashboard.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-02T12:04:03.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Contents.Master",
+              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Contents.Master",
+              "RelativeDocumentMoniker": "AlphaFitness\\Contents.Master",
+              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Contents.Master",
+              "RelativeToolTip": "AlphaFitness\\Contents.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-02T07:15:19.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Style\\style.css",
+              "RelativeDocumentMoniker": "AlphaFitness\\Style\\style.css",
+              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Style\\style.css",
+              "RelativeToolTip": "AlphaFitness\\Style\\style.css",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAlwFoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-02T07:44:00.525Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
