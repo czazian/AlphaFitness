@@ -69,12 +69,16 @@
   <ItemGroup>
     <Content Include="Dashboard\Dashboard.aspx" />
     <Content Include="Dashboard\Dashboard.css" />
+    <Content Include="Image\Element\loginBackground.jpg" />
     <Content Include="Image\Element\logo1.png" />
     <Content Include="Image\Element\logo2.png" />
     <Content Include="Image\Element\web-icon.jpg" />
     <Content Include="Image\Profile\user.jpg" />
     <Content Include="Style\reset.css" />
     <Content Include="Style\style.css" />
+    <Content Include="User\UserLogin.aspx" />
+    <Content Include="User\UserLogin.css" />
+    <Content Include="User\UserProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +97,20 @@
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\UserLogin.aspx.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserLogin.aspx.designer.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contents.Master" />
@@ -109,7 +127,6 @@
     <Folder Include="Badge\" />
     <Folder Include="Community\" />
     <Folder Include="Food\" />
-    <Folder Include="User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
