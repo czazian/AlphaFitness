@@ -18,7 +18,7 @@
 
 <body>
     <div class="background">
-        <asp:Image Style="width:100%; height:100vh;" runat="server" ImageUrl="~/Image/Element/loginBackground.jpg" />
+        <%--<asp:Image Style="width:100%; height : auto; left: 0; top: 0;" runat="server" ImageUrl="~/Image/Element/loginBackground.jpg" />--%>
     </div>
     <div class="container" id="main">
         <%--User Registration--%>

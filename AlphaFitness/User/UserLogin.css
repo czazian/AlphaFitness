@@ -9,14 +9,28 @@ body {
     flex-direction: column;
     background: #f6f5f7;
     font-family: 'Times New Roman', Times, serif;
-    min-height: 100%;
-    margin: 10%;
+    overflow: hidden;
+    height: 100vh;
 }
 
 .background {
-    position: absolute;
-    opacity: 0.5;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
 }
+
+    .background::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-image : url('../Image/Element/loginBackground.jpg');
+        background-size: cover;
+        opacity: 0.5;
+    }
 
 .container {
     position: relative;
@@ -25,7 +39,6 @@ body {
     min-height: 550px;
     background: #fff;
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     margin: auto;
 }
