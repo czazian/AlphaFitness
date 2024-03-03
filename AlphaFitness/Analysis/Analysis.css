@@ -116,23 +116,25 @@
 
     /* left box */
     .home-content .sales-boxes .info1 {
-        width: 65%; /* Adjusted width for the first div */
+        width: 62%; /* Adjusted width for the first div */
         background: #fff;
         padding: 20px 30px;
-        margin: 0 20px;
         margin-bottom: 10px;
         border-radius: 12px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+        margin: 1.5%;
     }
 
     .home-content .sales-boxes .info2 {
-        width: 35%; /* Adjusted width for the first div */
+        width: 31%; /* Adjusted width for the first div */
         background: #fff;
         padding: 20px 30px;
-        margin: 0 20px;
         margin-bottom: 10px;
         border-radius: 12px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+        margin: 1.5%;
     }
 
     .home-content .sales-boxes .info3 {

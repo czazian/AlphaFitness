@@ -275,6 +275,7 @@ nav .profile-details i {
 .home-section .home-content {
     position: relative;
     padding-top: 104px;
+    width:100%;
 }
 
 .home-content .overview-boxes {

@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="community-container">
+    <div class="home-content">
         <div class="header-community">
             <div class="numberofposts">
                 There are totally&nbsp;<asp:Label Style="font-weight: 500;" runat="server" ID="numOfPosts" Text="123"/>.

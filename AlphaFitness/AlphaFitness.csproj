@@ -67,6 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Analysis\Analysis.aspx" />
+    <Content Include="Analysis\Analysis.css" />
+    <Content Include="Analysis\CaloriesGraph.js" />
+    <Content Include="Analysis\ReportPieChart.js" />
     <Content Include="Community\Community.aspx" />
     <Content Include="Community\Community.css" />
     <Content Include="Dashboard\Dashboard.aspx" />
@@ -84,6 +88,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\Analysis.aspx.cs">
+      <DependentUpon>Analysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analysis\analysis.aspx.designer.cs">
+      <DependentUpon>Analysis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Community\Community.aspx.cs">
       <DependentUpon>Community.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,7 +143,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Analysis\" />
     <Folder Include="Badge\" />
     <Folder Include="Food\" />
   </ItemGroup>

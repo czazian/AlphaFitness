@@ -1,17 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contents.Master" AutoEventWireup="true" CodeBehind="Analysis.aspx.cs" Inherits="AlphaFitness.Analysis.Analysis" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Analysis.css" rel="stylesheet" />
-<title>Analysis</title>
+    <title>Analysis</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="Analysis.css" rel="stylesheet" />
     <div class="home-content">
 
-    <div class="sales-boxes">
-        <div class="recent-sales box">
-            <div class="title">Welcome back xxxxxx!</div>
+        <div class="sales-boxes">
+            <div class="recent-sales box">
+                <div class="title">Welcome back xxxxxx!</div>
+            </div>
         </div>
-    </div>
 
         <div class="overview-boxes">
             <div class="box">
@@ -74,7 +75,7 @@
                     <i class='bx bx-stopwatch cart two pad'></i>
                 </div>
             </div>
-</div>
+        </div>
         <div class="sales-boxes">
             <div class="info1 box">
                 <div class="title">Calories Graph<span class="smlT">on this year</span></div>
@@ -88,23 +89,21 @@
             </div>
         </div>
         <div class="sales-boxes">
-    <div class="info1 box">
-        <div class="title">Meal for today</div>
-        <hr />
-       
-        <div class="sales-details">
+            <div class="info1 box">
+                <div class="title">Meal for today</div>
+                <hr />
 
-            
+                <div class="sales-details">
+                </div>
+            </div>
+            <div class="info2 box">
+                <div class="title">Recommend food</div>
+                <hr />
+
+            </div>
         </div>
+
     </div>
-    <div class="info2 box">
-        <div class="title">Recommend food</div>
-        <hr />
-        
-    </div>
-</div>
-   
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="CaloriesGraph.js"></script>
