@@ -33,13 +33,13 @@
         </div>
         <ul class="nav-links">
             <li id="dashbLi" runat="server">
-                <asp:HyperLink runat="server" ID="dashboardLink">
+                <asp:HyperLink runat="server" ID="dashboardLink" NavigateUrl="~/Dashboard/Dashboard.aspx">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </asp:HyperLink>
             </li>
             <li id="comLi" runat="server">
-                <asp:HyperLink runat="server" ID="communityLink">
+                <asp:HyperLink runat="server" ID="communityLink" NavigateUrl="~/Community/Community.aspx">
                     <i class='bx bxs-chat'></i>
                     <span class="links_name">Community</span>
                 </asp:HyperLink>
@@ -151,61 +151,51 @@
 </html>
 
 <script>
- 
 
-        $("#bell").click(function (e) {
-            e.stopPropagation();
-            var container = $(".message");
 
-            //check if the clicked area is dropDown or not
-            if (container.has(e.target).length === 0) {
-                $('#dropdownMessage').show();
-            }
-        })
+    function openMessage() {
+        document.getElementById("dropdownMessage").classList.toggle("show");
 
-        $(document).click(function (e) {
-            e.stopPropagation();
-            var container = $(".message");
-
-            //check if the clicked area is dropDown or not
-            if (container.has(e.target).length === 0) {
-                $('#dropdownMessage').hide();
-            }
-        })
-
-        /* When the user clicks on the button, 
-         toggle between hiding and showing the dropdown content */
-        function dropFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
+        if (document.getElementById("dropdownMessage").classList.contains("show")) {
+            document.getElementById("bell").classList.replace("fa-regular", "fa-solid");
+        } else {
+            document.getElementById("bell").classList.replace("fa-solid", "fa-regular");
         }
+    }
 
-        //dropping list
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    /* When the user clicks on the button, 
+     toggle between hiding and showing the dropdown content */
+    function dropFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
 
-        function myFunction(id) {
-            var x = document.getElementById(id);
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-                x.previousElementSibling.className += " w3-theme-d1";
-            } else {
-                x.className = x.className.replace("w3-show", "");
-                x.previousElementSibling.className =
-                    x.previousElementSibling.className.replace(" w3-theme-d1", "");
-            }
+    //dropping list
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-theme-d1";
+        } else {
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.className =
+                x.previousElementSibling.className.replace(" w3-theme-d1", "");
         }
+    }
 
-        //left navigation
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".sidebarBtn");
-        sidebarBtn.onclick = function () {
-            sidebar.classList.toggle("active");
-            if (sidebar.classList.contains("active")) {
-                sidebarBtn.classList.replace("bxs-chevron-left", "bxs-chevron-right");
-            } else {
-                sidebarBtn.classList.replace("bxs-chevron-right", "bxs-chevron-left");
-            }
+    //left navigation
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bxs-chevron-left", "bxs-chevron-right");
+        } else {
+            sidebarBtn.classList.replace("bxs-chevron-right", "bxs-chevron-left");
         }
+    }
 
 
 </script>
