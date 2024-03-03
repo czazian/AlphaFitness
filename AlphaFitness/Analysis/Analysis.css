@@ -1,4 +1,9 @@
-﻿.home-section .home-content {
+﻿#analysisLi {
+    border-right: 5px solid #ffc219;
+    background-color: #808080;
+}
+
+.home-section .home-content {
     position: relative;
     padding-top: 104px;
 }

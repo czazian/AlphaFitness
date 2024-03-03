@@ -3,15 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\analysis\\analysis.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\analysis\\analysis.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\analysis\\analysis.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\analysis\\analysis.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\community\\community.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\alphafitness\\community\\community.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\community\\community.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
@@ -43,32 +35,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Analysis.css",
-              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Analysis\\Analysis.css",
-              "RelativeDocumentMoniker": "AlphaFitness\\Analysis\\Analysis.css",
-              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Analysis\\Analysis.css",
-              "RelativeToolTip": "AlphaFitness\\Analysis\\Analysis.css",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAAAH0AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-03T15:54:50.249Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Analysis.aspx",
-              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Analysis\\Analysis.aspx",
-              "RelativeDocumentMoniker": "AlphaFitness\\Analysis\\Analysis.aspx",
-              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Analysis\\Analysis.aspx",
-              "RelativeToolTip": "AlphaFitness\\Analysis\\Analysis.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-03-03T15:48:14.92Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Community.aspx",
               "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Community\\Community.aspx",
               "RelativeDocumentMoniker": "AlphaFitness\\Community\\Community.aspx",
@@ -81,13 +47,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Community.css",
               "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Community\\Community.css",
               "RelativeDocumentMoniker": "AlphaFitness\\Community\\Community.css",
               "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Community\\Community.css",
               "RelativeToolTip": "AlphaFitness\\Community\\Community.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAEAAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-03-03T13:58:20.305Z",
               "EditorCaption": ""
