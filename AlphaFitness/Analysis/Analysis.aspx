@@ -83,23 +83,36 @@
                 <canvas id="line"></canvas>
             </div>
             <div class="info2 box">
-                <div class="title">Report<span class="smlT">on this month</span></div>
+                <div class="title">Report<span class="smlT">on this week</span></div>
                 <hr />
                 <canvas id="pie"></canvas>
             </div>
         </div>
         <div class="sales-boxes">
             <div class="info1 box">
-                <div class="title">Meal for today</div>
+                <div class="title">Meal for Today</div>
                 <hr />
 
                 <div class="sales-details">
                 </div>
             </div>
             <div class="info2 box">
-                <div class="title">Recommend food</div>
+                <div class="title">Recommend Food</div>
                 <hr />
 
+            </div>
+        </div>
+
+        <div class="sales-boxes">
+            <div class="info1 box">
+                <div class="title">Weight Loss Analysis<span class="smlT">over 12 months</span></div>
+                <hr />
+                <canvas id="weightLoss"></canvas>
+            </div>
+            <div class="info2 box">
+                <div class="title">Heart Rate</div>
+                <hr />
+                <canvas id="heartRate"></canvas>
             </div>
         </div>
 
@@ -108,5 +121,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="CaloriesGraph.js"></script>
     <script src="ReportPieChart.js"></script>
+    <script src="WeightLoss.js"></script>
+    <script src="HeartRate.js"></script>
 
 </asp:Content>

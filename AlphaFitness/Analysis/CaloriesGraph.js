@@ -5,8 +5,8 @@ new Chart(ctx, {
     data: {
         labels: ['Jan', 'Feb', 'Mac', 'Apr', 'May', 'Jun'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Monthly Calorie Intake',
+            data: [2000, 3000, 1500, 3550, 2200, 1750],
             borderWidth: 1
         }]
     },

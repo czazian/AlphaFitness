@@ -70,7 +70,9 @@
     <Content Include="Analysis\Analysis.aspx" />
     <Content Include="Analysis\Analysis.css" />
     <Content Include="Analysis\CaloriesGraph.js" />
+    <Content Include="Analysis\HeartRate.js" />
     <Content Include="Analysis\ReportPieChart.js" />
+    <Content Include="Analysis\WeightLoss.js" />
     <Content Include="Community\Community.aspx" />
     <Content Include="Community\Community.css" />
     <Content Include="Dashboard\Dashboard.aspx" />

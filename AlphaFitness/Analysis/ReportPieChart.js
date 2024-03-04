@@ -3,18 +3,11 @@
 new Chart(ctx2, {
     type: 'pie',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Heart', 'Water', 'Calories', 'Exercise', 'Carbo'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Total Intake',
+            data: [140, 543, 358, 654, 439],
             borderWidth: 1
         }]
     },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
 });
