@@ -10,11 +10,9 @@
     flex-flow: column nowrap;
 }
 
-.header-community {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    width: 95%; /* Standard Size for content items */
+.outer {
+    margin: 0px 20px 20px 20px;
+    width: 95%;
     height: fit-content;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     padding: 20px;
@@ -22,30 +20,33 @@
     background: #fff;
 }
 
-.leftbox {
+.heading {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 5px;
+    flex-flow: row nowrap;
+    gap: 25px;
+    padding: 0px 30px;
+    margin-bottom: 20px;
 }
 
-.rightbox {
-    display: flex;
+.lbl {
+    line-height: 30px;
+    font-size: 22px;
+}
+
+.main-title {
     justify-content: center;
     align-items: center;
-}
-
-.submitbtn {
-    color: black;
-    background-color: gold;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-}
-
-.submit {
     display: flex;
-    align-items: center;
+    padding: 0px 30px;
+}
+
+.bt {
+    color: grey;
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 15px;
+    align-items: start;
+    margin-top: 8px;
 }
 
 .infobar {
@@ -76,18 +77,12 @@
 .post {
     display: flex;
     flex-flow: row nowrap;
-    margin: 10px 20px 8px 20px;
-    width: 95%;
-    height: fit-content;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    padding: 20px;
-    border-radius: 12px;
-    background: #fff;
     gap: 10px;
+    padding: 15px 70px 15px 40px;
 }
 
     .post:last-child {
-        margin-bottom:50px;
+        margin-bottom: 50px;
     }
 
 .top-community {
@@ -165,13 +160,14 @@
 }
 
 .infobar-comment {
-    display:flex;
+    display: flex;
     flex-flow: row nowrap;
 }
 
 .commenter-comment {
     line-height: 20px;
     font-size: 13px;
+    width: 100%;
 }
 
 .view-more a {
@@ -180,48 +176,8 @@
     cursor: pointer;
 }
 
-/*Modal*/
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 150px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-    border-radius: 8px;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
 .title {
-    font-size: 17px;
+    font-size: 22px;
     font-weight: 500;
     margin-bottom: 10px;
 }
@@ -297,3 +253,52 @@
     right: 15px;
     display: none;
 }
+
+.bottom-community {
+    margin-bottom: 15px;
+}
+
+.backBtn {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.write-comment {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 8px;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.write-box-inside {
+    border-radius: 10px;
+    border: 1px solid gold;
+    padding: 10px 8px;
+    width: 100%;
+}
+
+    .write-box-inside:focus {
+        outline: none;
+        transition: .2s ease-in-out all;
+        padding-left: 15px;
+    }
+
+.submit-box-inside {
+    padding: 10px 11px 10px 11px;
+    border-radius: 8px;
+    background-color: #faed61;
+    height: fit-content;
+    transition: background-color .5s ease-out;
+}
+
+    .submit-box-inside:hover {
+        background-color: #fbbd0f;
+        transition: .5s all ease-in;
+    }
+
+
+
+
