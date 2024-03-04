@@ -10,7 +10,7 @@
     <link href='<%= ResolveUrl("~/Style/style.css") %>' rel="stylesheet" />
 
     <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -48,134 +48,150 @@
     </script>
 </head>
 
-<body id="bd" style="display:none;">
-    <%--sidebar--%>
-    <div class="sidebar">
-        <div class="logo-details">
-            <asp:Image runat="server" Style="width: 60%; text-align: center; margin: 0px auto 0px auto;" ImageUrl="~/Image/Element/logo1.png" />
-        </div>
-        <ul class="nav-links">
-            <li id="dashbLi" runat="server">
-                <asp:HyperLink runat="server" ID="dashboardLink" NavigateUrl="~/Dashboard/Dashboard.aspx">
+<body id="bd" style="display: none;">
+    <form id="form1" runat="server">
+        <%--sidebar--%>
+        <div class="sidebar">
+            <div class="logo-details">
+                <asp:Image runat="server" Style="width: 60%; text-align: center; margin: 0px auto 0px auto;" ImageUrl="~/Image/Element/logo1.png" />
+            </div>
+            <ul class="nav-links">
+                <li id="dashbLi" runat="server">
+                    <asp:HyperLink runat="server" ID="dashboardLink" NavigateUrl="~/Dashboard/Dashboard.aspx">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
-                </asp:HyperLink>
-            </li>
-            <li id="comLi" runat="server">
-                <asp:HyperLink runat="server" ID="communityLink" NavigateUrl="~/Community/Community.aspx">
+                    </asp:HyperLink>
+                </li>
+                <li id="comLi" runat="server">
+                    <asp:HyperLink runat="server" ID="communityLink" NavigateUrl="~/Community/Community.aspx">
                     <i class='bx bxs-chat'></i>
                     <span class="links_name">Community</span>
-                </asp:HyperLink>
-            </li>
-            <li id="contentLi" runat="server">
-                <asp:HyperLink runat="server" ID="contentLink">
+                    </asp:HyperLink>
+                </li>
+                <li id="contentLi" runat="server">
+                    <asp:HyperLink runat="server" ID="contentLink">
                     <i class='bx bx-book-open' ></i>
                     <span class="links_name">Tutorial</span>
-                </asp:HyperLink>
-            </li>
-            <li id="badgeLi" runat="server">
-                <asp:HyperLink runat="server" ID="badgeLiink">
+                    </asp:HyperLink>
+                </li>
+                <li id="badgeLi" runat="server">
+                    <asp:HyperLink runat="server" ID="badgeLiink">
                     <i class='bx bxs-badge-check'></i>
                     <span class="links_name">Badge</span>
-                </asp:HyperLink>
-            </li>
-            <li id="analysisLi" runat="server">
-                <asp:HyperLink runat="server" ID="analysisLink" NavigateUrl="~/Analysis/Analysis.aspx">
+                    </asp:HyperLink>
+                </li>
+                <li id="analysisLi" runat="server">
+                    <asp:HyperLink runat="server" ID="analysisLink" NavigateUrl="~/Analysis/Analysis.aspx">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="links_name">Analysis</span>
-                </asp:HyperLink>
-            </li>
-            <li id="foodLi" runat="server">
-                <asp:HyperLink runat="server" ID="foodLink">
+                    </asp:HyperLink>
+                </li>
+                <li id="foodLi" runat="server">
+                    <asp:HyperLink runat="server" ID="foodLink">
                     <i class="fa-solid fa-utensils"></i>
                     <span class="links_name">Consumed Food</span>
-                </asp:HyperLink>
-            </li>
-            <li id="shopLi" runat="server">
-                <asp:HyperLink runat="server" ID="shopLink">
+                    </asp:HyperLink>
+                </li>
+                <li id="shopLi" runat="server">
+                    <asp:HyperLink runat="server" ID="shopLink">
                     <i class='bx bxs-store-alt'></i>
                     <span class="links_name">Coin Shop</span>
-                </asp:HyperLink>
-            </li>
-            <li class="log_out">
-                <asp:HyperLink runat="server" ID="logoutLink">
+                    </asp:HyperLink>
+                </li>
+                <li class="log_out">
+                    <asp:HyperLink runat="server" ID="logoutLink">
                     <i class='bx bx-log-out'></i>
                     <span class="links_name">Log out</span>
-                </asp:HyperLink>
-            </li>
-        </ul>
-    </div>
+                    </asp:HyperLink>
+                </li>
+            </ul>
+        </div>
 
-    <section class="home-section" id="home-section">
+        <section class="home-section" id="home-section">
 
 
-        <%--header--%>
-        <nav>
-            <div class="sidebar-button">
-                <i class='bx bxs-chevron-left sidebarBtn'></i>
-                <span class="dashboard"></span>
-            </div>
-            <div class="right-header">
-                <div class="nofitication-cont">
-                    <div>
-                        <i onclick="openMessage()" style="cursor: pointer; position: relative; top: 0; color: black; font-size: 28px;" class="fa-regular fa-bell" id="bell"></i>
-                        <div style="position: absolute; top: 0; right: 0; border-radius: 100px; background-color: #ff2b2b; height: 11px; width: 11px;">
+            <%--header--%>
+            <nav>
+                <div class="leftboxx">
+                    <div class="sidebar-button">
+                        <i class='bx bxs-chevron-left sidebarBtn'></i>
+                        <span class="dashboard"></span>
+                    </div>
+                    <div class="weather">
+                        <div class="w-leftt">
+                            <asp:Image runat="server" ID="wimg" />
+                        </div>
+                        <div class="w-rightt">
+                            <div class="weather-name">
+                                <asp:Label runat="server" ID="wname" />&nbsp;&nbsp;&nbsp;[Kuala Lumpur]
+                            </div>
+                            <div class="weather-info">
+                                <asp:Label runat="server" ID="winfo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-header">
+
+                    <div class="nofitication-cont">
+                        <div>
+                            <i onclick="openMessage()" style="cursor: pointer; position: relative; top: 0; color: black; font-size: 28px;" class="fa-regular fa-bell" id="bell"></i>
+                            <div style="position: absolute; top: 0; right: 0; border-radius: 100px; background-color: #ff2b2b; height: 11px; width: 11px;">
+                            </div>
+                        </div>
+
+                        <div class="messages">
+                            <ul id="dropdownMessage" tabindex="-1" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a class="dropdown-item">This is a message</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item">This is a message</a>
+                                </li>
+                                <li style="background-color: #eae9e9">
+                                    <a class="dropdown-item">This is a message</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="messages">
-                        <ul id="dropdownMessage" tabindex="-1" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item">This is a message</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item">This is a message</a>
-                            </li>
-                            <li style="background-color: #eae9e9">
-                                <a class="dropdown-item">This is a message</a>
-                            </li>
-                        </ul>
+                    <div class="coin-amount">
+                        <div>
+                            <i class="fa-solid fa-coins" style="color: gold"></i>
+                        </div>
+                        <div>
+                            <asp:Label runat="server" ID="coinAmount" Text="1500" />
+                        </div>
                     </div>
-                </div>
+                    <div class="profile-details" style="background-color: #000000; color: #FFFFFF;">
+                        <div class="p-img" style="margin-top: -3px; border-radius: 150px; width: 30px; height: 30px; overflow: hidden;">
+                            <asp:Image Style="background-color: white; border-radius: 100px; width: 30px; height: 30px; margin-right: -5px;" runat="server" ID="topImage" ImageUrl="~/Image/Profile/user.jpg" />
+                        </div>
 
-                <div class="coin-amount">
-                    <div>
-                        <i class="fa-solid fa-coins" style="color: gold"></i>
-                    </div>
-                    <div>
-                        <asp:Label runat="server" ID="coinAmount" Text="1500" />
-                    </div>
-                </div>
-                <div class="profile-details" style="background-color: #000000; color: #FFFFFF;">
-                    <div class="p-img" style="margin-top: -3px; border-radius: 150px; width: 30px; height: 30px; overflow: hidden;">
-                        <asp:Image Style="background-color: white; border-radius: 100px; width: 30px; height: 30px; margin-right: -5px;" runat="server" ID="topImage" ImageUrl="~/Image/Profile/user.jpg" />
-                    </div>
+                        <asp:Label CssClass="p-name" runat="server" ID="adminNameLabel" Text="YiYang_0519" Style="text-align: center; padding: 5px 5px 5px 10px"></asp:Label>
 
-                    <asp:Label CssClass="p-name" runat="server" ID="adminNameLabel" Text="YiYang_0519" Style="text-align: center; padding: 5px 5px 5px 10px"></asp:Label>
-
-                    <div onclick="dropFunction()" class="dropbtn">
-                        <i class='bx bx-chevron-down' style="color: #FFFFFF"></i>
-                    </div>
-                    <div id="myDropdown" class="dropdown-content">
-                        <asp:HyperLink runat="server" ID="HyperLink2" Text="Profile">
+                        <div onclick="dropFunction()" class="dropbtn">
+                            <i class='bx bx-chevron-down' style="color: #FFFFFF"></i>
+                        </div>
+                        <div id="myDropdown" class="dropdown-content">
+                            <asp:HyperLink runat="server" ID="HyperLink2" Text="Profile">
                     Profile
-                        </asp:HyperLink>
-                        <asp:HyperLink runat="server" ID="HyperLink1" Text="Edit Profile">
-                        </asp:HyperLink>
+                            </asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="HyperLink1" Text="Edit Profile">
+                            </asp:HyperLink>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
 
-        <form id="form1" runat="server">
+
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        </form>
-
-    </section>
+        </section>
+    </form>
 </body>
 </html>
 

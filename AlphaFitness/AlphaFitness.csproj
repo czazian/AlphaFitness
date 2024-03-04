@@ -148,7 +148,6 @@
     <Compile Include="Analysis\analysis.aspx.designer.cs">
       <DependentUpon>Analysis.aspx</DependentUpon>
     </Compile>
-    <Compile Include="APIs\Weather.cs" />
     <Compile Include="Community\Community.aspx.cs">
       <DependentUpon>Community.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -207,6 +206,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="APIs\" />
     <Folder Include="Badge\" />
     <Folder Include="Food\" />
   </ItemGroup>

@@ -203,3 +203,6 @@ C:\Users\koyas\OneDrive\Documents\GitHub\AlphaFitness\AlphaFitness\bin\System.Th
 C:\Users\koyas\OneDrive\Documents\GitHub\AlphaFitness\AlphaFitness\bin\System.ValueTuple.xml
 C:\Users\koyas\OneDrive\Documents\GitHub\AlphaFitness\AlphaFitness\bin\System.Web.Http.xml
 C:\Users\koyas\OneDrive\Documents\GitHub\AlphaFitness\AlphaFitness\bin\System.Web.Http.WebHost.xml
+C:\Users\koyas\OneDrive\Documents\GitHub\AlphaFitness\AlphaFitness\bin\Newtonsoft.Json.Bson.dll
+C:\Users\koyas\OneDrive\Documents\GitHub\AlphaFitness\AlphaFitness\bin\Newtonsoft.Json.Bson.pdb
+C:\Users\koyas\OneDrive\Documents\GitHub\AlphaFitness\AlphaFitness\bin\Newtonsoft.Json.Bson.xml
