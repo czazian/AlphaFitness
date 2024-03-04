@@ -11,7 +11,7 @@ namespace AlphaFitness
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ScriptManager.RegisterStartupScript(this, GetType(), "script", "$(function () {initialStates(); });", true);
         }
     }
 }

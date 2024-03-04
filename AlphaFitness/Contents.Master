@@ -23,9 +23,32 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            document.getElementById('bd').style.display = "block"
+        })
+
+        //Remembered sidebar, on every page load
+        function initialStates() {
+            let savedState = localStorage.getItem('state');
+
+            // Check if there is a saved state in localStorage
+            if (savedState !== null) {
+                // Apply the saved state to the sidebar
+                if (savedState === 'close') {
+                    sidebar.classList.add('active');
+                } else {
+                    sidebar.classList.remove('active');
+                }
+            }
+        }
+
+    </script>
 </head>
 
-<body>
+<body id="bd" style="display:none;">
     <%--sidebar--%>
     <div class="sidebar">
         <div class="logo-details">
@@ -83,7 +106,7 @@
         </ul>
     </div>
 
-    <section class="home-section">
+    <section class="home-section" id="home-section">
 
 
         <%--header--%>
@@ -156,7 +179,7 @@
 </body>
 </html>
 
-<script>
+<script type="text/javascript">
 
 
     function openMessage() {
@@ -195,14 +218,17 @@
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");
     sidebarBtn.onclick = function () {
+
         sidebar.classList.toggle("active");
+
         if (sidebar.classList.contains("active")) {
             sidebarBtn.classList.replace("bxs-chevron-left", "bxs-chevron-right");
+            localStorage.setItem('state', 'close');
         } else {
             sidebarBtn.classList.replace("bxs-chevron-right", "bxs-chevron-left");
+            localStorage.setItem('state', 'open');
         }
     }
-
 
 </script>
 
