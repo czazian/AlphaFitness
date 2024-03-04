@@ -77,10 +77,12 @@ namespace AlphaFitness
         //200 -> 233
         protected string checkWhetherCode(string json)
         {
+
             WeatherData weatherData = JsonConvert.DeserializeObject<WeatherData>(json);
 
             // Access weather information
             int code = weatherData.data[0].weather.code;
+            System.Diagnostics.Debug.WriteLine("LIST OF ITEM : " + json);
             System.Diagnostics.Debug.WriteLine("THE WHETHER CODE : " + code);
             //Sunny
             if (code >= 700 && code <= 751 || code >= 800 && code <= 802)
