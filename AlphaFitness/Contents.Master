@@ -70,7 +70,7 @@
             <li id="contentLi" runat="server">
                 <asp:HyperLink runat="server" ID="contentLink">
                     <i class='bx bx-book-open' ></i>
-                    <span class="links_name">Content</span>
+                    <span class="links_name">Tutorial</span>
                 </asp:HyperLink>
             </li>
             <li id="badgeLi" runat="server">
