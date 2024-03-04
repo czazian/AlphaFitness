@@ -75,6 +75,8 @@
     <Content Include="Analysis\WeightLoss.js" />
     <Content Include="Community\Community.aspx" />
     <Content Include="Community\Community.css" />
+    <Content Include="Community\Post.aspx" />
+    <Content Include="Community\Post.css" />
     <Content Include="Dashboard\Dashboard.aspx" />
     <Content Include="Dashboard\Dashboard.css" />
     <Content Include="Image\Element\loginBackground.jpg" />
@@ -104,6 +106,13 @@
     </Compile>
     <Compile Include="Community\Community.aspx.designer.cs">
       <DependentUpon>Community.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Community\Post.aspx.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Community\Post.aspx.designer.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contents.Master.cs">
       <DependentUpon>Contents.Master</DependentUpon>

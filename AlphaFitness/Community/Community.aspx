@@ -63,23 +63,39 @@
 
 
         <!--a post-->
-        <div class="post" id="post">
+        <div class="post">
             <div class="top-community">
                 <div class="person-image">
-                    <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image1" Width="60" Height="60" Style="border-radius: 10px;" />
+                    <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image1" Width="70" Height="70" Style="border-radius: 10px;" />
                 </div>
             </div>
             <div class="middle-community">
                 <div class="person-detail">
-                    <div class="person-name">
-                        Yiyang_0519
+                    <div class="infobar">
+                        <div class="person-name">
+                            Yiyang_0519
+                        </div>
+                        <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                            <i class='bx bxs-crown'></i>
+                            <asp:Label runat="server" ID="title" Text="Sport King" /><i class='bx bxs-crown'></i>
+                        </div>
                     </div>
                     <div class="person-date">
                         Mar, 10 2024 - 9:50 p.m.
                     </div>
                 </div>
                 <div class="comment">
-                    <span class="title">Title:&nbsp;<asp:Label runat="server" ID="postTitle" Text="I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!" /></span><br>
+                    <table style="margin-bottom: 5px;">
+                        <tr>
+                            <td class="title" style="padding-right: 10px;">
+                                <b>Title:</b>
+                            </td>
+                            <td>
+                                <b>
+                                    <asp:Label runat="server" ID="lblTitle" Text="I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!" /></b>
+                            </td>
+                        </tr>
+                    </table>
                     <asp:Label runat="server" ID="comment" Text="Hey there! I've been sticking to my workout routine for a while, but I feel like I've hit a plateau. Any suggestions on how to spice things up and keep making progress? Also, any tips for staying motivated when things get a bit monotonous?" />
                 </div>
                 <div class="buttons">
@@ -93,12 +109,17 @@
                 <hr />
                 <div class="bottom-community">
                     <div class="commenter-image">
-                        <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image2" Width="40" Height="40" Style="border-radius: 10px;" />
+                        <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image2" Width="58" Height="58" Style="border-radius: 10px;" />
                     </div>
                     <div class="commenter-container">
                         <div class="commenter-detail">
-                            <div class="commenter-name">
-                                AndrewYeo
+                            <div class="infobar-comment">
+                                <div class="commenter-name">
+                                    AndrewYeo
+                                </div>
+                                <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                                    <asp:Label runat="server" ID="Label2" Text="24 Hours Sport King" />
+                                </div>
                             </div>
                             <div class="commenter-date">
                                 Mar, 10 2024 - 9:55 p.m.
@@ -110,7 +131,83 @@
                     </div>
                 </div>
                 <div class="view-more">
-                    <asp:HyperLink runat="server" ID="btnview" Text="VIEW THE POST" />
+                    <asp:HyperLink runat="server" ID="btnview" Text="VIEW THE POST" NavigateUrl="~/Community/Post.aspx" />
+                </div>
+            </div>
+        </div>
+        <!--end a post-->
+
+
+
+        <!--a post-->
+        <div class="post">
+            <div class="top-community">
+                <div class="person-image">
+                    <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image3" Width="70" Height="70" Style="border-radius: 10px;" />
+                </div>
+            </div>
+            <div class="middle-community">
+                <div class="person-detail">
+                    <div class="infobar">
+                        <div class="person-name">
+                            Yiyang_0519
+                        </div>
+                        <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                            <asp:Label runat="server" ID="Label1" Text="Sport King" />
+                        </div>
+                    </div>
+                    <div class="person-date">
+                        Mar, 10 2024 - 9:50 p.m.
+                    </div>
+                </div>
+                <div class="comment">
+                    <table style="margin-bottom: 5px;">
+                        <tr>
+                            <td class="title" style="padding-right: 10px;">
+                                <b>Title:</b>
+                            </td>
+                            <td>
+                                <b>
+                                    <asp:Label runat="server" ID="Label3" Text="I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!" /></b>
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:Label runat="server" ID="Label4" Text="Hey there! I've been sticking to my workout routine for a while, but I feel like I've hit a plateau. Any suggestions on how to spice things up and keep making progress? Also, any tips for staying motivated when things get a bit monotonous?" />
+                </div>
+                <div class="buttons">
+                    <div class="like-btn">
+                        <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="Label5" Text="20" />&nbsp;Likes
+                    </div>
+                    <div class="comment-btn">
+                        <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="Label6" Text="5" />&nbsp;Comments
+                    </div>
+                </div>
+                <hr />
+                <div class="bottom-community">
+                    <div class="commenter-image">
+                        <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image4" Width="58" Height="58" Style="border-radius: 10px;" />
+                    </div>
+                    <div class="commenter-container">
+                        <div class="commenter-detail">
+                            <div class="infobar-comment">
+                                <div class="commenter-name">
+                                    AndrewYeo
+                                </div>
+                                <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                                    <asp:Label runat="server" ID="Label7" Text="24 Hours Sport King" />
+                                </div>
+                            </div>
+                            <div class="commenter-date">
+                                Mar, 10 2024 - 9:55 p.m.
+                            </div>
+                        </div>
+                        <div class="commenter-comment">
+                            <asp:Label runat="server" ID="Label8" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more">
+                    <asp:HyperLink runat="server" ID="HyperLink1" Text="VIEW THE POST" />
                 </div>
             </div>
         </div>
@@ -120,92 +217,59 @@
         <div class="post">
             <div class="top-community">
                 <div class="person-image">
-                    <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image5" Width="60" Height="60" Style="border-radius: 10px;" />
+                    <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image5" Width="70" Height="70" Style="border-radius: 10px;" />
                 </div>
             </div>
             <div class="middle-community">
                 <div class="person-detail">
-                    <div class="person-name">
-                        Yiyang_0519
+                    <div class="infobar">
+                        <div class="person-name">
+                            Yiyang_0519
+                        </div>
+                        <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                            <asp:Label runat="server" ID="Label9" Text="Sport King" />
+                        </div>
                     </div>
                     <div class="person-date">
                         Mar, 10 2024 - 9:50 p.m.
                     </div>
                 </div>
                 <div class="comment">
-                    <span class="title">Title:&nbsp;<asp:Label runat="server" ID="Label6" Text="I am facing a serious problem! Help!" /></span><br>
-                    <asp:Label runat="server" ID="Label7" Text="Hey there! I've been sticking to my workout routine for a while, but I feel like I've hit a plateau. Any suggestions on how to spice things up and keep making progress? Also, any tips for staying motivated when things get a bit monotonous?" />
+                    <table style="margin-bottom: 5px;">
+                        <tr>
+                            <td class="title" style="padding-right: 10px;">
+                                <b>Title:</b>
+                            </td>
+                            <td>
+                                <b>
+                                    <asp:Label runat="server" ID="Label10" Text="I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!" /></b>
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:Label runat="server" ID="Label11" Text="Hey there! I've been sticking to my workout routine for a while, but I feel like I've hit a plateau. Any suggestions on how to spice things up and keep making progress? Also, any tips for staying motivated when things get a bit monotonous?" />
                 </div>
                 <div class="buttons">
                     <div class="like-btn">
-                        <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="Label8" Text="20" />&nbsp;Likes
+                        <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="Label12" Text="20" />&nbsp;Likes
                     </div>
                     <div class="comment-btn">
-                        <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="Label9" Text="5" />&nbsp;Comments
+                        <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="Label13" Text="5" />&nbsp;Comments
                     </div>
                 </div>
                 <hr />
                 <div class="bottom-community">
                     <div class="commenter-image">
-                        <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image6" Width="40" Height="40" Style="border-radius: 10px;" />
+                        <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image6" Width="58" Height="58" Style="border-radius: 10px;" />
                     </div>
                     <div class="commenter-container">
                         <div class="commenter-detail">
-                            <div class="commenter-name">
-                                AndrewYeo
-                            </div>
-                            <div class="commenter-date">
-                                Mar, 10 2024 - 9:55 p.m.
-                            </div>
-                        </div>
-                        <div class="commenter-comment">
-                            <asp:Label runat="server" ID="Label10" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
-                        </div>
-                    </div>
-                </div>
-                <div class="view-more">
-                    <asp:HyperLink runat="server" ID="HyperLink2" Text="VIEW THE POST" />
-                </div>
-            </div>
-        </div>
-        <!--end a post-->
-        <!--a post-->
-        <div class="post">
-            <div class="top-community">
-                <div class="person-image">
-                    <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image7" Width="60" Height="60" Style="border-radius: 10px;" />
-                </div>
-            </div>
-            <div class="middle-community">
-                <div class="person-detail">
-                    <div class="person-name">
-                        Yiyang_0519
-                    </div>
-                    <div class="person-date">
-                        Mar, 10 2024 - 9:50 p.m.
-                    </div>
-                </div>
-                <div class="comment">
-                    <span class="title">Title:&nbsp;<asp:Label runat="server" ID="Label11" Text="I am facing a serious problem! Help!" /></span><br>
-                    <asp:Label runat="server" ID="Label12" Text="Hey there! I've been sticking to my workout routine for a while, but I feel like I've hit a plateau. Any suggestions on how to spice things up and keep making progress? Also, any tips for staying motivated when things get a bit monotonous?" />
-                </div>
-                <div class="buttons">
-                    <div class="like-btn">
-                        <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="Label13" Text="20" />&nbsp;Likes
-                    </div>
-                    <div class="comment-btn">
-                        <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="Label14" Text="5" />&nbsp;Comments
-                    </div>
-                </div>
-                <hr />
-                <div class="bottom-community">
-                    <div class="commenter-image">
-                        <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image8" Width="40" Height="40" Style="border-radius: 10px;" />
-                    </div>
-                    <div class="commenter-container">
-                        <div class="commenter-detail">
-                            <div class="commenter-name">
-                                AndrewYeo
+                            <div class="infobar-comment">
+                                <div class="commenter-name">
+                                    AndrewYeo
+                                </div>
+                                <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                                    <asp:Label runat="server" ID="Label14" Text="24 Hours Sport King" />
+                                </div>
                             </div>
                             <div class="commenter-date">
                                 Mar, 10 2024 - 9:55 p.m.
@@ -217,12 +281,85 @@
                     </div>
                 </div>
                 <div class="view-more">
-                    <asp:HyperLink runat="server" ID="HyperLink3" Text="VIEW THE POST" />
+                    <asp:HyperLink runat="server" ID="HyperLink2" Text="VIEW THE POST" />
                 </div>
             </div>
         </div>
         <!--end a post-->
 
+        <!--a post-->
+        <div class="post">
+            <div class="top-community">
+                <div class="person-image">
+                    <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image7" Width="70" Height="70" Style="border-radius: 10px;" />
+                </div>
+            </div>
+            <div class="middle-community">
+                <div class="person-detail">
+                    <div class="infobar">
+                        <div class="person-name">
+                            Yiyang_0519
+                        </div>
+                        <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                            <asp:Label runat="server" ID="Label16" Text="Sport King" />
+                        </div>
+                    </div>
+                    <div class="person-date">
+                        Mar, 10 2024 - 9:50 p.m.
+                    </div>
+                </div>
+                <div class="comment">
+                    <table style="margin-bottom: 5px;">
+                        <tr>
+                            <td class="title" style="padding-right: 10px;">
+                                <b>Title:</b>
+                            </td>
+                            <td>
+                                <b>
+                                    <asp:Label runat="server" ID="Label17" Text="I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!" /></b>
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:Label runat="server" ID="Label18" Text="Hey there! I've been sticking to my workout routine for a while, but I feel like I've hit a plateau. Any suggestions on how to spice things up and keep making progress? Also, any tips for staying motivated when things get a bit monotonous?" />
+                </div>
+                <div class="buttons">
+                    <div class="like-btn">
+                        <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="Label19" Text="20" />&nbsp;Likes
+                    </div>
+                    <div class="comment-btn">
+                        <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="Label20" Text="5" />&nbsp;Comments
+                    </div>
+                </div>
+                <hr />
+                <div class="bottom-community">
+                    <div class="commenter-image">
+                        <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image8" Width="58" Height="58" Style="border-radius: 10px;" />
+                    </div>
+                    <div class="commenter-container">
+                        <div class="commenter-detail">
+                            <div class="infobar-comment">
+                                <div class="commenter-name">
+                                    AndrewYeo
+                                </div>
+                                <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
+                                    <asp:Label runat="server" ID="Label21" Text="24 Hours Sport King" />
+                                </div>
+                            </div>
+                            <div class="commenter-date">
+                                Mar, 10 2024 - 9:55 p.m.
+                            </div>
+                        </div>
+                        <div class="commenter-comment">
+                            <asp:Label runat="server" ID="Label22" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more">
+                    <asp:HyperLink runat="server" ID="HyperLink3" Text="VIEW THE POST" />
+                </div>
+            </div>
+        </div>
+        <!--end a post-->
 
 
         <!--Click this button back to top of the page-->
