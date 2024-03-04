@@ -11,7 +11,7 @@
 
         <div class="outer">
 
-            <div class="heading">
+            <div class="heading"  id="target">
                 <div class="backBtn">
                     <asp:LinkButton CssClass="bt" runat="server" PostBackUrl="~/Community/Community.aspx">
                         <i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Back
@@ -38,7 +38,8 @@
             <!--a post-->
             <div class="post">
                 <div class="top-community">
-                    <div class="person-image" id="target">
+                    <div class="person-image">
+
                         <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image1" Width="70" Height="70" Style="border-radius: 10px;" />
                     </div>
                 </div>

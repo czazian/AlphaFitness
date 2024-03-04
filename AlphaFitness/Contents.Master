@@ -44,6 +44,12 @@
                     <span class="links_name">Community</span>
                 </asp:HyperLink>
             </li>
+            <li id="contentLi" runat="server">
+                <asp:HyperLink runat="server" ID="contentLink">
+                    <i class='bx bx-book-open' ></i>
+                    <span class="links_name">Content</span>
+                </asp:HyperLink>
+            </li>
             <li id="badgeLi" runat="server">
                 <asp:HyperLink runat="server" ID="badgeLiink">
                     <i class='bx bxs-badge-check'></i>

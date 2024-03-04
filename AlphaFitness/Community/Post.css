@@ -49,6 +49,16 @@
     margin-top: 8px;
 }
 
+.bottom-community {
+    border-bottom: 1px solid grey;
+    padding-bottom: 17px;
+}
+
+    .bottom-community:last-child {
+        border-bottom: none;
+        padding-bottom: 0px;
+    }
+
 .infobar {
     display: flex;
     flex-flow: row nowrap;
@@ -298,7 +308,3 @@
         background-color: #fbbd0f;
         transition: .5s all ease-in;
     }
-
-
-
-
