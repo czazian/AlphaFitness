@@ -66,7 +66,7 @@
 
                 .sidebar .nav-links li a:hover {
                     background: #707070;
-                    cursor:pointer;
+                    cursor: pointer;
                 }
 
             .sidebar .nav-links li i {
@@ -133,7 +133,7 @@
 }
 
 .sidebar-button:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 nav .sidebar-button i {
@@ -246,7 +246,7 @@ select.input-field a {
     border-radius: 6px;
     height: 50px;
     min-width: 190px;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 15px;
 }
 
@@ -255,8 +255,7 @@ nav .profile-details img {
     width: 100%;
     border-radius: 6px;
     object-fit: cover;
-    overflow:hidden;
-    
+    overflow: hidden;
 }
 
 nav .profile-details .admin_name {
@@ -275,7 +274,7 @@ nav .profile-details i {
 .home-section .home-content {
     position: relative;
     padding-top: 104px;
-    width:100%;
+    width: 100%;
 }
 
 .home-content .overview-boxes {
@@ -584,35 +583,35 @@ a {
 }
 
 .right-header {
-    display:flex;
-    flex-flow : row nowrap;
+    display: flex;
+    flex-flow: row nowrap;
     gap: 10px;
-    align-items:center;
+    align-items: center;
     position: relative;
 }
 
 .coin-amount {
     width: 80px;
-    display:flex;
-    flex-flow:row nowrap;
-    align-items:center;
-    gap:5px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 5px;
     border: 1px solid black;
-    padding: 20px 10px 20px 10px; 
-    border-radius : 5px; 
-    height : 30px;
+    padding: 20px 10px 20px 10px;
+    border-radius: 5px;
+    height: 30px;
     font-weight: 500;
 }
 
 .nofitication-cont {
-    position:relative;
-    display:flex;
-    justify-content:center;
-    margin-right:20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
 }
 
-.message { 
-    display:none;
+.message {
+    display: none;
 }
 
 .dropdown-menu {
@@ -631,19 +630,116 @@ a {
     font-size: 12px;
 }
 
-.dropdown-menu li { 
-    border-bottom: 1px solid grey;
-    padding: 10px;
-}
-
-    .dropdown-menu li:last-child {
-        border-bottom: none;
+    .dropdown-menu li {
+        border-bottom: 1px solid grey;
+        padding: 10px;
     }
 
-.dropdown-item { 
+        .dropdown-menu li:last-child {
+            border-bottom: none;
+        }
+
+.dropdown-item {
     color: black;
 }
 
+div#myDropdown a:hover {
+    background-color: #707070;
+    color: white;
+    cursor: pointer;
+}
+
+.dropbtn:hover a {
+    display: flex;
+}
+
+.dropbtn {
+    color: white;
+    cursor: pointer;
+    padding: 3px;
+}
+
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2f302f;
+        border-radius: 5px;
+    }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 52px;
+    background-color: white;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    min-width: 150px;
+    right: 0px;
+    border-radius: 10px;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.is-open {
+    display: block;
+}
+
+
+/*Weather*/
+.leftboxx {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
+}
+
+.weather {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+}
+
+.w-leftt {
+    border-radius: 8px;
+}
+
+    .w-leftt img {
+        width: 60px;
+        height: 45px
+    }
+
+.w-rightt {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.weather-name {
+    font-weight: 500;
+}
+
+.weather-info {
+    opacity: 0.8;
+    font-size: 14.5px;
+}
 
 
 /* Responsive Media Query */
@@ -705,12 +801,12 @@ a {
     nav .sidebar-button .dashboard,
     nav .profile-details .admin_name,
     nav .coin-amount,
-    .p-img, 
+    .p-img,
     .p-name {
         display: none;
     }
 
-    .dropdown-content{
+    .dropdown-content {
         right: 0px;
     }
 
@@ -723,6 +819,10 @@ a {
     .home-content .sales-boxes .sales-details {
         width: 560px;
     }
+
+    .w-rightt {
+        display: none;
+    }
 }
 
 @media (max-width: 550px) {
@@ -731,7 +831,7 @@ a {
         margin-bottom: 15px;
     }
 
-     nav .profile-details {
+    nav .profile-details {
         display: none;
     }
 }
@@ -764,102 +864,4 @@ a {
         left: 60px;
         width: calc(100% - 60px);
     }
-}
-
-div#myDropdown a:hover {
-    background-color: #707070;
-    color: white;
-    cursor:pointer;
-}
-
-    .dropbtn:hover a {
-        display:flex;
-    }
-
-.dropbtn {
-    color: white;
-    cursor: pointer;
-    padding: 3px;
-}
-
-    .dropbtn:hover, .dropbtn:focus {
-        background-color: #2f302f;
-        border-radius: 5px;
-    }
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 52px;
-    background-color: white;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    min-width: 150px;
-    right:0px;
-    border-radius:10px;
-}
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-
-.dropdown a:hover {
-    background-color: #ddd;
-}
-
-.show {
-    display: block;
-}
-
-.is-open {
-    display:block;
-}
-
-
-/*Weather*/
-.leftboxx {
-    display:flex;
-    flex-flow: row nowrap;
-    gap: 20px;
-}
-
-.weather {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 10px;
-}
-
-.w-leftt {
-    border-radius: 8px;
-}
-
-.w-leftt img { 
-    width: 60px;
-    height: 45px
-}
-
-.w-rightt { 
-    display:flex;
-    flex-flow: column nowrap;
-    gap: 6px;
-    justify-content:center;
-}
-
-.weather-name { 
-    font-weight: 500;
-}
-
-.weather-info { 
-    opacity: 0.8;
-    font-size:14.5px;
 }

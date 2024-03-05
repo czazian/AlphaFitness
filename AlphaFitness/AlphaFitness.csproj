@@ -134,6 +134,8 @@
     <Content Include="Image\Element\logo2.png" />
     <Content Include="Image\Element\web-icon.jpg" />
     <Content Include="Image\Profile\user.jpg" />
+    <Content Include="Initial\InitialPage.aspx" />
+    <Content Include="Initial\InitialPage.css" />
     <Content Include="Style\reset.css" />
     <Content Include="Style\style.css" />
     <Content Include="Image\Profile\user.png" />
@@ -188,6 +190,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Initial\InitialPage.aspx.cs">
+      <DependentUpon>InitialPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Initial\InitialPage.aspx.designer.cs">
+      <DependentUpon>InitialPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UserLogin.aspx.cs">
