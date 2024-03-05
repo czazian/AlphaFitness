@@ -135,6 +135,7 @@
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserLogin.css" />
     <Content Include="User\UserProfile.aspx" />
+    <Content Include="User\UserProfile.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
