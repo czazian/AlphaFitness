@@ -1,0 +1,33 @@
+﻿
+#shopLi {
+    border-right: 5px solid #ffc219;
+    background-color: #808080;
+}
+
+.home-content {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.heading {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 95%; /* Standard Size for content items */
+    color:black;
+}
+
+    .title a {
+        background: #ffc219;
+        cursor: pointer;
+    }
+
+.show-item {
+    display: grid;
+    width: 95%; /* Standard Size for content items */
+    height: fit-content;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    background: #fff;
+    border: 1px solid black;
+    margin-top: auto;
+}

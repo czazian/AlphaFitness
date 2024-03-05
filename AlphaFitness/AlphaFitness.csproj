@@ -124,6 +124,8 @@
     <Content Include="Community\Community.css" />
     <Content Include="Community\Post.aspx" />
     <Content Include="Community\Post.css" />
+    <Content Include="Dashboard\CoinShop.aspx" />
+    <Content Include="Dashboard\CoinShop.css" />
     <Content Include="Dashboard\Dashboard.aspx" />
     <Content Include="Dashboard\Dashboard.css" />
     <Content Include="Global.asax" />
@@ -169,6 +171,13 @@
     </Compile>
     <Compile Include="Contents.Master.designer.cs">
       <DependentUpon>Contents.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\CoinShop.aspx.cs">
+      <DependentUpon>CoinShop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\CoinShop.aspx.designer.cs">
+      <DependentUpon>CoinShop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>

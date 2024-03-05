@@ -130,7 +130,7 @@ namespace AlphaFitness
         public double dni { get; set; }
         public double elev_angle { get; set; }
         public double ghi { get; set; }
-        public double gust { get; set; }
+        public double gust { get; }
         public double h_angle { get; set; }
         public double lat { get; set; }
         public double lon { get; set; }
@@ -147,7 +147,7 @@ namespace AlphaFitness
         public string station { get; set; }
         public string sunrise { get; set; }
         public string sunset { get; set; }
-        public float temp { get; set; }
+        public double temp { get; set; }
         public string timezone { get; set; }
         public double ts { get; set; }
         public double uv { get; set; }
