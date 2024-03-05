@@ -67,14 +67,14 @@
 
 .item-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 230px);
+    grid-template-columns: repeat(auto-fill, 215px);
     grid-gap: 15px;
     width: 95%;
     margin-bottom: 15px;
 }
 
 .item {
-    width: 230px;
+    width: 215px;
     height: 340px;
     display: flex;
     flex-flow: column nowrap;

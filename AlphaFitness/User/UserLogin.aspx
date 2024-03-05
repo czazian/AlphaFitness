@@ -9,7 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="UserLogin.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" type="text/css" />
+
     <link rel="icon" type="image/x-icon" href='<%= ResolveUrl("~/Image/Element/web-icon.jpg") %>'>
 
     <%--    <asp:ContentPlaceHolder ID="head" runat="server">
@@ -60,14 +62,14 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
                     <button id="signIn">Sign In</button>
                 </div>
 
                 <div class="overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
                     <button id="signUp">Sign Up</button>
                 </div>
             </div>
@@ -84,6 +86,16 @@
         });
         signInButton.addEventListener('click', () => {
             main.classList.remove("right-panel-active");
+        });
+
+        $(document).ready(function () {
+            var main = document.getElementById('main');
+            var action = window.location.hash.split('#')[1];
+            if (action === "login") {
+                main.classList.remove("right-panel-active");
+            } else if (action === "register") {
+                main.classList.add("right-panel-active");
+            }
         });
     </script>
 

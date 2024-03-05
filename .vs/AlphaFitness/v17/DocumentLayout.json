@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\initial\\initialpage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\initial\\initialpage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\initial\\initialpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\initial\\initialpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\contents.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\contents.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\style\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\style\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\dashboard\\coinshop.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\dashboard\\coinshop.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,54 +30,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InitialPage.css",
-              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Initial\\InitialPage.css",
-              "RelativeDocumentMoniker": "AlphaFitness\\Initial\\InitialPage.css",
-              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Initial\\InitialPage.css",
-              "RelativeToolTip": "AlphaFitness\\Initial\\InitialPage.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-05T14:06:23.593Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InitialPage.aspx",
-              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Initial\\InitialPage.aspx",
-              "RelativeDocumentMoniker": "AlphaFitness\\Initial\\InitialPage.aspx",
-              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Initial\\InitialPage.aspx",
-              "RelativeToolTip": "AlphaFitness\\Initial\\InitialPage.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-03-05T14:06:00.704Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Contents.Master",
-              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Contents.Master",
-              "RelativeDocumentMoniker": "AlphaFitness\\Contents.Master",
-              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Contents.Master",
-              "RelativeToolTip": "AlphaFitness\\Contents.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-03-05T13:59:08.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "style.css",
-              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Style\\style.css",
-              "RelativeDocumentMoniker": "AlphaFitness\\Style\\style.css",
-              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Style\\style.css",
-              "RelativeToolTip": "AlphaFitness\\Style\\style.css",
-              "ViewState": "AQIAABwDAAAAAAAAAAAUwCIDAAAVAAAA",
+              "Title": "CoinShop.css",
+              "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\CoinShop.css",
+              "RelativeDocumentMoniker": "AlphaFitness\\Dashboard\\CoinShop.css",
+              "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\CoinShop.css",
+              "RelativeToolTip": "AlphaFitness\\Dashboard\\CoinShop.css",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEUAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-05T13:58:35.16Z",
+              "WhenOpened": "2024-03-05T17:33:46.353Z",
               "EditorCaption": ""
             }
           ]
