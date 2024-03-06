@@ -1,0 +1,156 @@
+﻿
+#shopLi {
+    border-right: 5px solid #ffc219;
+    background-color: #808080;
+}
+
+.home-content {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.heading {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 95%; /* Standard Size for content items */
+    color: black;
+}
+
+.show-item {
+    display: grid;
+    width: 95%; /* Standard Size for content items */
+    height: fit-content;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    background: #fff;
+    border: 1px solid black;
+    margin-top: auto;
+}
+
+.btnTop {
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff1a5;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 160px;
+    font-size: 15px;
+    height: auto;
+}
+
+.item-image {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+}
+
+.contents {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 5px 50px;
+}
+
+.imgFigure {
+    width: 100%;
+    padding: 15px;
+    transition: 0.35s ease-in-out;
+    max-height: 320px;
+}
+
+    .imgFigure:hover {
+        transform: scale(1.07);
+    }
+
+.item-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 215px);
+    grid-gap: 15px;
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+.item {
+    width: 215px;
+    height: 340px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.detail-cont {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: end;
+    text-align: center;
+    margin-top: auto;
+    padding: 10px;
+    width: 100%;
+}
+
+.item-buy {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+    background-color: #ff7e29;
+    border-radius: 15px;
+    color: white;
+    font-size: 12px;
+    margin-top: 8px;
+    height: 30px;
+}
+
+    .item-buy > * {
+        text-decoration: none;
+        width: 100%;
+        align-content: center;
+    }
+
+    .item-buy a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color .2s ease-out;
+        transition: font-size .1s ease-out;
+        border-radius: 15px;
+    }
+
+        .item-buy a:hover {
+            background-color: #ff5600;
+            font-size: 13px;
+            transition: background-color .2s ease-in;
+            transition: font-size .1s ease-in;
+            border-radius: 15px;
+        }
+
+
+.item-price {
+    margin: 5px 0px 8px 0px;
+    color: #ff7e29;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.sentence {
+    font-weight: 500;
+}
+
+/*Click this back to top*/
+.toTop {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .item-container {
+        justify-content: center;
+    }
+}

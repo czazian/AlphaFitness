@@ -93,7 +93,7 @@
                     </asp:HyperLink>
                 </li>
                 <li id="shopLi" runat="server">
-                    <asp:HyperLink runat="server" ID="shopLink">
+                    <asp:HyperLink runat="server" ID="shopLink" NavigateUrl="~/Dashboard/CoinShop.aspx">
                     <i class='bx bxs-store-alt'></i>
                     <span class="links_name">Coin Shop</span>
                     </asp:HyperLink>
