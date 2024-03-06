@@ -25,9 +25,15 @@
     </asp:ContentPlaceHolder>
 
     <script type="text/javascript">
-
+        let savedState = localStorage.getItem('state');
         $(document).ready(function () {
-            document.getElementById('bd').style.display = "block"
+            document.getElementById('bd').style.display = "block";
+
+            if (savedState === 'close') {
+                sidebarBtn.classList.replace("bxs-chevron-left", "bxs-chevron-right");
+            } else {
+                sidebarBtn.classList.replace("bxs-chevron-right", "bxs-chevron-left");
+            }
         })
 
         //Remembered sidebar, on every page load

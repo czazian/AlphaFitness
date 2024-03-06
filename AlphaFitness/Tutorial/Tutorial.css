@@ -39,7 +39,6 @@ body {
     color: #555b62;
     background-color: #1a191f;
     transition: 0.3s;
-    overflow: hidden;
 }
 
 .section-title {
@@ -81,6 +80,7 @@ h4 {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    justify-content:center;
 }
 
 a {
