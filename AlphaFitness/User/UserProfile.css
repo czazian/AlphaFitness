@@ -1,2 +1,122 @@
-﻿body {
+﻿.profile {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100vh;
+    width: 100%;
+    background-color: #e3e5e8;
+}
+
+    .profile:nth-child(2) {
+        justify-content: center;
+    }
+
+/*Content*/
+.main {
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+    border-radius: 10px;
+}
+
+
+.left {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #1c1c1f;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.profileimg {
+    width: 250px;
+    height: 250px;
+    border-radius: 150px;
+    border: 2px solid grey;
+    overflow: hidden;
+}
+
+.profilename {
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    text-indent: 8px;
+}
+
+.right {
+    border-radius: 10px;
+    width: 65%;
+    padding: 50px;
+    background-color: white;
+}
+
+.right-content {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+legend {
+    margin-top: -30px;
+    margin-left: 6px;
+    background-color: white;
+    width: fit-content;
+    padding: 0px 6px 0px 6px;
+    font-weight: bold;
+    font-size: 28px;
+    color: #ebcf34;
+}
+
+.profile-info {
+    width: 100%;
+    font-size: 18px;
+}
+
+th {
+    width: 165px;
+    margin-bottom: 20px;
+    color: #ebcf34;
+    vertical-align: top;
+    padding: 8px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+.btn-edit {
+    padding: 10px 20px 10px 20px;
+    background-color: #ebcf34;
+    color: white;
+    font-weight: bold;
+    text-align: right;
+    margin: 10px;
+    border-color: #ebcf34;
+}
+
+    .btn-edit:hover {
+        color: white;
+        background-color: #000;
+        border-color: #000;
+    }
+
+.edit-btn {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: right;
+    margin-top: auto;
 }
