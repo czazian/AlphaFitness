@@ -139,8 +139,10 @@
     <Content Include="Style\reset.css" />
     <Content Include="Style\style.css" />
     <Content Include="Image\Profile\user.png" />
+    <Content Include="Tutorial\cardioSession.aspx" />
     <Content Include="Tutorial\Tutorial.aspx" />
     <Content Include="Tutorial\Tutorial.css" />
+    <Content Include="Tutorial\TutorialCategory.css" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserLogin.css" />
     <Content Include="User\UserProfile.aspx" />
@@ -201,6 +203,13 @@
       <DependentUpon>InitialPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tutorial\cardioSession.aspx.cs">
+      <DependentUpon>cardioSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\cardioSession.aspx.designer.cs">
+      <DependentUpon>cardioSession.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutorial\Tutorial.aspx.cs">
       <DependentUpon>Tutorial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -13,7 +13,7 @@
 
 
     <div class="home-content">
-        <section class="jb-profile-slider-2 section-padding">
+        <section class="jb-profile-slider-2">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
@@ -24,10 +24,10 @@
                     </div>
                     <div class="col-10">
                         <div class="Categories-boxes-container">
-                            <a href="#" class="category-box">
+                            <asp:HyperLink runat="server" ID="communityLink" CssClass="category-box" NavigateUrl="~/Tutorial/cardioSession.aspx">
                                 <asp:Image ID="Image1" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cardio-session-icon.png" />
                                 <h4>Cardio Session</h4>
-                            </a>
+                            </asp:HyperLink>
                             <a href="#" class="category-box">
                                 <asp:Image ID="Image2" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/weight-icon.png" />
                                 <h4>Weight Loss Training</h4>
