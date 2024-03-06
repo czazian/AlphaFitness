@@ -1,4 +1,4 @@
-﻿#TutorialLi {
+﻿#contentLi {
     border-right: 5px solid #ffc219;
     background-color: #808080;
 }
@@ -17,16 +17,18 @@
 .jb-profile-slider-2 {
     background-color: #262629;
     height: calc(100% - 60px);
-    margin-top:30px;
+    margin-top: 47px;
     width: 100%;
-    padding: 30px 120px;
-
+    padding: 20px;
+    display:flex;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    align-items:center;
+    width: 96%;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 body {
@@ -41,6 +43,7 @@ body {
 }
 
 .section-title {
+    margin-top: 10px;
     max-width: 100% !important;
     color: #fff;
     padding-bottom: 20px !important;
@@ -53,7 +56,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: #fff;
-    margin: 0 auto 5px !important;
+
     font-family: 'Rubik', sans-serif !important;
     font-weight: 500 !important;
     width: 100% !important;
@@ -62,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-    font-size: 36px !important;
+    font-size: 30px !important;
 }
 
 h4 {
@@ -80,7 +83,7 @@ h4 {
     flex-wrap: wrap;
 }
 
-.category-box a {
+a {
     -webkit-transition: 0.3s;
     transition: 0.3s;
     text-decoration: none;
@@ -92,7 +95,7 @@ h4 {
 }
 
 .category-box {
-    width: calc(100% * (1/4) - 20px);
+    width: calc(100% * (1/4) - 35px);
     background-color: rgba(210,201,255,0.04);
     border-radius: 6px;
     margin: 20px 0 0 20px;
@@ -138,11 +141,11 @@ h4 {
         transition: .4s;
     }
 
-    .category-box a:hover, .category-box a:focus {
-        text-decoration: none !important;
-        outline: none;
-        color: #ff8400;
-    }
+a:hover, a:focus {
+    text-decoration: none !important;
+    outline: none;
+    color: #ff8400;
+}
 
 .category-box:hover {
     border: 3px solid #ffd80e;
