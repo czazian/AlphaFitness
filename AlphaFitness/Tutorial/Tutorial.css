@@ -1,4 +1,9 @@
-﻿.home-section .home-content {
+﻿#TutorialLi {
+    border-right: 5px solid #ffc219;
+    background-color: #808080;
+}
+
+.home-section .home-content {
     position: relative;
     padding-top: 32px;
 }
@@ -12,9 +17,9 @@
 .jb-profile-slider-2 {
     background-color: #262629;
     height: calc(100% - 60px);
-    margin-top:47px;
+    margin-top:30px;
     width: 100%;
-    padding: 10px 40px;
+    padding: 30px 120px;
 
 }
 
@@ -38,7 +43,7 @@ body {
 .section-title {
     max-width: 100% !important;
     color: #fff;
-    padding-bottom: 28px !important;
+    padding-bottom: 20px !important;
     text-align: left;
     font-weight: 400 !important;
     margin-bottom: 0 !important;
@@ -75,7 +80,7 @@ h4 {
     flex-wrap: wrap;
 }
 
-a {
+.category-box a {
     -webkit-transition: 0.3s;
     transition: 0.3s;
     text-decoration: none;
@@ -133,11 +138,11 @@ a {
         transition: .4s;
     }
 
-a:hover, a:focus {
-    text-decoration: none !important;
-    outline: none;
-    color: #ff8400;
-}
+    .category-box a:hover, .category-box a:focus {
+        text-decoration: none !important;
+        outline: none;
+        color: #ff8400;
+    }
 
 .category-box:hover {
     border: 3px solid #ffd80e;

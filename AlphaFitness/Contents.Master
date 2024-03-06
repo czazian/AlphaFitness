@@ -68,7 +68,7 @@
                     <span class="links_name">Community</span>
                     </asp:HyperLink>
                 </li>
-                <li id="contentLi" runat="server">
+                <li id="TutorialLi" runat="server">
                     <asp:HyperLink runat="server" ID="contentLink" NavigateUrl="~/Tutorial/Tutorial.aspx">
                     <i class='bx bx-book-open' ></i>
                     <span class="links_name">Tutorial</span>
