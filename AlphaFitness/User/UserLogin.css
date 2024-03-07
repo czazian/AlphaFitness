@@ -62,7 +62,7 @@ body {
     z-index: 2;
 }
 
-form {
+.aform {
     background: #fff;
     display: flex;
     align-items: center;
@@ -103,7 +103,7 @@ a {
     margin: 15px 0;
 }
 
-button {
+.button, button {
     color: #fff;
     background: #ff4b2b;
     font-size: 12px;

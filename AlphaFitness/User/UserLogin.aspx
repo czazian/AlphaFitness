@@ -19,86 +19,86 @@
 </head>
 
 <body>
-    <div class="background">
-        <%--<asp:Image Style="width:100%; height : auto; left: 0; top: 0;" runat="server" ImageUrl="~/Image/Element/loginBackground.jpg" />--%>
-    </div>
-    <div class="container" id="main">
-        <%--User Registration--%>
-        <div class="sign-up">
-            <form action="#">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p>Or use your email for registration</p>
-                <input type="text" name="txt" placeholder="Name" required="" />
-                <input type="email" name="email" placeholder="Email" required="" />
-                <input type="password" name="pswd" placeholder="Password" required="" />
-                <input type="password" name="confirmPswd" placeholder="Confirm Password" required="" />
-                <button>Sign Up</button>
-            </form>
+    <form runat="server" id="form1">
+        <div class="background">
+            <%--<asp:Image Style="width:100%; height : auto; left: 0; top: 0;" runat="server" ImageUrl="~/Image/Element/loginBackground.jpg" />--%>
         </div>
-
-        <%--User Login--%>
-        <div class="sign-in">
-            <form action="#">
-                <h1>Sign In</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+        <div class="container" id="main">
+            <%--User Registration--%>
+            <div class="sign-up">
+                <div class="aform">
+                    <h1>Create Account</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Or use your email for registration</p>
+                    <input type="text" name="txt" placeholder="Name"  />
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="password" name="pswd" placeholder="Password"  />
+                    <input type="password" name="confirmPswd" placeholder="Confirm Password" />
+                    <asp:Button CssClass="button" runat="server" Text="Sign Up" />
                 </div>
-                <p>Or use your account</p>
-                <input type="email" name="email" placeholder="Email" required="" />
-                <input type="password" name="pswd" placeholder="Password" required="" />
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
+            </div>
 
-        <%--Overlay Container--%>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-left">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button id="signIn">Sign In</button>
+            <%--User Login--%>
+            <div class="sign-in">
+                <div class="aform">
+                    <h1>Sign In</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Or use your account</p>
+                    <input type="email" name="email" placeholder="Email"/>
+                    <input type="password" name="pswd" placeholder="Password" />
+                    <a href="#">Forget Your Password?</a>
+                    <asp:Button CssClass="button" runat="server" Text="Sign In" PostBackUrl="~/Dashboard/Dashboard.aspx" />
                 </div>
+            </div>
 
-                <div class="overlay-right">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button id="signUp">Sign Up</button>
+            <%--Overlay Container--%>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-left">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button id="signIn">Sign In</button>
+                    </div>
+
+                    <div class="overlay-right">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button id="signUp">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <script type="text/javascript">
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const main = document.getElementById('main');
 
-    <script type="text/javascript">
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const main = document.getElementById('main');
-
-        signUpButton.addEventListener('click', () => {
-            main.classList.add("right-panel-active");
-        });
-        signInButton.addEventListener('click', () => {
-            main.classList.remove("right-panel-active");
-        });
-
-        $(document).ready(function () {
-            var main = document.getElementById('main');
-            var action = window.location.hash.split('#')[1];
-            if (action === "login") {
-                main.classList.remove("right-panel-active");
-            } else if (action === "register") {
+            signUpButton.addEventListener('click', () => {
                 main.classList.add("right-panel-active");
-            }
-        });
-    </script>
+            });
+            signInButton.addEventListener('click', () => {
+                main.classList.remove("right-panel-active");
+            });
 
+            $(document).ready(function () {
+                var main = document.getElementById('main');
+                var action = window.location.hash.split('#')[1];
+                if (action === "login") {
+                    main.classList.remove("right-panel-active");
+                } else if (action === "register") {
+                    main.classList.add("right-panel-active");
+                }
+            });
+        </script>
+    </form>
 </body>
 </html>
 
