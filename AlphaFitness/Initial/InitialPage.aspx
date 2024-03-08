@@ -36,12 +36,17 @@
                     <asp:Image runat="server" CssClass="image" ImageUrl="~/Image/Element/rmbg-logo1.png" />
                 </div>
                 <div class="content-wrapper">
-                    <p class="content-title">Elevate Your Fitness Journey, Transform Your Life, A Life on Your Palm of Hand.</p>
+                    <p class="content-title css-typing"></p>
                     <p class="content-subtitle">Welcome to Alpha Fitness, your ultimate companion on the path to a healthier, stronger you, offering tailored workouts and expert guidance at your fingertips.</p>
                     <div class="btns">
                         <asp:Button runat="server" OnClientClick="window.location.href = '../User/UserLogin.aspx#login'; return false;" ID="btnLogin" CssClass="btn" Text="Login Now" />
                         <asp:Button runat="server" OnClientClick="window.location.href = '../User/UserLogin.aspx#register'; return false;" ID="btnRegister" CssClass="btn" Text="Register Now" />
                     </div>
+<%--                    <div class="moveBtn-ctn">
+                        <button id="nextOne" onclick="toNext(); return false;" class="moveBtn">
+                            <i class='bx bx-down-arrow-alt' ></i>
+                        </button>
+                    </div>--%>
                 </div>
             </section>
             <!--The Description-->
@@ -92,6 +97,7 @@
     var slideDurationSetting = 600; //Amount of time for which slide is "locked"
     var currentSlideNumber = 0;
     var totalSlideNumber = $(".background").length;
+    var nextOne = document.getElementById("nextOne");
 
     // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
     function parallaxScroll(evt) {
@@ -149,6 +155,21 @@
         var $currentSlide = $(".background").eq(currentSlideNumber);
         $currentSlide.removeClass("down-scroll").addClass("up-scroll");
     }
+
+
+    //Typewriter
+
+    var title = "Elevate Your Fitness Journey, Transform Your Life, A Life on Your Palm of Hand."
+    var spans = '<span>' + title.split('').join('</span><span>') + '</span>';
+    $(spans).hide().appendTo('.css-typing').each(function (i) {
+        $(this).delay(50 * i).css({
+            display: 'inline',
+            opacity: 0
+        }).animate({
+            opacity: 1
+        }, 100);
+    });
+
 </script>
 
 </html>

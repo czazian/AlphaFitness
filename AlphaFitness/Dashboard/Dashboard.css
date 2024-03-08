@@ -1,4 +1,339 @@
-﻿#dashbLi {
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+#dashbLi {
     border-right: 5px solid #ffc219;
     background-color: #808080;
+}
+
+.home-content {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+.top-box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 95%; /* Standard Size for content items */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    background: #fff;
+    height: fit-content;
+    padding: 20px 30px;
+    align-items: center;
+}
+
+.top-left {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: gold;
+    height: fit-content;
+}
+
+.top-right {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.dayButtons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.days {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+
+.day {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.week-no {
+    font-weight: 500;
+}
+
+.mission-main-title, .box-title, .calories-tt {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.upper-cont {
+    width: 95%;
+    height: fit-content;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1%;
+    flex: 0 0 auto;
+}
+
+.mission-cont {
+    width: 72%; /* Standard Size for content items */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 30px;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 18px;
+}
+
+.mission-list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 15px;
+}
+
+.m-top {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.m-title {
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.m-description {
+    color: dimgray;
+    font-size: 14px;
+}
+
+.m {
+    height: 150px;
+    width: 180px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+    border: 2px solid rgb(252, 186, 3);
+    padding: 15px;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+.m-icon {
+    font-size: 30px;
+}
+
+.fa-heart {
+    color: palevioletred;
+    font-size: 25px;
+}
+
+.bx-droplet {
+    color: #0183ff;
+}
+
+.bx-run {
+    color: orangered;
+}
+
+.bx-check-square {
+    color: greenyellow;
+}
+
+.m-bottom {
+    margin-top: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 4px;
+}
+
+.bxs-coin {
+    color: gold;
+}
+
+.doneBtn {
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    width: fit-content;
+    height: fit-content;
+    background-color: gold;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.calories-tracker {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 27%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 30px;
+    gap: 18px;
+}
+
+.calories-content {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.calories {
+    font-family: "Poppins", sans-serif;
+    font-size: 45px;
+    margin-top: -10px;
+}
+
+.box-cont {
+    display: flex;
+    width: 95%; /* Standard Size for content items */
+    height: fit-content;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1%;
+    flex: 0 0 auto;
+    margin-bottom: 30px;
+}
+
+.left-box {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 65%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 30px;
+    gap: 18px;
+}
+
+.left-content {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+}
+
+.video {
+    border-radius: 8px;
+}
+
+.encouragement {
+    padding: 10px;
+    border: 2px solid rgb(252, 186, 3);
+    border-radius: 8px;
+    background-color: lightgoldenrodyellow;
+    color: #fca503;
+    line-height: 25px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.right-box {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 34%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 30px;
+    gap: 18px;
+}
+
+.right-content {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+}
+
+.form-control {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    transition: .1s ease-out;
+    color: rgb(252, 186, 3);
+}
+
+    .form-control:focus {
+        outline: 2.5px solid gold;
+        transition: .05s ease-in;
+    }
+
+td {
+    padding: 10px 0px;
+}
+
+.btn-group {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    justify-content: right;
+    align-items: center;
+}
+
+.btb {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(252, 186, 3);
+    height: 40px;
+    width: fit-content;
+    border: none;
+    border-radius: 8px;
+}
+
+
+@media (max-width: 1170px) {
+
+    .box-cont, .upper-cont {
+        flex-flow: column nowrap;
+        gap: 10px;
+    }
+
+    .left-box, .right-box, .calories-tracker, .mission-cont {
+        width: 100%;
+    }
+
+    td {
+        padding-right: 30px;
+    }
+
+    .right-box {
+        justify-content:center;
+        align-items:center;
+    }
+
+    .btn-group {
+        justify-content:center;
+    }
+}
+
+@media (max-width: 500px) {
+    .mission-list {
+        justify-content:center;
+    }
+
+    .top-left {
+        width:100%;
+    }
+
+    .top-right {
+        width: 100%;
+    }
+
+    .days {
+        margin-top :20px
+    }
 }

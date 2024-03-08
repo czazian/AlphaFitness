@@ -101,17 +101,36 @@ html, body {
     align-items: center;
     justify-content: center;
     height: 45px;
-    font-size: 2vh;
+    font-size: 16px;
     width: 140px;
     font-weight: 600;
     transition: background-color .2s ease-out;
-    font-family: "Poppins", sans-serif
+    font-family: "Poppins", sans-serif;
 }
 
-    .btn:hover {
+    .btn:hover, .moveBtn:hover {
         background-color: #f5ad05;
         transition: background-color .2s ease-out;
     }
+
+.moveBtn-ctn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.moveBtn {
+    font-size: 25px;
+    height: 50px;
+    width: 50px;
+    padding-top: 5px;
+    border-radius: 50%;
+    border: none;
+    background-color: gold;
+    transition: background-color .2s ease-out;
+    cursor:pointer;
+}
 
 .content-wrapper {
     height: 100vh;
@@ -136,6 +155,7 @@ html, body {
     line-height: 1.4;
     font-weight: 500;
 }
+
 
 .content-subtitle {
     line-height: 1.6;
