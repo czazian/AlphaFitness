@@ -144,6 +144,8 @@
     <Content Include="Style\style.css" />
     <Content Include="Image\Profile\user.png" />
     <Content Include="Tutorial\cardioSession.aspx" />
+    <Content Include="Tutorial\IndividualTutorial.aspx" />
+    <Content Include="Tutorial\IndividualTutorial.css" />
     <Content Include="Tutorial\Tutorial.aspx" />
     <Content Include="Tutorial\Tutorial.css" />
     <Content Include="Tutorial\TutorialCategory.css" />
@@ -213,6 +215,13 @@
     </Compile>
     <Compile Include="Tutorial\cardioSession.aspx.designer.cs">
       <DependentUpon>cardioSession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial\IndividualTutorial.aspx.cs">
+      <DependentUpon>IndividualTutorial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\IndividualTutorial.aspx.designer.cs">
+      <DependentUpon>IndividualTutorial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutorial\Tutorial.aspx.cs">
       <DependentUpon>Tutorial.aspx</DependentUpon>

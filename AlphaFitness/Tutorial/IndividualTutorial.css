@@ -1,0 +1,261 @@
+﻿#TutorialLi {
+    border-right: 5px solid #ffc219;
+    background-color: #808080;
+}
+
+.noSpinners::-webkit-inner-spin-button,
+.noSpinners::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.subtitle {
+    font-weight:bold;
+}
+
+.header-title {
+    padding: 10px 0px;
+}
+
+.content-details {
+    padding:20px 15px;
+}
+
+.content-text {
+    line-height: 1.6;
+    font-family: 'Rubik', sans-serif !important;
+    margin: 20px 5px;
+    text-align: justify-all;
+}
+
+.product-container {
+    width: 100%;
+    height: contain;
+    justify-content: center;
+    padding-top: 100px;
+    display: flex;
+}
+
+.product-header {
+    border-bottom: 1px solid lightgrey;
+    padding: 13px 20px 13px 20px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.left-box {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 800px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    height: fit-content;
+    margin-bottom:20px;
+}
+
+.right-box {
+    border: 1px solid grey;
+    border-radius: 15px;
+    width: 350px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 10px;
+    height: fit-content;
+    padding-bottom: 10px;
+}
+
+.quantity-container {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.price {
+    font-weight: bold;
+    background-color: #212121;
+    border-radius: 15px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 15px 10px 15px 10px;
+}
+
+.top-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.main-img {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.select-img {
+    width: 15%;
+    border-left: 1px solid lightgrey;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.middle {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0px;
+    padding: 0px;
+}
+
+.sideimg {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+td, tr {
+    padding: 10px;
+    vertical-align: top;
+}
+
+
+
+.title {
+    width: 150px;
+    color: #ff7e29;
+}
+
+
+/*Suggestion*/
+.product-suggestion {
+    height: fit-content;
+    width: 230px;
+    padding: 10px 20px 0px 20px;
+    margin-bottom: -15px;
+}
+
+.sname, .sprice {
+    text-align: center;
+    font-weight: bold;
+    color: #ff7e29;
+}
+
+.sprice {
+    margin-top: 5px;
+}
+
+.deconone {
+    text-decoration: none !important;
+}
+
+
+.simg {
+    transition: 0.35s ease-in-out;
+}
+
+    .simg:hover {
+        transform: scale(1.07);
+    }
+
+/*Click this back to top*/
+.toTop {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: none;
+}
+
+.left-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 0px 15px 0px 0px;
+    width: 100%;
+}
+
+.status-icon {
+    display: flex;
+    flex-flow: row nowrap;
+    height: inherit;
+    align-items: center;
+    margin-left: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    justify-content: right;
+}
+
+.back-icon {
+    display: flex;
+    flex-flow: row nowrap;
+    height: inherit;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    justify-content: right;
+}
+
+.topStatus {
+    background-color: #ff7e29;
+    border-radius: 9px;
+    padding: 10px 32px 10px 32px;
+}
+
+/*Mobile and Tablet*/
+@media (max-width: 869px) {
+    .product-container {
+        flex-flow: column nowrap;
+    }
+
+    .left-box {
+        width: 100%;
+        margin: 5px;
+    }
+
+    .middle {
+        flex-flow: column nowrap;
+    }
+
+    .select-img {
+        flex-flow: row nowrap;
+        width: 40%;
+    }
+
+    .main-img {
+        width: 100%;
+    }
+
+    .right-box {
+        width: 100%;
+        margin: 5px;
+        flex-flow: column nowrap;
+        padding-bottom: 10px;
+        gap: 20px;
+    }
+
+    .product-suggestion {
+        display: flex;
+        margin-bottom: 20px;
+        flex-flow: column nowrap;
+        justify-content: center !important;
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .suggestion1 {
+        margin-bottom: 20px;
+        width: 40%;
+    }
+}
