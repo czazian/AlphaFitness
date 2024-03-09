@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contents.Master" AutoEventWireup="true" CodeBehind="cardioSession.aspx.cs" Inherits="AlphaFitness.Tutorial.cardioSession" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="TutorialCategory.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700,900&display=swap" rel="stylesheet">
     <style>
         .img-icon {
-            padding-bottom:10px;
+            padding-bottom: 10px;
         }
 
         /*Click this back to top*/
@@ -19,9 +20,9 @@
         }
 
         .section-title {
-            letter-spacing:1px;
-            padding-top:5px;
-            padding-bottom:10px !important;
+            letter-spacing: 1px;
+            padding-top: 5px;
+            padding-bottom: 10px !important;
         }
 
         #header {

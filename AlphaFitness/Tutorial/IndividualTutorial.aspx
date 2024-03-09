@@ -32,7 +32,7 @@
             </div>
         </div>
         <div style="padding: 10px; border-top: 1px solid lightgrey;">
-            <div class="content-details">
+            <div class="content-details" style="text-align:justify" >
                 <asp:Label runat="server" CssClass="content-text" ID="tutContent" Text="" />
             </div>
         </div>
