@@ -3,11 +3,11 @@
     background-color: #808080;
 }
 
-
 .home-content {
     align-items: center;
     display: flex;
     flex-flow: column nowrap;
+    padding-bottom: 30px;
 }
 
 .header-community {
@@ -64,13 +64,18 @@
     font-size: 8px;
 }
 
-.title-obtain {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    height: fit-content;
+.titleImg {
+    width: 85px;
+    height: 25px;
+    border-radius: 8px;
+    border: none;
+}
+
+.titleImgComment {
+    width: 85px;
+    height: 25px;
+    border-radius: 8px;
+    border: none;
 }
 
 .post {
@@ -86,8 +91,8 @@
     gap: 10px;
 }
 
-    .post:last-child {
-        margin-bottom:50px;
+    .post:last-of-type {
+        margin-bottom: 100px;
     }
 
 .top-community {
@@ -165,7 +170,7 @@
 }
 
 .infobar-comment {
-    display:flex;
+    display: flex;
     flex-flow: row nowrap;
 }
 

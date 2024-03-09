@@ -74,6 +74,7 @@ legend {
     font-weight: bold;
     font-size: 28px;
     color: #ebcf34;
+    text-shadow: .5px .5px black;
 }
 
 .profile-info {
@@ -85,6 +86,7 @@ th {
     width: 165px;
     margin-bottom: 20px;
     color: #ebcf34;
+    text-shadow: .5px .5px black;
     vertical-align: top;
     padding: 8px;
     display: flex;
@@ -105,9 +107,13 @@ td {
     text-align: right;
     margin: 10px;
     border-color: #ebcf34;
+    border-radius: 8px;
+    transition: .2s background-color ease-out;
+    cursor:pointer;
 }
 
     .btn-edit:hover {
+        transition: .2s ease-in;
         color: white;
         background-color: #000;
         border-color: #000;
@@ -120,7 +126,9 @@ td {
     margin-top: auto;
 }
 
-.title-obtain {
-    width: 160px;
-    text-align:center;
+.titleImg {
+    width: 155px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
 }

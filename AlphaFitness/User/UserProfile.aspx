@@ -28,19 +28,26 @@
                                 <asp:Label runat="server" ID="email" />junken03@gmail.com</td>
                         </tr>
                         <tr>
-                            <th>Phone No.
+                            <th>Weight
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
-                                <asp:Label runat="server" ID="phone" />0189741889</td>
+                                <asp:Label runat="server" ID="weight" Text="5" />&nbsp;KG</td>
                         </tr>
                         <tr>
-                            <th>Title
+                            <th>Height
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
-                                <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px; ">
-                                    <asp:Label runat="server" ID="Label1" Text="Gold" />
+                                <asp:Label runat="server" ID="height" Text="1000" />&nbsp;CM</td>
+                        </tr>
+                        <tr>
+                            <th style="vertical-align: central; margin-top:5px;">Title
+                                <div style="height: inherit; text-align: right;">:</div>
+                            </th>
+                            <td>
+                                <div class="title-obtain">
+                                    <asp:Image runat="server" ID="Image4" CssClass="titleImg" ImageUrl="~/Image/Title/5.png" />
                                 </div>
                         </tr>
                     </table>

@@ -42,21 +42,30 @@ namespace AlphaFitness.User
         protected global::System.Web.UI.WebControls.Label email;
 
         /// <summary>
-        /// phone control.
+        /// weight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label phone;
+        protected global::System.Web.UI.WebControls.Label weight;
 
         /// <summary>
-        /// Label1 control.
+        /// height control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label height;
+
+        /// <summary>
+        /// Image4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image4;
     }
 }
