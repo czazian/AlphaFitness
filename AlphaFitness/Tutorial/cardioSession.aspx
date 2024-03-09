@@ -45,10 +45,10 @@
         <div class="content-frame">
             <%--category 1--%>
             <div class="container">
-                <div class="row">
+                <div id="tips-category" class="row">
                     <div class="col-10">
                         <div class="section-title-wrapper">
-                            <h2 class="section-title" id="tips-category">TIPS:</h2>
+                            <h2 class="section-title">TIPS:</h2>
                         </div>
                     </div>
                     <div class="col-10">
@@ -88,10 +88,10 @@
             </div>
             <%--category 2--%>
             <div class="container">
-                <div class="row">
+                <div id="articles-category" class="row">
                     <div class="col-10">
                         <div class="section-title-wrapper">
-                            <h2 class="section-title" id="articles-category">ARTICLES:</h2>
+                            <h2 class="section-title">ARTICLES:</h2>
                         </div>
                     </div>
                     <div class="col-10">
@@ -131,10 +131,10 @@
             </div>
             <%--category 3--%>
             <div class="container">
-                <div class="row">
+                <div id="sbsguide-category" class="row">
                     <div class="col-10">
                         <div class="section-title-wrapper">
-                            <h2 class="section-title" id="sbsguide-category">STEP-BY-STEP GUIDES:</h2>
+                            <h2 class="section-title">STEP-BY-STEP GUIDES:</h2>
                         </div>
                     </div>
                     <div class="col-10">
@@ -174,10 +174,10 @@
             </div>
             <%--category 4--%>
             <div class="container">
-                <div class="row">
+                <div class="row" id="exercisev-category">
                     <div class="col-10">
                         <div class="section-title-wrapper">
-                            <h2 class="section-title" id="exercisev-category">EXERCISE VIDEOS:</h2>
+                            <h2 class="section-title">EXERCISE VIDEOS:</h2>
                         </div>
                     </div>
                     <div class="col-10">

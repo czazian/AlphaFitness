@@ -180,7 +180,7 @@
                             <i class='bx bx-chevron-down' style="color: #FFFFFF"></i>
                         </div>
                         <div id="myDropdown" class="dropdown-content">
-                            <asp:HyperLink runat="server" ID="HyperLink2" Text="Profile">
+                            <asp:HyperLink runat="server" ID="HyperLink2" Text="Profile" NavigateUrl="~/User/UserProfile.aspx">
                     Profile
                             </asp:HyperLink>
                             <asp:HyperLink runat="server" ID="HyperLink1" Text="Edit Profile">

@@ -16,7 +16,7 @@
     height: 500px;
     display: flex;
     flex-flow: row nowrap;
-    margin: auto;
+    margin: 180px auto auto auto;
     border-radius: 10px;
 }
 
@@ -68,7 +68,6 @@
 
 legend {
     margin-top: -30px;
-    margin-left: 6px;
     background-color: white;
     width: fit-content;
     padding: 0px 6px 0px 6px;
@@ -119,4 +118,9 @@ td {
     flex-flow: row nowrap;
     justify-content: right;
     margin-top: auto;
+}
+
+.title-obtain {
+    width: 160px;
+    text-align:center;
 }

@@ -39,7 +39,9 @@
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
-                                <asp:Label runat="server" ID="title" />Gold</td>
+                                <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px; ">
+                                    <asp:Label runat="server" ID="Label1" Text="Gold" />
+                                </div>
                         </tr>
                     </table>
                     <div class="edit-btn">
