@@ -120,6 +120,10 @@
     <Content Include="Analysis\HeartRate.js" />
     <Content Include="Analysis\ReportPieChart.js" />
     <Content Include="Analysis\WeightLoss.js" />
+    <Content Include="App_Data\AlphaFitness.mdf" />
+    <Content Include="App_Data\AlphaFitness_log.ldf">
+      <DependentUpon>AlphaFitness.mdf</DependentUpon>
+    </Content>
     <Content Include="Community\Community.aspx" />
     <Content Include="Community\Community.css" />
     <Content Include="Community\Post.aspx" />
