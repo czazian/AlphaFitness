@@ -2,10 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="TutorialCategory.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700,900&display=swap" rel="stylesheet">
     <style>
         .img-icon {
             padding-bottom: 10px;
@@ -38,15 +34,15 @@
             <h6>Improving your cardio will strengthen your stamina and endurance so you can work harder for long and burn more calories.</h6>
         </div>
         <div class="subtitle-link">
-            <a href="cardioSession.aspx#tips-category">TIPS</a>
-            <a href="cardioSession.aspx#articles-category">ARTICLES</a>
-            <a href="cardioSession.aspx#sbsguide-category">STEP-BY-STEP GUIDE</a>
-            <a href="cardioSession.aspx#exercisev-category">EXERCISE VIDEOS</a>
+            <a href="#tips-category" id="tips-category">TIPS</a>
+            <a href="#articles-category">ARTICLES</a>
+            <a href="#sbsguide-category">STEP-BY-STEP GUIDE</a>
+            <a href="#exercisev-category">EXERCISE VIDEOS</a>
         </div>
         <div class="content-frame">
             <%--category 1--%>
             <div class="container">
-                <div id="tips-category" class="row">
+                <div class="row">
                     <div class="col-10">
                         <div class="section-title-wrapper">
                             <h2 class="section-title">TIPS:</h2>
@@ -55,28 +51,28 @@
                     <div class="col-10">
                         <div class="Categories-boxes-container">
                             <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=1" CssClass="category-box" runat="server">
-                                <asp:Image ID="Image1" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cst1.png" />
+                                <asp:Image ID="Image1" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs1.png" />
                                 <h5>WORKOUT TIPS</h5>
                                 <h3>WEIGHT TRAINING METHODS FOR BASEBALL PLAYERS</h3>
                                 <h4>Three experts explain how bigger, faster, and stronger can translate to better...</h4>
                             </asp:LinkButton>
                             <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=2" CssClass="category-box" runat="server">
-                                <asp:Image ID="Image2" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cst2.png" />
+                                <asp:Image ID="Image2" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs2.png" />
                                 <h5>WORKOUT TIPS</h5>
                                 <h3>SORTING OUT THE TRUTHS AND MYTHS OF STRETCHING</h3>
                                 <h4>We're not saying stretching is bad for you, but how much do you really benefit from...</h4>
                             </asp:LinkButton>
                             <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=3" CssClass="category-box" runat="server">
-                                <asp:Image ID="Image3" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cst3.png" />
+                                <asp:Image ID="Image3" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs3.png" />
                                 <h5>WORKOUT TIPS</h5>
                                 <h3>BEST WAYS YOU CAN TRAIN FOR POWER AT HOME</h3>
                                 <h4>With these practical training tips, it's possible to make elite-level power gains...</h4>
                             </asp:LinkButton>
                             <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=4" CssClass="category-box" runat="server">
-                                <asp:Image ID="Image4" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cst4.png" />
+                                <asp:Image ID="Image4" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs4.png" />
                                 <h5>WORKOUT TIPS</h5>
                                 <h3>PHYSICAL THERAPISTS OFFER TIPS</h3>
-                                <h4>If you're new to exercise or returning after a break, start with low-intensity workouts and gradually increase....</h4>
+                                <h4 id="articles-category">If you're new to exercise or returning after a break, start with low-intensity....</h4>
                             </asp:LinkButton>
                         </div>
                     </div>
@@ -84,7 +80,7 @@
             </div>
             <%--category 2--%>
             <div class="container">
-                <div id="articles-category" class="row">
+                <div class="row">
                     <div class="col-10">
                         <div class="section-title-wrapper">
                             <h2 class="section-title">ARTICLES:</h2>
@@ -92,42 +88,37 @@
                     </div>
                     <div class="col-10">
                         <div class="Categories-boxes-container">
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image5" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cardio-session-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>ALL-STAR WEIGHT TRAINING METHODS FOR BASEBALL PLAYERS</h3>
-                                <h4>Three experts explain how bigger, faster, and stronger can translate to better...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image6" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/weight-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>SORTING OUT THE TRUTHS AND MYTHS OF STRETCHING</h3>
-                                <h4>We're not saying stretching is bad for you, but how much do you really benefit from...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image7" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/boxing-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>BEST WAYS YOU CAN TRAIN FOR POWER AT HOME</h3>
-                                <h4>With these practical training tips, it's possible to make elite-level power gains...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image8" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/supersets-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>Start Slowly and Progress Gradually</h3>
-                                <h4>If you're new to exercise or returning after a break, start with low-intensity workouts and gradually increase....</h4>
-                                <h6>Read Article</h6>
-                            </a>
-
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=5" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image5" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs5.png" />
+                                <h5>WORKOUT ROUTINES</h5>
+                                <h3>TRAINING TIPS SKIERS CAN USE FOR IMPROVE THEIR STRENGTH ON SLOPES</h3>
+                                <h4>If you hadn’t noticed, it’s still snow ski season, and many people are taking time off...</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=6" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image6" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs6.png" />
+                                <h5>FITNESS ESSENTIALS</h5>
+                                <h3>PROVEN TIPS TO BUILD MENTAL TOUGHNESS & BOOST PERFORMANCE</h3>
+                                <h4>We all play to win, but nobody comes out on top all the time. Even with....</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=7" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image7" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs7.png" />
+                                <h5>WORKOUT ROUTINES</h5>
+                                <h3>HERE’S THE ROUTINE TO HELP YOU PACK ON SIZE AND NOT DESTROY YOUR JOINT</h3>
+                                <h4>Although packing on muscle increases strength and size, helping you look...</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=8" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image8" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs8.png" />
+                                <h5>FITNESS ESSENTIALS</h5>
+                                <h3>WHAT’S YOUR FAVORITE OLD-SCHOOL EXERCISE DEVICE?</h3>
+                                <h4 id="sbsguide-category">On the Clock with Frank and Zack is a social media video series hosted on M&F’s....</h4>
+                            </asp:LinkButton>
                         </div>
                     </div>
                 </div>
             </div>
             <%--category 3--%>
             <div class="container">
-                <div id="sbsguide-category" class="row">
+                <div class="row">
                     <div class="col-10">
                         <div class="section-title-wrapper">
                             <h2 class="section-title">STEP-BY-STEP GUIDES:</h2>
@@ -135,42 +126,37 @@
                     </div>
                     <div class="col-10">
                         <div class="Categories-boxes-container">
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image10" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cardio-session-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>ALL-STAR WEIGHT TRAINING METHODS FOR BASEBALL PLAYERS</h3>
-                                <h4>Three experts explain how bigger, faster, and stronger can translate to better...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image11" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/weight-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>SORTING OUT THE TRUTHS AND MYTHS OF STRETCHING</h3>
-                                <h4>We're not saying stretching is bad for you, but how much do you really benefit from...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image12" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/boxing-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>BEST WAYS YOU CAN TRAIN FOR POWER AT HOME</h3>
-                                <h4>With these practical training tips, it's possible to make elite-level power gains...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image13" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/supersets-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>Start Slowly and Progress Gradually</h3>
-                                <h4>If you're new to exercise or returning after a break, start with low-intensity workouts and gradually increase....</h4>
-                                <h6>Read Article</h6>
-                            </a>
-
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=9" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image9" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs9.png" />
+                                <h5>GUIDE/INSTRUCTIONS</h5>
+                                <h3>Sit-up</h3>
+                                <h4>One of the exercises most associated with a six-pack due to working the abdominals, sit...</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=10" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image10" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs10.png" />
+                                <h5>GUIDE/INSTRUCTIONS</h5>
+                                <h3>Pull-up</h3>
+                                <h4>How to do Pull-Up:  Step 1: Facing a pull up bar, grasp the handles with your palms...</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=11" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image11" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs11.png" />
+                                <h5>GUIDE/INSTRUCTIONS</h5>
+                                <h3>Seated Dumbbell Concentration Curls</h3>
+                                <h4>Sit on a flat bench with your legs spread, knees bent and your feet flat on the floor with...</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=12" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image12" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs12.png" />
+                                <h5>GUIDE/INSTRUCTIONS</h5>
+                                <h3>Lunge</h3>
+                                <h4 id="exercisev-category">Lunges Instructions  1. Stand with your feet hip-width apart, keep your back straight....</h4>
+                            </asp:LinkButton>
                         </div>
                     </div>
                 </div>
             </div>
             <%--category 4--%>
             <div class="container">
-                <div class="row" id="exercisev-category">
+                <div class="row">
                     <div class="col-10">
                         <div class="section-title-wrapper">
                             <h2 class="section-title">EXERCISE VIDEOS:</h2>
@@ -178,35 +164,30 @@
                     </div>
                     <div class="col-10">
                         <div class="Categories-boxes-container">
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image14" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/cardio-session-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>ALL-STAR WEIGHT TRAINING METHODS FOR BASEBALL PLAYERS</h3>
-                                <h4>Three experts explain how bigger, faster, and stronger can translate to better...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image15" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/weight-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>SORTING OUT THE TRUTHS AND MYTHS OF STRETCHING</h3>
-                                <h4>We're not saying stretching is bad for you, but how much do you really benefit from...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image16" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/boxing-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>BEST WAYS YOU CAN TRAIN FOR POWER AT HOME</h3>
-                                <h4>With these practical training tips, it's possible to make elite-level power gains...</h4>
-                                <h6>Read Article</h6>
-                            </a>
-                            <a href="#" class="category-box">
-                                <asp:Image ID="Image17" runat="server" CssClass="img-icon" ImageUrl="~/Image/Element/supersets-icon.png" />
-                                <h5>WORKOUT TIPS</h5>
-                                <h3>Start Slowly and Progress Gradually</h3>
-                                <h4>If you're new to exercise or returning after a break, start with low-intensity workouts and gradually increase....</h4>
-                                <h6>Read Article</h6>
-                            </a>
-
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=13" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image13" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs13.png" />
+                                <h5>ABS EXERCISES</h5>
+                                <h3>General Pullup Demo</h3>
+                                <h4>Click to watch the video!</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=14" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image14" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs14.png" />
+                                <h5>DELTS EXERCISES</h5>
+                                <h3>Strict (Military) Push-Up Demo</h3>
+                                <h4>Click to watch the video!</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=15" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image15" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs15.png" />
+                                <h5>CALVES EXERCISES</h5>
+                                <h3>Walking High Knees Demo</h3>
+                                <h4>Click to watch the video!</h4>
+                            </asp:LinkButton>
+                            <asp:LinkButton PostBackUrl="~/Tutorial/IndividualTutorial.aspx?id=16" CssClass="category-box" runat="server">
+                                <asp:Image ID="Image16" runat="server" CssClass="img-icon" ImageUrl="~/Image/Tutorial/cs16.png" />
+                                <h5>ABS EXERCISES</h5>
+                                <h3>Reverse Crunch Demo</h3>
+                                <h4>Click to watch the video!</h4>
+                            </asp:LinkButton>
                         </div>
                     </div>
                 </div>

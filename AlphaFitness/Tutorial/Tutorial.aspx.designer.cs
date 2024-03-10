@@ -33,6 +33,15 @@ namespace AlphaFitness.Tutorial
         protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
         /// Image2 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace AlphaFitness.Tutorial
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image2;
+
+        /// <summary>
+        /// HyperLink2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
 
         /// <summary>
         /// Image3 control.
@@ -51,6 +69,15 @@ namespace AlphaFitness.Tutorial
         protected global::System.Web.UI.WebControls.Image Image3;
 
         /// <summary>
+        /// HyperLink3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+
+        /// <summary>
         /// Image4 control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace AlphaFitness.Tutorial
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image4;
+
+        /// <summary>
+        /// HyperLink4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
 
         /// <summary>
         /// Image5 control.
@@ -69,6 +105,15 @@ namespace AlphaFitness.Tutorial
         protected global::System.Web.UI.WebControls.Image Image5;
 
         /// <summary>
+        /// HyperLink5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
+
+        /// <summary>
         /// Image6 control.
         /// </summary>
         /// <remarks>
@@ -78,6 +123,15 @@ namespace AlphaFitness.Tutorial
         protected global::System.Web.UI.WebControls.Image Image6;
 
         /// <summary>
+        /// HyperLink6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink6;
+
+        /// <summary>
         /// Image7 control.
         /// </summary>
         /// <remarks>
@@ -85,6 +139,15 @@ namespace AlphaFitness.Tutorial
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image7;
+
+        /// <summary>
+        /// HyperLink7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink7;
 
         /// <summary>
         /// Image8 control.

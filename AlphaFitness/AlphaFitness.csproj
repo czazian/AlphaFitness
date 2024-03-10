@@ -143,12 +143,19 @@
     <Content Include="Style\reset.css" />
     <Content Include="Style\style.css" />
     <Content Include="Image\Profile\user.png" />
+    <Content Include="Tutorial\bodybuidling.aspx" />
     <Content Include="Tutorial\cardioSession.aspx" />
+    <Content Include="Tutorial\dumbbell.aspx" />
+    <Content Include="Tutorial\functionalTraining.aspx" />
     <Content Include="Tutorial\IndividualTutorial.aspx" />
     <Content Include="Tutorial\IndividualTutorial.css" />
+    <Content Include="Tutorial\kickBoxing.aspx" />
+    <Content Include="Tutorial\supersets.aspx" />
     <Content Include="Tutorial\Tutorial.aspx" />
     <Content Include="Tutorial\Tutorial.css" />
     <Content Include="Tutorial\TutorialCategory.css" />
+    <Content Include="Tutorial\weightLossTraining.aspx" />
+    <Content Include="Tutorial\yogaStretching.aspx" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserLogin.css" />
     <Content Include="User\UserProfile.aspx" />
@@ -209,12 +216,33 @@
       <DependentUpon>InitialPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tutorial\bodybuidling.aspx.cs">
+      <DependentUpon>bodybuidling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\bodybuidling.aspx.designer.cs">
+      <DependentUpon>bodybuidling.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutorial\cardioSession.aspx.cs">
       <DependentUpon>cardioSession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Tutorial\cardioSession.aspx.designer.cs">
       <DependentUpon>cardioSession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial\dumbbell.aspx.cs">
+      <DependentUpon>dumbbell.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\dumbbell.aspx.designer.cs">
+      <DependentUpon>dumbbell.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial\functionalTraining.aspx.cs">
+      <DependentUpon>functionalTraining.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\functionalTraining.aspx.designer.cs">
+      <DependentUpon>functionalTraining.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tutorial\IndividualTutorial.aspx.cs">
       <DependentUpon>IndividualTutorial.aspx</DependentUpon>
@@ -223,12 +251,40 @@
     <Compile Include="Tutorial\IndividualTutorial.aspx.designer.cs">
       <DependentUpon>IndividualTutorial.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tutorial\kickBoxing.aspx.cs">
+      <DependentUpon>kickBoxing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\kickBoxing.aspx.designer.cs">
+      <DependentUpon>kickBoxing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial\supersets.aspx.cs">
+      <DependentUpon>supersets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\supersets.aspx.designer.cs">
+      <DependentUpon>supersets.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tutorial\Tutorial.aspx.cs">
       <DependentUpon>Tutorial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Tutorial\Tutorial.aspx.designer.cs">
       <DependentUpon>Tutorial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial\weightLossTraining.aspx.cs">
+      <DependentUpon>weightLossTraining.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\weightLossTraining.aspx.designer.cs">
+      <DependentUpon>weightLossTraining.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial\yogaStretching.aspx.cs">
+      <DependentUpon>yogaStretching.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorial\yogaStretching.aspx.designer.cs">
+      <DependentUpon>yogaStretching.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserLogin.aspx.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
