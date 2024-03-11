@@ -222,7 +222,7 @@ namespace AlphaFitness
 
         protected void logoutLink_Click(object sender, EventArgs e)
         {
-            Session.Remove("CustomerID");
+            Session.Remove("UserID");
             Response.Redirect("~/User/UserLogin.aspx");
         }
 

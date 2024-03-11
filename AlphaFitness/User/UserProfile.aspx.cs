@@ -26,7 +26,7 @@ namespace AlphaFitness.User
 
             conn.Open();
 
-            string query = "SELECT * FROM Customer WHERE UserID = @userID";
+            string query = "SELECT * FROM [User] WHERE UserID = @userID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@userID", userID);
 
@@ -36,8 +36,8 @@ namespace AlphaFitness.User
             {
                 while (reader.Read())
                 {
-                    profileimg.ImageUrl = reader["Image"].ToString();
-                    username.Text = reader["Name"].ToString();
+                    profileimg.ImageUrl = reader["ProfileImage"].ToString();
+                    username.Text = reader["UserName"].ToString();
                     email.Text = reader["Email"].ToString();
                     weight.Text = reader["Weight"].ToString();
                     height.Text = reader["Height"].ToString();
@@ -46,14 +46,8 @@ namespace AlphaFitness.User
             }
             else
             {
-                Response.Redirect("~/Login/UserLogin.aspx");
+                Response.Redirect("~/User/UserLogin.aspx");
             }
-        }
-
-        protected void goLogout_Click(object sender, EventArgs e)
-        {
-            Session.Remove("CustomerID");
-            Response.Redirect("~/Dashboard/Dashboard.aspx");
         }
     }
 }

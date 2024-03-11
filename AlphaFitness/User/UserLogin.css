@@ -89,8 +89,8 @@ p {
 input {
     background: #eee;
     padding: 12px 15px;
-    margin: 8px 15px;
-    width: 100%;
+    margin: 8px 15px 0px 15px;
+    width: 300px;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -215,3 +215,56 @@ a {
         border: 1px solid #ccc;
         border-radius: 50%;
     }
+
+
+
+.btnLogin { 
+    background-color: orangered;
+    color: #fff;
+}
+
+span {
+    font-size: 13px;
+    width: 100%;
+    text-align: left;
+}
+
+
+
+.emailRecover, .verification {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.modal-body {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.emailRecover, .verification {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+tr, table {
+    width: 100%;
+}
+
+
+
+.tt {
+    width: 30%;
+    text-align: right;
+}
+
+.ti {
+    width: 70%;
+    display:flex;
+    flex-flow: row nowrap;
+}

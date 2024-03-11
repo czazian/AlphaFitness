@@ -37,7 +37,7 @@ namespace AlphaFitness.User
 
             conn2.Open();
 
-            string query2 = "SELECT COUNT(*) FROM User WHERE Email = @email";
+            string query2 = "SELECT COUNT(*) FROM [User] WHERE Email = @email";
             SqlCommand cmd2 = new SqlCommand(query2, conn2);
             cmd2.Parameters.AddWithValue("@email", regEmail.Text);
 
@@ -71,7 +71,7 @@ namespace AlphaFitness.User
 
                 conn.Open();
 
-                string query = "INSERT INTO User (UserName, Email, Password, ProfileImage) VALUES (@name, @email,@password, @image)";
+                string query = "INSERT INTO [User] (UserName, Email, Password, ProfileImage) VALUES (@name, @email,@password, @image)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@email", email);
@@ -100,7 +100,7 @@ namespace AlphaFitness.User
 
             conn.Open();
 
-            string query = "SELECT COUNT(*) FROM User WHERE Email = @email";
+            string query = "SELECT COUNT(*) FROM [User] WHERE Email = @email";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@email", regEmail.Text);
 
@@ -148,7 +148,7 @@ namespace AlphaFitness.User
 
             conn.Open();
 
-            string query = "SELECT COUNT(*) FROM User WHERE Email = @email";
+            string query = "SELECT COUNT(*) FROM [User] WHERE Email = @email";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@email", txtRecoverEmail.Text);
 
@@ -241,7 +241,7 @@ namespace AlphaFitness.User
 
             conn.Open();
 
-            string query = "SELECT * FROM User WHERE Email = @email AND Password = @pass";
+            string query = "SELECT * FROM [User] WHERE Email = @email AND Password = @pass";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@email", loginEmail);
             cmd.Parameters.AddWithValue("@pass", hashPassword);
@@ -253,11 +253,11 @@ namespace AlphaFitness.User
                 if (reader.Read())
                 {
                     //Session
-                    Session["CustomerID"] = reader["CustomerID"].ToString();
+                    Session["UserID"] = reader["UserID"].ToString();
                 }
 
                 //Redirect
-                Response.Redirect("~/Customer/UserProfile.aspx");
+                Response.Redirect("~/User/UserProfile.aspx");
 
             }
             else //mean error
@@ -286,7 +286,7 @@ namespace AlphaFitness.User
 
                 conn.Open();
 
-                string query = "SELECT UserID FROM User WHERE Email = @email";
+                string query = "SELECT UserID FROM [User] WHERE Email = @email";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@email", txtRecoverEmail.Text);
 
