@@ -177,13 +177,13 @@ namespace AlphaFitness
         protected global::System.Web.UI.WebControls.Image wimg;
 
         /// <summary>
-        /// wname control.
+        /// ddlWeather control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label wname;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWeather;
 
         /// <summary>
         /// winfo control.

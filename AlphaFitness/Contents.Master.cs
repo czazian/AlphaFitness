@@ -2,10 +2,14 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.EnterpriseServices;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Http.Results;
 using System.Web.UI;
@@ -16,12 +20,31 @@ namespace AlphaFitness
     public partial class Contents : System.Web.UI.MasterPage
     {
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected int checkIndex(int cityID)
         {
+            for (int i = 0; i < ddlWeather.Items.Count; i++)
+            {
+                if (ddlWeather.Items[i].Value.Equals(cityID.ToString()))
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
+
+        protected void ddlWeather_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int cityid = Convert.ToInt32(ddlWeather.SelectedValue);
+            Session["CityID"] = cityid;
+            ddlWeather.SelectedIndex = checkIndex(cityid);
+
+
+            //Weather Process
             ScriptManager.RegisterStartupScript(this, GetType(), "script", "$(function () {initialStates(); });", true);
 
             ////Weather API
-            string uri = "http://api.weatherbit.io/v2.0/current?lat=3.1412&lon=101.68653&country=MY&key=20fb41c9e8af48d9bf83e46cfe98a47f";
+            string uri = "http://api.weatherbit.io/v2.0/current?city_id=" + cityid + "&country=MY&key=20fb41c9e8af48d9bf83e46cfe98a47f";
             WebRequest request = WebRequest.Create(uri);
             request.Method = "GET";
 
@@ -38,7 +61,7 @@ namespace AlphaFitness
 
             string weathername = checkWhetherCode(result);
             //string weathername = "Thunder";
-            wname.Text = weathername;
+            //wname.Text = weathername;
 
             if (weathername == "Sunny")
             {
@@ -59,11 +82,101 @@ namespace AlphaFitness
             {
                 winfo.Text = "It's ideal to stay at home.";
                 wimg.ImageUrl = "~/Image/Element/thunder.gif";
-            } else
+            }
+            else
             {
                 winfo.Text = "Undefined";
             }
         }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            int cityid = 0;
+            if (Session["CityID"] == null)
+            {
+                //Set default to Kuala Lumpur
+                Session["CityID"] = "1735161";
+                cityid = 1735161;
+            }
+            else
+            {
+                cityid = Convert.ToInt32(Session["CityID"]);
+            }
+
+            //Weather Selection
+            SqlConnection conn;
+            string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+            conn = new SqlConnection(str);
+
+            conn.Open();
+
+            //Command & Execution 
+            string retrieve = "SELECT * FROM Weather";
+            SqlDataAdapter adapter = new SqlDataAdapter(retrieve, conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            ddlWeather.DataSource = dt;
+            ddlWeather.DataBind();
+            ddlWeather.DataTextField = "CityName";
+            ddlWeather.DataValueField = "CityID";
+            ddlWeather.DataBind();
+            // ddlWeather.SelectedIndex = 57;
+
+
+            //Weather Process
+            ScriptManager.RegisterStartupScript(this, GetType(), "script", "$(function () {initialStates(); });", true);
+            ddlWeather.SelectedIndex = checkIndex(cityid);
+
+            ////Weather API
+            string uri = "http://api.weatherbit.io/v2.0/current?city_id=" + cityid + "&country=MY&key=20fb41c9e8af48d9bf83e46cfe98a47f";
+            WebRequest request = WebRequest.Create(uri);
+            request.Method = "GET";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            //Get the Whole JSON for Kuala Lumpur
+            string result = null;
+            using (Stream stream = response.GetResponseStream())
+            {
+                StreamReader sr = new StreamReader(stream);
+                result = sr.ReadToEnd();
+                sr.Close();
+            }
+
+            string weathername = checkWhetherCode(result);
+            //string weathername = "Thunder";
+            //wname.Text = weathername;
+
+            if (weathername == "Sunny")
+            {
+                winfo.Text = "It's great to conduct outdoor activities.";
+                wimg.ImageUrl = "~/Image/Element/sunny.gif";
+            }
+            else if (weathername == "Rainy")
+            {
+                winfo.Text = "It's ideal to stay at home.";
+                wimg.ImageUrl = "~/Image/Element/rainy.gif";
+            }
+            else if (weathername == "Cloudy")
+            {
+                winfo.Text = "It's great to conduct outdoor activities, has possibility of precipitation.";
+                wimg.ImageUrl = "~/Image/Element/cloudy.gif";
+            }
+            else if (weathername == "Thunder")
+            {
+                winfo.Text = "It's ideal to stay at home.";
+                wimg.ImageUrl = "~/Image/Element/thunder.gif";
+            }
+            else
+            {
+                winfo.Text = "Undefined";
+            }
+
+        }
+
+
+
 
 
         //REFERENCES -> 
@@ -112,6 +225,9 @@ namespace AlphaFitness
             Session.Remove("CustomerID");
             Response.Redirect("~/User/UserLogin.aspx");
         }
+
+
+
     }
 
 
