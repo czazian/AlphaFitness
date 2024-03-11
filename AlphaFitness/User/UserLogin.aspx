@@ -167,13 +167,13 @@
                     <div class="overlay-left">
                         <h1>Hello, Friend!</h1>
                         <p>Enter your personal details and start journey with us</p>
-                        <button id="signIn">Sign In</button>
+                        <button onclick="return false" id="signIn">Sign In</button>
                     </div>
 
                     <div class="overlay-right">
                         <h1>Welcome Back!</h1>
                         <p>To keep connected with us please login with your personal info</p>
-                        <button id="signUp">Sign Up</button>
+                        <button onclick="return false" id="signUp">Sign Up</button>
                     </div>
                 </div>
             </div>
@@ -204,8 +204,8 @@
                     main.classList.add("right-panel-active");
                 }
             });
-
-
+        </script>
+        <script type="text/javascript">
             function registered() {
                 alert("Your account has been successfully registered!");
             }
@@ -228,7 +228,7 @@
 
 
         </script>
-
+        <script src="UserLogin.js" type="text/javascript"></script>
     </form>
 </body>
 </html>
