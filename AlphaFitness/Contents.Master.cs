@@ -107,6 +107,11 @@ namespace AlphaFitness
             }
         }
 
+        protected void logoutLink_Click(object sender, EventArgs e)
+        {
+            Session.Remove("CustomerID");
+            Response.Redirect("~/User/UserLogin.aspx");
+        }
     }
 
 
