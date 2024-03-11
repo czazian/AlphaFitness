@@ -137,6 +137,7 @@
     <Content Include="Image\Element\logo1.png" />
     <Content Include="Image\Element\logo2.png" />
     <Content Include="Image\Element\web-icon.jpg" />
+    <Content Include="Image\Profile\default.jpg" />
     <Content Include="Image\Profile\user.jpg" />
     <Content Include="Initial\InitialPage.aspx" />
     <Content Include="Initial\InitialPage.css" />
@@ -156,10 +157,13 @@
     <Content Include="Tutorial\TutorialCategory.css" />
     <Content Include="Tutorial\weightLossTraining.aspx" />
     <Content Include="Tutorial\yogaStretching.aspx" />
+    <Content Include="User\ChangePassword.aspx" />
+    <Content Include="User\EditProfile.css" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserLogin.css" />
     <Content Include="User\UserProfile.aspx" />
     <Content Include="User\UserProfile.css" />
+    <Content Include="User\EditProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +290,13 @@
     <Compile Include="Tutorial\yogaStretching.aspx.designer.cs">
       <DependentUpon>yogaStretching.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\UserLogin.aspx.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -299,6 +310,13 @@
     </Compile>
     <Compile Include="User\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

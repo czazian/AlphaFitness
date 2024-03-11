@@ -9,10 +9,10 @@
             <div class="left">
                 <div class="profileimg">
                     <asp:Image Style="width: 250px; height: 250px; border-radius: 100px; z-index: 3;"
-                        runat="server" ID="profileimg" ImageUrl="~/Image/Profile/user.png" />
+                        runat="server" ID="profileimg" />
                 </div>
                 <div class="profilename">
-                    @<asp:Label runat="server" ID="username" />andrewyeooo
+                    @<asp:Label runat="server" ID="username" />
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
-                                <asp:Label runat="server" ID="email" />junken03@gmail.com</td>
+                                <asp:Label runat="server" ID="email" /></td>
                         </tr>
                         <tr>
                             <th>Weight
