@@ -13,15 +13,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" type="text/css" />
 
     <link rel="icon" type="image/x-icon" href='<%= ResolveUrl("~/Image/Element/web-icon.jpg") %>'>
-
-    <%--    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>--%>
 </head>
 
 <body>
     <form runat="server" id="form1">
         <div class="background">
-            <%--<asp:Image Style="width:100%; height : auto; left: 0; top: 0;" runat="server" ImageUrl="~/Image/Element/loginBackground.jpg" />--%>
         </div>
         <div class="container" id="main">
             <%--User Registration--%>
@@ -64,85 +60,92 @@
                     </div>
                     <p>Or use your account</p>
                     <asp:TextBox CausesValidation="true" runat="server" ID="email" CssClass="email" placeholder="Enter your email" />
-                    <%--<asp:CustomValidator CssClass="validator" OnServerValidate="CustomValidator1_ServerValidate" ID="CustomValidator1" ForeColor="red" ControlToValidate="email" runat="server"></asp:CustomValidator>--%>
-                    <asp:TextBox CausesValidation="true" TextMode="Password" runat="server" ID="password" CssClass="pswd" placeholder="Create a password" />
-                    <input type="password" name="pswd" placeholder="Password" />
-                    <asp:Button Style="color: #fa4d4d; border: none; background-color: transparent; text-decoration: underline;" OnClientClick="return false;" runat="server" CausesValidation="false" data-bs-toggle="modal" data-bs-target="#staticBackdrop" Text="Forgot Password" />
-
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel" style="font-weight: bold;">Password Recovery</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
+                    <asp:TextBox CssClass="password" TextMode="Password" CausesValidation="false" runat="server" ID="password" placeholder="Enter your password" />
+                    <i class="uil uil-lock icon"></i>
+                    <i class="fa-solid fa-eye-slash showHidePw"></i>
+                    <div class="loginerr">
+                        <asp:Label Style="color: red; margin-bottom: -10px; align-items: center; display: flex; width: 100%; flex-flow: row nowrap; justify-content: right;" runat="server" ID="Label1" />
+                    </div>
 
 
-                                <!--An instance for update panel-->
-                                <asp:ScriptManager ID="ScriptManager1" runat="server">
-                                </asp:ScriptManager>
+                    <div class="forget-password">
+                        <asp:Button Style="margin-left: -5px; text-align: center; color: #fa4d4d; border: none; background-color: transparent; text-decoration: underline;" OnClientClick="return false;" runat="server" CausesValidation="false" data-bs-toggle="modal" data-bs-target="#staticBackdrop" Text="Forgot Password" />
 
-                                <script type="text/javascript" language="javascript">
-                                    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
-                                    function EndRequestHandler(sender, args) {
-                                        if (args.get_error() != undefined) {
-                                            args.set_errorHandled(true);
+
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="font-weight: bold;">Password Recovery</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+
+                                    <!--An instance for update panel-->
+                                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                    </asp:ScriptManager>
+
+                                    <script type="text/javascript" language="javascript">
+                                        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+                                        function EndRequestHandler(sender, args) {
+                                            if (args.get_error() != undefined) {
+                                                args.set_errorHandled(true);
+                                            }
                                         }
-                                    }
-                                </script>
+                                    </script>
 
-                                <asp:UpdatePanel runat="server" ID="upEmail" UpdateMode="Conditional">
-                                    <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="btnSendEmail" />
-                                    </Triggers>
-                                    <ContentTemplate>
-                                        <table class="modal-body">
-                                            <tr class="emailRecover">
-                                                <td class="tt" style="font-weight: bold;">Email:&nbsp;</td>
-                                                <td class="ti">
-                                                    <asp:TextBox CausesValidation="false" ID="txtRecoverEmail" TextMode="Email" runat="server" />
-                                                    <asp:Button CausesValidation="false" runat="server" Text="Send" ID="btnSendEmail" CssClass="border btn" Style="background-color: #ff7e29; height: inherit; color: white; font-size: 13px;" OnClick="btnSendEmail_Click" />
+                                    <asp:UpdatePanel runat="server" ID="upEmail" UpdateMode="Conditional">
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="btnSendEmail" />
+                                        </Triggers>
+                                        <ContentTemplate>
+                                            <table class="modal-body">
+                                                <tr class="emailRecover">
+                                                    <td class="tt" style="font-weight: bold;">Email:&nbsp;</td>
+                                                    <td class="ti">
+                                                        <asp:TextBox CausesValidation="false" ID="txtRecoverEmail" TextMode="Email" runat="server" />
+                                                        <asp:Button CausesValidation="false" runat="server" Text="Send" ID="btnSendEmail" CssClass="border btn" Style="background-color: #ff7e29; height: inherit; color: white; font-size: 13px;" OnClick="btnSendEmail_Click" />
 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tt"></td>
-                                                <td class="ti" style="padding: 5px 15px 5px 15px;">
-                                                    <asp:Label ID="message1" runat="server" />
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tt"></td>
+                                                    <td class="ti" style="padding: 5px 15px 5px 15px;">
+                                                        <asp:Label ID="message1" runat="server" />
+                                                    </td>
+                                                </tr>
 
-                                            <tr class="verification">
-                                                <td class="tt">
-                                                    <div style="font-weight: bold;">Verification Code:&nbsp;</div>
-                                                </td>
-                                                <td class="ti">
-                                                    <asp:TextBox CausesValidation="false" runat="server" ID="verificationCode" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tt"></td>
-                                                <td class="ti" style="padding: 5px 15px 5px 15px;">
-                                                    <asp:Label ID="message2" runat="server" />
-                                                </td>
-                                            </tr>
+                                                <tr class="verification">
+                                                    <td class="tt">
+                                                        <div style="font-weight: bold;">Verification Code:&nbsp;</div>
+                                                    </td>
+                                                    <td class="ti">
+                                                        <asp:TextBox CausesValidation="false" runat="server" ID="verificationCode" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tt"></td>
+                                                    <td class="ti" style="padding: 5px 15px 5px 15px;">
+                                                        <asp:Label ID="message2" runat="server" />
+                                                    </td>
+                                                </tr>
 
-                                        </table>
-
+                                            </table>
 
 
-                                        <div class="modal-footer">
-                                            <asp:Button Enabled="false" runat="server" CausesValidation="false" Text="Resend" CssClass="btn btn-secondary" OnClick="resendbtn_Click" ID="resendbtn" />
-                                            <asp:Button ID="recBtn" Enabled="false" OnClientClick="return ture;" runat="server" CausesValidation="false" OnClick="Unnamed_Click" Style="background-color: #ff7e29; height: inherit; color: white;" CssClass="btn" Text="Recover" />
-                                        </div>
 
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
+                                            <div class="modal-footer">
+                                                <asp:Button Enabled="false" runat="server" CausesValidation="false" Text="Resend" CssClass="btn btn-secondary" OnClick="resendbtn_Click" ID="resendbtn" />
+                                                <asp:Button ID="recBtn" Enabled="false" OnClientClick="return ture;" runat="server" CausesValidation="false" OnClick="Unnamed_Click" Style="background-color: #ff7e29; height: inherit; color: white;" CssClass="btn" Text="Recover" />
+                                            </div>
+
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="loginerr">
-                        <asp:Label Style="color: red; margin-bottom: -10px; align-items: center; display: flex; width: 100%; flex-flow: row nowrap; justify-content: right;" runat="server" ID="loginerr" />
+
+
                     </div>
                     <asp:Button OnClientClick="return true;" OnClick="login_Click" runat="server" ID="login" Text="Login" />
                 </div>

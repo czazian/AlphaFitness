@@ -32,14 +32,14 @@
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
-                                <asp:Label runat="server" ID="weight" Text="5" />&nbsp;KG</td>
+                                <asp:Label runat="server" ID="weight" />&nbsp;KG</td>
                         </tr>
                         <tr>
                             <th>Height
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
-                                <asp:Label runat="server" ID="height" Text="1000" />&nbsp;CM</td>
+                                <asp:Label runat="server" ID="height" />&nbsp;CM</td>
                         </tr>
                         <tr>
                             <th style="vertical-align: central; margin-top:5px;">Title

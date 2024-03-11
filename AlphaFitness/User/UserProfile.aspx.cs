@@ -39,6 +39,8 @@ namespace AlphaFitness.User
                     profileimg.ImageUrl = reader["Image"].ToString();
                     username.Text = reader["Name"].ToString();
                     email.Text = reader["Email"].ToString();
+                    weight.Text = reader["Weight"].ToString();
+                    height.Text = reader["Height"].ToString();
                     
                 }
             }

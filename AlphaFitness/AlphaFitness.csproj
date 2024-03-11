@@ -161,6 +161,7 @@
     <Content Include="User\EditProfile.css" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserLogin.css" />
+    <Content Include="User\UserLogin.js" />
     <Content Include="User\UserProfile.aspx" />
     <Content Include="User\UserProfile.css" />
     <Content Include="User\EditProfile.aspx" />
