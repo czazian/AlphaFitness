@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contents.Master" AutoEventWireup="true" CodeBehind="Post.aspx.cs" Inherits="AlphaFitness.Community.Post" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Contents.Master" AutoEventWireup="true" CodeBehind="Post.aspx.cs" Inherits="AlphaFitness.Community.Post" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -11,15 +11,15 @@
 
         <div class="outer">
 
-            <div class="heading"  id="target">
+            <div class="heading" id="target">
                 <div class="backBtn">
-                    <asp:LinkButton CssClass="bt" runat="server" PostBackUrl="~/Community/Community.aspx">
+                    <asp:LinkButton CausesValidation="false" CssClass="bt" runat="server" PostBackUrl="~/Community/Community.aspx">
                         <i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Back
                     </asp:LinkButton>
                 </div>
             </div>
 
-            <div class="main-title">
+            <div class="main-title" style="justify-content: left;">
                 <table style="margin-bottom: 5px;" class="lbl">
                     <tr>
                         <td class="title" style="padding-right: 10px;">
@@ -27,7 +27,7 @@
                         </td>
                         <td>
                             <b>
-                                <asp:Label runat="server" ID="lblTitle" Text="I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!I am facing a serious problem! Help!" /></b>
+                                <asp:Label Style="text-align: center; max-width: 100%; word-break: break-word;" runat="server" ID="lblTitle" /></b>
                         </td>
                     </tr>
                 </table>
@@ -39,180 +39,85 @@
             <div class="post">
                 <div class="top-community">
                     <div class="person-image">
-
-                        <asp:Image ImageUrl="~/Image/Profile/user.jpg" runat="server" ID="Image1" Width="70" Height="70" Style="border-radius: 10px;" />
+                        <asp:Image CausesValidation="false" runat="server" ID="postedUserImage" Width="70" Height="70" Style="border-radius: 10px;" />
                     </div>
                 </div>
-                <div class="middle-community">
+                <div class="middle-community" style="width: 100%;">
                     <div class="person-detail">
                         <div class="infobar">
                             <div class="person-name">
-                                Yiyang_0519
+                                <asp:Label runat="server" ID="postedUser" />
                             </div>
-                            <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
-                                <asp:Label runat="server" ID="title" Text="Sport King" />
+                            <div class="title-obtain">
+                                <asp:Image runat="server" ID="img" CssClass="titleImg" ImageUrl="~/Image/Title/2.png" />
                             </div>
                         </div>
                         <div class="person-date">
-                            Mar, 10 2024 - 9:50 p.m.
+                            <asp:Label runat="server" ID="postedDate" />
                         </div>
                     </div>
                     <div class="comment">
-                        <asp:Label runat="server" ID="comment" Text="Hey there! I've been sticking to my workout routine for a while, but I feel like I've hit a plateau. Any suggestions on how to spice things up and keep making progress? Also, any tips for staying motivated when things get a bit monotonous?" />
+                        <asp:Label runat="server" ID="comment" />
                     </div>
                     <div class="buttons">
                         <div class="like-btn">
-                            <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="numOfLikes" Text="20" />&nbsp;Likes
+                            <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="numOfLikes" />&nbsp;Likes
                         </div>
                         <div class="comment-btn">
-                            <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="numOfComments" Text="5" />&nbsp;Comments
+                            <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="numOfComments" />&nbsp;Comments
                         </div>
                     </div>
 
 
                     <!--Write comment-->
-                    <div class="write-comment">
+                    <div style="display:flex;flex-flow: column nowrap;">
+                        <div class="write-comment">
 
-                        <asp:TextBox runat="server" placeholder="Comment here..." ID="txtWrite" CssClass="write-box-inside" />
+                            <asp:TextBox runat="server" placeholder="Comment here..." ID="txtWrite" CssClass="write-box-inside" />
 
-                        <div class="submit-box">
-                            <asp:LinkButton runat="server" Style="border-radius: 50%;" ID="btnWrite" CssClass="submit-box-inside">
+                            <div class="submit-box">
+                                <asp:LinkButton OnClick="btnWrite_Click" runat="server" Style="border-radius: 50%;" ID="btnWrite" CssClass="submit-box-inside">
                                 <i class='bx bx-paper-plane'></i>
-                            </asp:LinkButton>
+                                </asp:LinkButton>
+                            </div>
+                        </div>
+                        <div style="margin-top: -5px; margin-bottom: 15px; font-size: 15px;">
+                            <asp:RequiredFieldValidator Display="Dynamic" CssClass="validator" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please do not leave comment empty." ControlToValidate="txtWrite" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-
 
 
                     <!--One comment-->
-                    <div class="bottom-community">
-                        <div class="commenter-image">
-                            <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image2" Width="58" Height="58" Style="border-radius: 10px;" />
-                        </div>
-                        <div class="commenter-container">
-                            <div class="commenter-detail">
-                                <div class="infobar-comment">
-                                    <div class="commenter-name">
-                                        AndrewYeo
+                    <asp:Repeater runat="server" ID="commentRepeater">
+                        <ItemTemplate>
+                            <div class="bottom-community">
+                                <div class="commenter-image">
+                                    <asp:ImageButton OnCommand="commenterImg_Command" CommandArgument='<%# Eval("UserID") %>' CausesValidation="false" ImageUrl='<%# Eval("ProfileImage") %>' runat="server" ID="commenterImg" Width="58" Height="58" Style="border-radius: 10px;" />
+                                </div>
+                                <div class="commenter-container">
+                                    <div class="commenter-detail">
+                                        <div class="infobar-comment">
+                                            <div class="commenter-name">
+                                                <asp:Label runat="server" Text='<%# Eval("UserName") %>' />
+                                            </div>
+                                            <div class="title-obtain">
+                                                <asp:Image runat="server" ID="img" CssClass="titleImg" ImageUrl="~/Image/Title/2.png" />
+                                            </div>
+                                        </div>
+                                        <div class="commenter-date">
+                                            <asp:Label runat="server" Text='<%# Eval("CommentTime") %>' />
+                                        </div>
                                     </div>
-                                    <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
-                                        <asp:Label runat="server" ID="Label2" Text="24 Hours Sport King" />
+                                    <div class="commenter-comment">
+                                        <asp:Label runat="server" ID="commenterComment" Text='<%# Eval("CommentContent") %>' />
                                     </div>
                                 </div>
-                                <div class="commenter-date">
-                                    Mar, 10 2024 - 9:55 p.m.
-                                </div>
                             </div>
-                            <div class="commenter-comment">
-                                <asp:Label runat="server" ID="commenterComment" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
-                            </div>
-                        </div>
-                    </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                     <!--End of tne comment-->
 
-                    <!--One comment-->
-                    <div class="bottom-community">
-                        <div class="commenter-image">
-                            <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image3" Width="58" Height="58" Style="border-radius: 10px;" />
-                        </div>
-                        <div class="commenter-container">
-                            <div class="commenter-detail">
-                                <div class="infobar-comment">
-                                    <div class="commenter-name">
-                                        AndrewYeo
-                                    </div>
-                                    <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
-                                        <asp:Label runat="server" ID="Label1" Text="24 Hours Sport King" />
-                                    </div>
-                                </div>
-                                <div class="commenter-date">
-                                    Mar, 10 2024 - 9:55 p.m.
-                                </div>
-                            </div>
-                            <div class="commenter-comment">
-                                <asp:Label runat="server" ID="Label3" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of tne comment-->
 
-                    <!--One comment-->
-                    <div class="bottom-community">
-                        <div class="commenter-image">
-                            <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image4" Width="58" Height="58" Style="border-radius: 10px;" />
-                        </div>
-                        <div class="commenter-container">
-                            <div class="commenter-detail">
-                                <div class="infobar-comment">
-                                    <div class="commenter-name">
-                                        AndrewYeo
-                                    </div>
-                                    <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
-                                        <asp:Label runat="server" ID="Label4" Text="24 Hours Sport King" />
-                                    </div>
-                                </div>
-                                <div class="commenter-date">
-                                    Mar, 10 2024 - 9:55 p.m.
-                                </div>
-                            </div>
-                            <div class="commenter-comment">
-                                <asp:Label runat="server" ID="Label5" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of tne comment-->
-
-                    <!--One comment-->
-                    <div class="bottom-community">
-                        <div class="commenter-image">
-                            <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image5" Width="58" Height="58" Style="border-radius: 10px;" />
-                        </div>
-                        <div class="commenter-container">
-                            <div class="commenter-detail">
-                                <div class="infobar-comment">
-                                    <div class="commenter-name">
-                                        AndrewYeo
-                                    </div>
-                                    <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
-                                        <asp:Label runat="server" ID="Label6" Text="24 Hours Sport King" />
-                                    </div>
-                                </div>
-                                <div class="commenter-date">
-                                    Mar, 10 2024 - 9:55 p.m.
-                                </div>
-                            </div>
-                            <div class="commenter-comment">
-                                <asp:Label runat="server" ID="Label7" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of tne comment-->
-
-                    <!--One comment-->
-                    <div class="bottom-community">
-                        <div class="commenter-image">
-                            <asp:Image ImageUrl="~/Image/Profile/user.png" runat="server" ID="Image6" Width="58" Height="58" Style="border-radius: 10px;" />
-                        </div>
-                        <div class="commenter-container">
-                            <div class="commenter-detail">
-                                <div class="infobar-comment">
-                                    <div class="commenter-name">
-                                        AndrewYeo
-                                    </div>
-                                    <div class="title-obtain" style="border: 1px solid black; background-color: gold; border-radius: 8px;">
-                                        <asp:Label runat="server" ID="Label8" Text="24 Hours Sport King" />
-                                    </div>
-                                </div>
-                                <div class="commenter-date">
-                                    Mar, 10 2024 - 9:55 p.m.
-                                </div>
-                            </div>
-                            <div class="commenter-comment">
-                                <asp:Label runat="server" ID="Label9" Text="Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!Things it yourself stupid!" />
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of tne comment-->
                 </div>
             </div>
             <!--end a post-->
@@ -221,7 +126,7 @@
 
             <!--Click this button back to top of the page-->
             <div class="toTop" id="toTop">
-                <asp:LinkButton OnClientClick="toTop() ;" ID="top" runat="server">
+                <asp:LinkButton CausesValidation="false" OnClientClick="toTop() ;" ID="top" runat="server">
             <i style="border-radius: 50px; background-color:gold; padding: 10px 12.5px 10px 12.5px; color:black; font-size: 20px;" class="fa-solid fa-arrow-up"></i>
                 </asp:LinkButton>
             </div>
@@ -240,6 +145,11 @@
 
         function toTop() {
             document.documentElement.scrollTop = 0;
+        }
+
+        //Message
+        function title() {
+            alert("You have successfully leave a comment.");
         }
 
         // Get the modal

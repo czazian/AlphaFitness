@@ -42,13 +42,20 @@
                                 <asp:Label runat="server" ID="height" />&nbsp;CM</td>
                         </tr>
                         <tr>
-                            <th style="vertical-align: central; margin-top:5px;">Title
+                            <th style="vertical-align: central; margin-top: 5px;">Title
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
                                 <div class="title-obtain">
                                     <asp:Image runat="server" ID="Image4" CssClass="titleImg" ImageUrl="~/Image/Title/5.png" />
                                 </div>
+                        </tr>
+                        <tr>
+                            <th>Date Of Join
+                                <div style="height: inherit; text-align: right;">:</div>
+                            </th>
+                            <td>
+                                <asp:Label runat="server" ID="dateJoin" />&nbsp;</td>
                         </tr>
                     </table>
                     <div class="edit-btn">

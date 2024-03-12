@@ -62,6 +62,10 @@ namespace AlphaFitness.User
             //Hash Password
             string hashedPassword = HashPassword(password2);
 
+
+            DateTime dateTime = DateTime.Now;
+            dateTime.ToString("MMMM, dd yyyy");
+
             //Store into DB
             if (password1 == password2 && password1 != "" && password2 != "" && Page.IsValid && valid == true)
             {
@@ -71,12 +75,13 @@ namespace AlphaFitness.User
 
                 conn.Open();
 
-                string query = "INSERT INTO [User] (UserName, Email, Password, ProfileImage) VALUES (@name, @email,@password, @image)";
+                string query = "INSERT INTO [User] (UserName, Email, Password, ProfileImage, DateOfJoin) VALUES (@name, @email, @password, @image, @doj)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@password", hashedPassword);
                 cmd.Parameters.AddWithValue("@image", defaultImagePath);
+                cmd.Parameters.AddWithValue("@doj", dateTime);
 
                 int i = cmd.ExecuteNonQuery();
 

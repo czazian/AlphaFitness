@@ -105,7 +105,7 @@
                     </asp:HyperLink>
                 </li>
                 <li class="log_out">
-                    <asp:LinkButton OnClick="logoutLink_Click" runat="server" ID="logoutLink">
+                    <asp:LinkButton CausesValidation="false" OnClick="logoutLink_Click" runat="server" ID="logoutLink">
                     <i class='bx bx-log-out'></i>
                     <span class="links_name">Log out</span>
                     </asp:LinkButton>

@@ -41,7 +41,11 @@ namespace AlphaFitness.User
                     email.Text = reader["Email"].ToString();
                     weight.Text = reader["Weight"].ToString();
                     height.Text = reader["Height"].ToString();
-                    
+
+                    DateTime dt = Convert.ToDateTime(reader["DateOfJoin"]);
+                    dateJoin.Text = dt.ToString("MMMM, dd yyyy");
+
+                    //
                 }
             }
             else

@@ -106,6 +106,7 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 15px;
+    width:100%;
 }
 
 .person-detail {
@@ -136,7 +137,9 @@
 
 .comment {
     line-height: 25px;
+    word-break: break-word;
     font-size: 15px;
+    max-width: 98%;
 }
 
 .commenter-name {
@@ -179,8 +182,13 @@
     font-size: 13px;
 }
 
+
+.view-more {
+    margin-top: 20px;
+}
+
 .view-more a {
-    font-size: 12px;
+    font-size: 14px;
     color: #ffbb00;
     cursor: pointer;
 }
@@ -301,4 +309,9 @@
     bottom: 15px;
     right: 15px;
     display: none;
+}
+
+
+.validator {
+    padding: 20px 0px;
 }

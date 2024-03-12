@@ -195,6 +195,7 @@
     <Content Include="Tutorial\yogaStretching.aspx" />
     <Content Include="User\ChangePassword.aspx" />
     <Content Include="User\EditProfile.css" />
+    <Content Include="User\OtherPersonProfile.aspx" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserLogin.css" />
     <Content Include="User\UserLogin.js" />
@@ -333,6 +334,13 @@
     </Compile>
     <Compile Include="User\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\OtherPersonProfile.aspx.cs">
+      <DependentUpon>OtherPersonProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\OtherPersonProfile.aspx.designer.cs">
+      <DependentUpon>OtherPersonProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserLogin.aspx.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
