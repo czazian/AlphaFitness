@@ -52,7 +52,7 @@
                         </tr>
                     </table>
                     <div class="edit-btn">
-                        <asp:Button PostBackUrl="~/Customer/EditProfile.aspx" CssClass="border btn btn-edit" runat="server" Text="Go Edit Profile" />
+                        <asp:Button PostBackUrl="~/User/EditProfile.aspx" CssClass="border btn btn-edit" runat="server" Text="Go Edit Profile" />
                     </div>
                 </fieldset>
             </div>
