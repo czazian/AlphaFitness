@@ -54,8 +54,6 @@ namespace AlphaFitness.User
             //Getting values
             string name = regName.Text;
             string email = regEmail.Text;
-            float weight = 0;
-            int height = 0;
             string password1 = pass1.Text;
             string password2 = pass2.Text;
             string defaultImagePath = "~/Image/Profile/default.jpg";
@@ -73,13 +71,11 @@ namespace AlphaFitness.User
 
                 conn.Open();
 
-                string query = "INSERT INTO [User] (UserName, Email, Password, Weight, Height, ProfileImage) VALUES (@name, @email,@password, @weight, @height, @image)";
+                string query = "INSERT INTO [User] (UserName, Email, Password, ProfileImage) VALUES (@name, @email,@password, @image)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@password", hashedPassword);
-                cmd.Parameters.AddWithValue("@weight", weight);
-                cmd.Parameters.AddWithValue("@height", height);
                 cmd.Parameters.AddWithValue("@image", defaultImagePath);
 
                 int i = cmd.ExecuteNonQuery();
