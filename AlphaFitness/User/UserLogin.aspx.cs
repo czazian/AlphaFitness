@@ -257,7 +257,7 @@ namespace AlphaFitness.User
                 }
 
                 //Redirect
-                Response.Redirect("~/User/UserProfile.aspx");
+                Response.Redirect("~/Dashboard/Dashboard.aspx");
 
             }
             else //mean error

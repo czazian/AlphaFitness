@@ -129,6 +129,7 @@
                         </div>
                         <div class="w-rightt">
                             <div class="weather-name">
+                                <asp:Label ID="temp" runat="server" />&nbsp;
                                 <asp:DropDownList AutoPostBack="true" runat="server" ID="ddlWeather" OnSelectedIndexChanged="ddlWeather_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>

@@ -195,6 +195,10 @@ namespace AlphaFitness
 
             // Access weather information
             int code = weatherData.data[0].weather.code;
+            double tempu = weatherData.data[0].temp;
+
+            temp.Text = tempu.ToString()+ "°C";
+
             System.Diagnostics.Debug.WriteLine("LIST OF ITEM : " + json);
             System.Diagnostics.Debug.WriteLine("THE WHETHER CODE : " + code);
             //Sunny
