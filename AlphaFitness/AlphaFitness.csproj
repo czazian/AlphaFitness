@@ -139,6 +139,42 @@
     <Content Include="Image\Element\web-icon.jpg" />
     <Content Include="Image\Profile\default.jpg" />
     <Content Include="Image\Profile\user.jpg" />
+    <Content Include="Image\Title\1.png" />
+    <Content Include="Image\Title\10.png" />
+    <Content Include="Image\Title\2.png" />
+    <Content Include="Image\Title\3.png" />
+    <Content Include="Image\Title\4.png" />
+    <Content Include="Image\Title\5.png" />
+    <Content Include="Image\Title\6.png" />
+    <Content Include="Image\Title\7.png" />
+    <Content Include="Image\Title\8.png" />
+    <Content Include="Image\Title\9.png" />
+    <Content Include="Image\Tutorial\bodybuilding-icon.png" />
+    <Content Include="Image\Tutorial\boxing-icon.png" />
+    <Content Include="Image\Tutorial\cardio-session-icon.png" />
+    <Content Include="Image\Tutorial\cs1.png" />
+    <Content Include="Image\Tutorial\cs10.png" />
+    <Content Include="Image\Tutorial\cs11.png" />
+    <Content Include="Image\Tutorial\cs12.png" />
+    <Content Include="Image\Tutorial\cs13.png" />
+    <Content Include="Image\Tutorial\cs14.png" />
+    <Content Include="Image\Tutorial\cs15.png" />
+    <Content Include="Image\Tutorial\cs16.png" />
+    <Content Include="Image\Tutorial\cs2.png" />
+    <Content Include="Image\Tutorial\cs3.png" />
+    <Content Include="Image\Tutorial\cs4.png" />
+    <Content Include="Image\Tutorial\cs5.png" />
+    <Content Include="Image\Tutorial\cs6.png" />
+    <Content Include="Image\Tutorial\cs7.png" />
+    <Content Include="Image\Tutorial\cs8.png" />
+    <Content Include="Image\Tutorial\cs9.png" />
+    <Content Include="Image\Tutorial\dumbbell-icon.png" />
+    <Content Include="Image\Tutorial\functional-training-icon.png" />
+    <Content Include="Image\Tutorial\supersets-icon.png" />
+    <Content Include="Image\Tutorial\weight-icon.png" />
+    <Content Include="Image\Tutorial\yoga-icon.png" />
+    <Content Include="Image\Video\fitness.mp4" />
+    <Content Include="Image\Video\poster.png" />
     <Content Include="Initial\InitialPage.aspx" />
     <Content Include="Initial\InitialPage.css" />
     <Content Include="Style\reset.css" />
@@ -322,6 +358,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contents.Master" />
+    <Content Include="Image\PDF\example1.pdf" />
+    <Content Include="Image\PDF\example2.pdf" />
+    <Content Include="Image\PDF\example3.pdf" />
+    <Content Include="Image\PDF\example4.pdf" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
