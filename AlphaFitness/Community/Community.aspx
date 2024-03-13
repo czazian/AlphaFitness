@@ -62,22 +62,21 @@
         </div>
 
 
-
-
         <!--a post-->
-        <asp:Repeater runat="server" ID="postRepeater">
+        <asp:Repeater runat="server" ID="postRepeater" OnItemDataBound="postRepeater_ItemDataBound">
             <ItemTemplate>
+                <asp:HiddenField runat="server" ID="hdnID" Value='<%# Eval("PostID") %>' />
                 <div class="post">
                     <div class="top-community">
                         <div class="person-image">
-                            <asp:ImageButton  CausesValidation="false" ID="ibProfile" OnCommand="ibProfile_Command" CommandArgument='<%# Eval("UserID") %>' ImageUrl='<%# Eval("ProfileImage") %>' runat="server" Width="70" Height="70" Style="border-radius: 10px;" />
+                            <asp:ImageButton CausesValidation="false" ID="ibProfile" OnCommand="ibProfile_Command" CommandArgument='<%# Eval("UserID") %>' ImageUrl='<%# Eval("ProfileImage") %>' runat="server" Width="70" Height="70" Style="border-radius: 10px;" />
                         </div>
                     </div>
                     <div class="middle-community">
                         <div class="person-detail">
                             <div class="infobar">
                                 <div class="person-name">
-                                    <asp:Label runat="server" Text='<%# Eval("UserName") %>'/>
+                                    <asp:Label runat="server" Text='<%# Eval("UserName") %>' />
                                 </div>
                                 <div class="title-obtain">
                                     <asp:Image runat="server" ID="img" CssClass="titleImg" ImageUrl="~/Image/Title/2.png" />
@@ -95,17 +94,17 @@
                                     </td>
                                     <td>
                                         <b>
-                                            <asp:Label Style="width:inherit" runat="server" ID="lblTitle" Text='<%# Eval("PostTitle") %>' /></b>
+                                            <asp:Label Style="width: inherit" runat="server" ID="lblTitle" Text='<%# Eval("PostTitle") %>' /></b>
                                     </td>
                                 </tr>
                             </table>
-                            <div style="width:100%;">
-                                <asp:Label runat="server" Style="width:inherit" ID="comment" Text='<%# Eval("PostContent") %>' />
+                            <div style="width: 100%;">
+                                <asp:Label runat="server" Style="width: inherit" ID="comment" Text='<%# Eval("PostContent") %>' />
                             </div>
                         </div>
                         <div class="buttons">
                             <div class="like-btn">
-                                <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="numOfLikes" Text='<%# Eval("LikedAmount") %>' />&nbsp;Likes
+                                <asp:LinkButton CausesValidation="false" OnCommand="LikeClick_Command" CommandArgument='<%# Eval("PostID") %>' ID="LikeClick" runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="numOfLikes" Text='<%# Eval("LikeCount") %>' />&nbsp;Likes
                             </div>
                             <div class="comment-btn">
                                 <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="numOfComments" Text='<%# Eval("CommentCount") %>' />&nbsp;Comments
@@ -128,8 +127,8 @@
 
         <!--Click this button back to top of the page-->
         <div class="toTop" id="toTop">
-            <button style="border:none; background-color:transparent; cursor:pointer;" onclick="toTop();" ID="top">
-                <i style="border-radius: 50px; background-color:gold; padding: 10px 12.5px 10px 12.5px; color:black; font-size: 20px;" class="fa-solid fa-arrow-up"></i>
+            <button style="border: none; background-color: transparent; cursor: pointer;" onclick="toTop();" id="top">
+                <i style="border-radius: 50px; background-color: gold; padding: 10px 12.5px 10px 12.5px; color: black; font-size: 20px;" class="fa-solid fa-arrow-up"></i>
             </button>
         </div>
 

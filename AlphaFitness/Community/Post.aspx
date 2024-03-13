@@ -61,7 +61,7 @@
                     </div>
                     <div class="buttons">
                         <div class="like-btn">
-                            <asp:LinkButton runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="numOfLikes" />&nbsp;Likes
+                            <asp:LinkButton CausesValidation="false" OnClick="LikeClick_Click" ID="LikeClick" runat="server"><i style="color:palevioletred; opacity:1.0;" class="fa-regular fa-heart"></i></asp:LinkButton>&nbsp;<asp:Label runat="server" ID="numOfLikes" />&nbsp;Likes
                         </div>
                         <div class="comment-btn">
                             <i class="fa-regular fa-comment-dots"></i>&nbsp;<asp:Label runat="server" ID="numOfComments" />&nbsp;Comments
