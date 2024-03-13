@@ -83,8 +83,8 @@ namespace AlphaFitness.Community
 
 
             //Detect the user who clicks the like button
-            //int userID = Convert.ToInt32(Session["UserID"]);
-            int userID = 1; //Testing Purpose
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; //Testing Purpose
 
             //Check if the same user click the like button
             //Processing
@@ -131,12 +131,40 @@ namespace AlphaFitness.Community
 
             numOfLikes.Text = n2.ToString();
 
+
+
+
+
+
+
+            //Check if the post owner is same as the current login user
+            SqlConnection conn1;
+            string str1 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+            conn1 = new SqlConnection(str1);
+
+            conn1.Open();
+
+            string query1 = "SELECT UserID FROM Post WHERE PostID = @pid";
+            SqlCommand cmd1 = new SqlCommand(query1, conn1);
+            cmd1.Parameters.AddWithValue("@pid", postID);
+
+            string uid = cmd1.ExecuteScalar().ToString();
+
+            if (uid == userID.ToString())
+            {
+                LikeClick.Enabled = false;
+            }
+            else
+            {
+                LikeClick.Enabled = true;
+            }
+
         }
 
         protected void btnWrite_Click(object sender, EventArgs e)
         {
-            //int userID = Convert.ToInt32(Session["UserID"]);
-            int userID = 1; //Testing Purpose
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; //Testing Purpose
 
             string postID = Request.QueryString["postID"].ToString();
 
@@ -158,9 +186,71 @@ namespace AlphaFitness.Community
 
             int i = cmd.ExecuteNonQuery();
 
-            if (i > 0) {
+            if (i > 0)
+            {
                 txtWrite.Text = "";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "title();", true);
+
+
+                //Then, add Notification to the Post Owner
+                //STEP 1 : GET CURRENT USER INFO
+                SqlConnection conn5;
+                string str5 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn5 = new SqlConnection(str5);
+                conn5.Open();
+
+                string query5 = "SELECT UserName FROM [User] u WHERE UserID = @UserID";
+                SqlCommand cmd5 = new SqlCommand(query5, conn5);
+                cmd5.Parameters.AddWithValue("@UserID", userID);
+
+                string cuName = cmd5.ExecuteScalar().ToString();
+
+
+
+                //STEP 2 : GET POST OWNER INFO
+                SqlConnection conn3;
+                string str3 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn3 = new SqlConnection(str3);
+
+                conn3.Open();
+                string query3 = "SELECT * FROM [User] u, [Post] p WHERE p.UserID = u.UserID AND p.PostID = @PostID";
+                SqlCommand cmd3 = new SqlCommand(query3, conn3);
+                cmd3.Parameters.AddWithValue("@PostID", postID);
+
+                SqlDataReader reader = cmd3.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string postOwnerID = reader["UserID"].ToString();
+                        string postTitle = reader["PostTitle"].ToString();
+
+                        if (postOwnerID != userID.ToString())
+                        {
+
+                            //STEP 3 : INSERT INTO THE POST OWNER NOTIFICATION TABLE
+                            string message = cuName + " leave a comment to your post, with title \"" + postTitle + "\".";
+                            Debug.WriteLine(message);
+
+                            SqlConnection conn4;
+                            string str4 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                            conn4 = new SqlConnection(str4);
+
+                            conn4.Open();
+                            string query4 = "INSERT INTO Notification (NotificationContent, UserID, PostURL) VALUES (@NotificationContent, @UserID, @PostURL)";
+                            SqlCommand cmd4 = new SqlCommand(query4, conn4);
+                            cmd4.Parameters.AddWithValue("@NotificationContent", message);
+                            cmd4.Parameters.AddWithValue("@UserID", postOwnerID);
+                            cmd4.Parameters.AddWithValue("@PostURL", postID);
+
+                            int n2 = cmd4.ExecuteNonQuery();
+                        }
+                    }
+                }
+                //END OF NOTIFICATION
+
+
                 Response.Redirect("~/Community/Post.aspx?postID=" + postID);
             }
         }
@@ -179,8 +269,8 @@ namespace AlphaFitness.Community
         protected void LikeClick_Click(object sender, EventArgs e)
         {
             //Detect the user who clicks the like button
-            //int userID = Convert.ToInt32(Session["UserID"]);
-            int userID = 1; //Testing Purpose
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; //Testing Purpose
 
             string postID = Request.QueryString["postID"].ToString();
 
@@ -236,6 +326,46 @@ namespace AlphaFitness.Community
                 cmd.Parameters.AddWithValue("@PostID", postID);
 
                 int i = cmd.ExecuteNonQuery();
+
+                //Then, add Notification to the Post Owner
+                //STEP 1 : GET POST OWNER INFO
+                SqlConnection conn3;
+                string str3 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn3 = new SqlConnection(str3);
+
+                conn3.Open();
+                string query3 = "SELECT * FROM [User] u, [Post] p WHERE p.UserID = u.UserID AND p.PostID = @PostID";
+                SqlCommand cmd3 = new SqlCommand(query3, conn3);
+                cmd3.Parameters.AddWithValue("@PostID", postID);
+
+                SqlDataReader reader = cmd3.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string postOwnerName = reader["UserName"].ToString();
+                        string postOwnerID = reader["UserID"].ToString();
+                        string postTitle = reader["PostTitle"].ToString();
+
+                        //STEP 2 : INSERT INTO THE POST OWNER NOTIFICATION TABLE
+                        string message = postOwnerName + " liked your post, with title \"" + postTitle + "\".";
+                        Debug.WriteLine(message);
+
+                        SqlConnection conn4;
+                        string str4 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                        conn4 = new SqlConnection(str4);
+
+                        conn4.Open();
+                        string query4 = "INSERT INTO Notification (NotificationContent, UserID, PostURL) VALUES (@NotificationContent, @UserID, @PostURL)";
+                        SqlCommand cmd4 = new SqlCommand(query4, conn4);
+                        cmd4.Parameters.AddWithValue("@NotificationContent", message);
+                        cmd4.Parameters.AddWithValue("@UserID", postOwnerID);
+                        cmd4.Parameters.AddWithValue("@PostURL", postID);
+
+                        int n2 = cmd4.ExecuteNonQuery();
+                    }
+                }
 
                 if (i > 0)
                 {

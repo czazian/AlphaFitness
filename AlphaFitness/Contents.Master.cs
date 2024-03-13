@@ -173,6 +173,34 @@ namespace AlphaFitness
                 winfo.Text = "Undefined";
             }
 
+
+
+
+            //NOTIFICATION PART
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; // For Testing Purpose
+
+            SqlConnection conn2;
+            string str2 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+            conn2 = new SqlConnection(str2);
+
+            conn2.Open();
+            string query = "SELECT * FROM NOTIFICATION WHERE UserID = @UserID";
+            SqlCommand cmd2 = new SqlCommand(query, conn2);
+            cmd2.Parameters.AddWithValue("@UserID", userID);
+
+            SqlDataReader reader = cmd2.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                REDDOT.Visible = true;
+                notiRepeater.DataSource = reader;
+                notiRepeater.DataBind();
+            } else
+            {
+                REDDOT.Visible = false;
+            }
+
         }
 
 

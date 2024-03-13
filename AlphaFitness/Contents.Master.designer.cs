@@ -87,24 +87,6 @@ namespace AlphaFitness
         protected global::System.Web.UI.WebControls.HyperLink contentLink;
 
         /// <summary>
-        /// badgeLi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl badgeLi;
-
-        /// <summary>
-        /// badgeLiink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink badgeLiink;
-
-        /// <summary>
         /// analysisLi control.
         /// </summary>
         /// <remarks>
@@ -202,6 +184,24 @@ namespace AlphaFitness
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label winfo;
+
+        /// <summary>
+        /// REDDOT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel REDDOT;
+
+        /// <summary>
+        /// notiRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater notiRepeater;
 
         /// <summary>
         /// coinAmount control.

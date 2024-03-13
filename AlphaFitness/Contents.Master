@@ -80,12 +80,6 @@
                     <span class="links_name">Tutorial</span>
                     </asp:HyperLink>
                 </li>
-                <li id="badgeLi" runat="server">
-                    <asp:HyperLink runat="server" ID="badgeLiink">
-                    <i class='bx bxs-badge-check'></i>
-                    <span class="links_name">Badge</span>
-                    </asp:HyperLink>
-                </li>
                 <li id="analysisLi" runat="server">
                     <asp:HyperLink runat="server" ID="analysisLink" NavigateUrl="~/Analysis/Analysis.aspx">
                     <i class='bx bx-pie-chart-alt-2'></i>
@@ -144,21 +138,23 @@
                     <div class="nofitication-cont">
                         <div>
                             <i onclick="openMessage()" style="cursor: pointer; position: relative; top: 0; color: black; font-size: 28px;" class="fa-regular fa-bell" id="bell"></i>
-                            <div style="position: absolute; top: 0; right: 0; border-radius: 100px; background-color: #ff2b2b; height: 11px; width: 11px;">
-                            </div>
+                            <asp:Panel runat="server" ID="REDDOT" style="position: absolute; top: 0; right: 0; border-radius: 100px; background-color: #ff2b2b; height: 11px; width: 11px;">
+                            </asp:Panel>
                         </div>
 
                         <div class="messages">
                             <ul id="dropdownMessage" tabindex="-1" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <a class="dropdown-item">This is a message</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item">This is a message</a>
-                                </li>
-                                <li style="background-color: #eae9e9">
-                                    <a class="dropdown-item">This is a message</a>
-                                </li>
+    
+                                <asp:Repeater runat="server" ID="notiRepeater">
+                                    <ItemTemplate>
+                                        <li>
+                                            <asp:HyperLink runat="server" CssClass="dropdown-item" NavigateUrl='<%# "~/Community/Post.aspx?postID=" + Eval("PostURL") %>'>
+                                                <asp:Label runat="server" Text='<%# Eval("NotificationContent") %>'></asp:Label>
+                                            </asp:HyperLink>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
                             </ul>
                         </div>
                     </div>

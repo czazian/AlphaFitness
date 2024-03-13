@@ -625,14 +625,17 @@ a {
     min-width: 150px;
     right: 5px;
     border-radius: 10px;
-    width: 250px;
-    height: 200px;
+    width: 500px;
+    height: fit-content;
     font-size: 12px;
 }
 
     .dropdown-menu li {
         border-bottom: 1px solid grey;
         padding: 10px;
+        line-height:25px;
+        max-width:100%;
+        word-break:break-word;
     }
 
         .dropdown-menu li:last-child {

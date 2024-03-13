@@ -50,8 +50,8 @@ namespace AlphaFitness.Community
         protected void submit_Click(object sender, EventArgs e)
         {
             //User who submit the post
-            //int userID = Convert.ToInt32(Session["UserID"]);
-            int userID = 1; // For Testing Purpose
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; // For Testing Purpose
 
 
             //Obtain inputs
@@ -94,10 +94,9 @@ namespace AlphaFitness.Community
 
         protected void LikeClick_Command(object sender, CommandEventArgs e)
         {
-            //int userID = Convert.ToInt32(Session["UserID"]);
-            int userID = 1; // For Testing Purpose
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; // For Testing Purpose
             string postID = e.CommandArgument.ToString();
-
 
 
             //Check if the same user click the like button
@@ -152,6 +151,59 @@ namespace AlphaFitness.Community
 
                 int i = cmd.ExecuteNonQuery();
 
+                //Then, add Notification to the Post Owner
+                //STEP 1 : GET CURRENT USER INFO
+                SqlConnection conn5;
+                string str5 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn5 = new SqlConnection(str5);
+                conn5.Open();
+
+                string query5 = "SELECT UserName FROM [User] u WHERE UserID = @UserID";
+                SqlCommand cmd5 = new SqlCommand(query5, conn5);
+                cmd5.Parameters.AddWithValue("@UserID", userID);
+
+                string cuName = cmd5.ExecuteScalar().ToString();
+
+
+                //STEP 2 : GET POST OWNER INFO
+                SqlConnection conn3;
+                string str3 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn3 = new SqlConnection(str3);
+
+                conn3.Open();
+                string query3 = "SELECT * FROM [User] u, [Post] p WHERE p.UserID = u.UserID AND p.PostID = @PostID";
+                SqlCommand cmd3 = new SqlCommand(query3, conn3);
+                cmd3.Parameters.AddWithValue("@PostID", postID);
+
+                SqlDataReader reader = cmd3.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string postOwnerID = reader["UserID"].ToString();
+                        string postTitle = reader["PostTitle"].ToString();
+
+                        //STEP 3 : INSERT INTO THE POST OWNER NOTIFICATION TABLE
+                        string message = cuName + " liked your post, with title \"" + postTitle + "\".";
+                        Debug.WriteLine(message);
+
+                        SqlConnection conn4;
+                        string str4 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                        conn4 = new SqlConnection(str4);
+
+                        conn4.Open();
+                        string query4 = "INSERT INTO Notification (NotificationContent, UserID, PostURL) VALUES (@NotificationContent, @UserID, @PostURL)";
+                        SqlCommand cmd4 = new SqlCommand(query4, conn4);
+                        cmd4.Parameters.AddWithValue("@NotificationContent", message);
+                        cmd4.Parameters.AddWithValue("@UserID", postOwnerID);
+                        cmd4.Parameters.AddWithValue("@PostURL", postID);
+
+                        int n2 = cmd4.ExecuteNonQuery();
+                    }
+                }
+                //END OF NOTIFICATION
+
                 if (i > 0)
                 {
                     Response.Redirect("~/Community/Community.aspx");
@@ -171,8 +223,8 @@ namespace AlphaFitness.Community
                 HiddenField Post = e.Item.FindControl("hdnID") as HiddenField;  //The PostID 
                 string postID = Post.Value;
 
-                //int userID = Convert.ToInt32(Session["UserID"]);
-                int userID = 1; // For Testing Purpose
+                int userID = Convert.ToInt32(Session["UserID"]);
+                //int userID = 1; // For Testing Purpose
 
 
                 //Check if the same user click the like button
@@ -192,15 +244,43 @@ namespace AlphaFitness.Community
 
                 if (n > 0)
                 {
-                    Debug.WriteLine("N = "+ n);
+                    Debug.WriteLine("N = " + n);
                     likeBtn.Text = "<i style=\"color:palevioletred; opacity:1.0;\" class=\"fa-solid fa-heart\"></i>";
-                } else
+                }
+                else
                 {
                     Debug.WriteLine("N = " + n);
                     likeBtn.Text = "<i style=\"color:palevioletred; opacity:1.0;\" class=\"fa-regular fa-heart\"></i>";
                 }
 
 
+
+
+
+
+
+
+
+                //Check if the post owner is same as the current login user
+                SqlConnection conn1;
+                string str1 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn1 = new SqlConnection(str1);
+
+                conn1.Open();
+
+                string query1 = "SELECT UserID FROM Post WHERE PostID = @pid";
+                SqlCommand cmd1 = new SqlCommand(query1, conn1);
+                cmd1.Parameters.AddWithValue("@pid", postID);
+
+                string uid = cmd1.ExecuteScalar().ToString();
+
+                if (uid == userID.ToString())
+                {
+                    likeBtn.Enabled = false;
+                } else
+                {
+                    likeBtn.Enabled = true;
+                }
 
             }
         }
