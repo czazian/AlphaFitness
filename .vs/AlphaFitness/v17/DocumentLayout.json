@@ -1,7 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\junke\\OneDrive\\Documents\\GitHub\\AlphaFitness\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\junke\\onedrive\\documents\\github\\alphafitness\\alphafitness\\user\\editprofile.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\user\\editprofile.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\junke\\onedrive\\documents\\github\\alphafitness\\alphafitness\\user\\editprofile.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\user\\editprofile.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\junke\\onedrive\\documents\\github\\alphafitness\\alphafitness\\user\\editprofile.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\user\\editprofile.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,19 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EditProfile.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\junke\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\User\\EditProfile.aspx.designer.cs",
+              "RelativeDocumentMoniker": "AlphaFitness\\User\\EditProfile.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\junke\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\User\\EditProfile.aspx.designer.cs",
+              "RelativeToolTip": "AlphaFitness\\User\\EditProfile.aspx.designer.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwA4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T14:07:39.854Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditProfile.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\junke\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\User\\EditProfile.aspx.cs",
+              "RelativeDocumentMoniker": "AlphaFitness\\User\\EditProfile.aspx.cs",
+              "ToolTip": "C:\\Users\\junke\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\User\\EditProfile.aspx.cs",
+              "RelativeToolTip": "AlphaFitness\\User\\EditProfile.aspx.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAOgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-13T14:01:01.771Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditProfile.aspx",
+              "DocumentMoniker": "C:\\Users\\junke\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\User\\EditProfile.aspx",
+              "RelativeDocumentMoniker": "AlphaFitness\\User\\EditProfile.aspx",
+              "ToolTip": "C:\\Users\\junke\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\User\\EditProfile.aspx",
+              "RelativeToolTip": "AlphaFitness\\User\\EditProfile.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-13T13:06:16.967Z",
+              "EditorCaption": ""
             }
           ]
         }
