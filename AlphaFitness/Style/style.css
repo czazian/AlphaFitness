@@ -628,6 +628,7 @@ a {
     width: 500px;
     height: fit-content;
     font-size: 12px;
+    max-height: 200px;
 }
 
     .dropdown-menu li {

@@ -91,6 +91,42 @@ namespace AlphaFitness
 
         protected void Page_Init(object sender, EventArgs e)
         {
+
+            //GET USER INFO PART
+            int userIDD = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; // For Testing Purpose
+
+
+            SqlConnection conn3;
+            string str3 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+            conn3 = new SqlConnection(str3);
+
+            conn3.Open();
+
+            string retrieve3 = "SELECT * FROM [User] WHERE UserID = @uid";
+            SqlCommand cmd3 = new SqlCommand(retrieve3, conn3);
+            cmd3.Parameters.AddWithValue("@uid", userIDD);
+
+            SqlDataReader rdr = cmd3.ExecuteReader();
+
+            if (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    topImage.ImageUrl = rdr["ProfileImage"].ToString();
+                    adminNameLabel.Text = rdr["UserName"].ToString();
+                    coinAmount.Text = rdr["CoinOwned"].ToString();
+                }
+            }
+
+            conn3.Close();
+
+
+
+
+
+
+            //WEATHER PART
             int cityid = 0;
             if (Session["CityID"] == null)
             {
@@ -200,6 +236,10 @@ namespace AlphaFitness
             {
                 REDDOT.Visible = false;
             }
+
+
+            conn.Close();
+            conn2.Close();
 
         }
 

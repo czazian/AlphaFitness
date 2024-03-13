@@ -77,7 +77,7 @@ namespace AlphaFitness.Community
 
             numOfComments.Text = commentRepeater.Items.Count.ToString();
 
-
+            conn2.Close();
 
 
 
@@ -113,7 +113,7 @@ namespace AlphaFitness.Community
             }
 
 
-
+            conn3.Close();
 
             //Check if the same user click the like button
             //Processing
@@ -131,6 +131,7 @@ namespace AlphaFitness.Community
 
             numOfLikes.Text = n2.ToString();
 
+            conn4.Close();
 
 
 
@@ -159,6 +160,7 @@ namespace AlphaFitness.Community
                 LikeClick.Enabled = true;
             }
 
+            conn1.Close();
         }
 
         protected void btnWrite_Click(object sender, EventArgs e)
@@ -248,11 +250,13 @@ namespace AlphaFitness.Community
                         }
                     }
                 }
+                conn3.Close();
                 //END OF NOTIFICATION
 
 
                 Response.Redirect("~/Community/Post.aspx?postID=" + postID);
             }
+            conn.Close();
         }
 
 
@@ -364,6 +368,8 @@ namespace AlphaFitness.Community
                         cmd4.Parameters.AddWithValue("@PostURL", postID);
 
                         int n2 = cmd4.ExecuteNonQuery();
+
+                        conn4.Close();
                     }
                 }
 
@@ -371,7 +377,9 @@ namespace AlphaFitness.Community
                 {
                     Response.Redirect("~/Community/Post.aspx?postID=" + postID);
                 }
+                conn2.Close();
             }
+            conn2.Close();
         }
     }
 }

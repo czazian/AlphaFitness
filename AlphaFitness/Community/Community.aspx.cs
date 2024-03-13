@@ -40,6 +40,7 @@ namespace AlphaFitness.Community
                 currentTime.Text = DateTime.Now.ToString("MMMM, dd yyyy");
             }
 
+            conn.Close();
         }
 
 
@@ -84,6 +85,8 @@ namespace AlphaFitness.Community
                 txtContent.Text = "";
                 Response.Redirect("~/Community/Community.aspx");
             }
+
+            conn.Close();
         }
 
         protected void ibProfile_Command(object sender, CommandEventArgs e)
@@ -134,6 +137,8 @@ namespace AlphaFitness.Community
                 {
                     Response.Redirect("~/Community/Community.aspx");
                 }
+
+                conn.Close();
             }
             else
             {
@@ -208,8 +213,11 @@ namespace AlphaFitness.Community
                 {
                     Response.Redirect("~/Community/Community.aspx");
                 }
+                conn3.Close();
+                conn.Close();
             }
 
+            conn2.Close();
         }
 
 
@@ -255,7 +263,7 @@ namespace AlphaFitness.Community
 
 
 
-
+                conn2.Close();
 
 
 
@@ -282,6 +290,7 @@ namespace AlphaFitness.Community
                     likeBtn.Enabled = true;
                 }
 
+                conn1.Close();
             }
         }
     }

@@ -164,7 +164,7 @@
                             <i class="fa-solid fa-coins" style="color: gold"></i>
                         </div>
                         <div>
-                            <asp:Label runat="server" ID="coinAmount" Text="1500" />
+                            <asp:Label runat="server" ID="coinAmount" />
                         </div>
                     </div>
                     <div class="profile-details" style="background-color: #000000; color: #FFFFFF;">
