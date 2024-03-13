@@ -11,7 +11,7 @@ namespace AlphaFitness.User
 {
 
 
-    public partial class WebForm1
+    public partial class EditProfile
     {
 
         /// <summary>
@@ -69,13 +69,13 @@ namespace AlphaFitness.User
         protected global::System.Web.UI.WebControls.Label modified1;
 
         /// <summary>
-        /// txtPhoneno control.
+        /// txtWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneno;
+        protected global::System.Web.UI.WebControls.TextBox txtWeight;
 
         /// <summary>
         /// modified2 control.
@@ -87,13 +87,13 @@ namespace AlphaFitness.User
         protected global::System.Web.UI.WebControls.Label modified2;
 
         /// <summary>
-        /// txtHomeAddress control.
+        /// txtHeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHomeAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtHeight;
 
         /// <summary>
         /// modified3 control.
@@ -103,6 +103,24 @@ namespace AlphaFitness.User
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label modified3;
+
+        /// <summary>
+        /// ddlTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTitle;
+
+        /// <summary>
+        /// modified4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label modified4;
 
         /// <summary>
         /// edit control.

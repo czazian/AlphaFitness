@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contents.Master" AutoEventWireup="true" CodeBehind="EditProfile.aspx.cs" Inherits="AlphaFitness.User.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contents.Master" AutoEventWireup="true" CodeBehind="EditProfile.aspx.cs" Inherits="AlphaFitness.User.EditProfile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="EditProfile.css" />
@@ -67,26 +67,35 @@
                                 <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtUsername" ForeColor="Red" ErrorMessage="*Please do not leave username empty." />
                             </div>
                         </div>
-                        <div class="form-floating phoneno">
-                            <asp:TextBox AutoPostBack="true" OnTextChanged="Change_TextChanged" runat="server" ID="txtPhoneno" class="form-control" placeholder="Phone No." />
-                            <label for="txtPhoneno">Phone No.</label>
+                        <div class="form-floating weight">
+                            <asp:TextBox AutoPostBack="true" OnTextChanged="Change_TextChanged" runat="server" ID="txtWeight" class="form-control" placeholder="Weight" />
+                            <label for="txtWeight">Weight</label>
                             <div class="msg">
                                 <asp:Label CssClass="lblMsg" runat="server" ID="modified2" />
-                                <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtPhoneno" ForeColor="Red" ErrorMessage="*Please do not leave phone number empty." />
+                                <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtWeight" ForeColor="Red" ErrorMessage="*Please do not leave weight empty." />
                             </div>
                         </div>
-                        <div class="form-floating address">
-                            <asp:TextBox AutoPostBack="true" OnTextChanged="Change_TextChanged" Style="height: 100px; resize: none;" TextMode="MultiLine" runat="server" ID="txtHomeAddress" class="form-control" placeholder="Home Address" />
-                            <label for="txtHomeAddress">Home Address</label>
+                        <div class="form-floating height">
+                            <asp:TextBox AutoPostBack="true" OnTextChanged="Change_TextChanged" runat="server" ID="txtHeight" class="form-control" placeholder="Height" />
+                            <label for="txtHeight">Height</label>
                             <div class="msg">
                                 <asp:Label CssClass="lblMsg" runat="server" ID="modified3" />
-                                <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtHomeAddress" ForeColor="Red" ErrorMessage="*Please do not leave home address empty." />
+                                <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtHeight" ForeColor="Red" ErrorMessage="*Please do not leave height empty." />
+                            </div>
+                        </div>
+
+                        <div class="form-floating title">
+                            <asp:DropDownList AutoPostBack="true" runat="server" ID="ddlTitle" class="form-control" />
+                            <label for="txtTitle">Title</label>
+                            <div class="msg">
+                                <asp:Label CssClass="lblMsg" runat="server" ID="modified4" />
+                                <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="ddlTitle" ForeColor="Red" ErrorMessage="*Please do not leave title empty." />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="edit-btn">
-                    <asp:Button OnClick="edit_Click" Enabled="false" ID="edit" PostBackUrl="~/Customer/EditProfile.aspx" CssClass="border btn btn-edit" runat="server" Text="Edit Profile" />
+                    <asp:Button OnClick="edit_Click" Enabled="false" ID="edit" PostBackUrl="~/User/EditProfile.aspx" CssClass="border btn btn-edit" runat="server" Text="Edit Profile" />
                 </div>
 
             </ContentTemplate>
