@@ -19,7 +19,7 @@
         <div class="contents">
             <div class="item-container group">
 
-                <asp:Repeater runat="server" ID="itemRepeater">
+                <asp:Repeater OnItemDataBound="itemRepeater_ItemDataBound" runat="server" ID="itemRepeater">
                     <ItemTemplate>
                         <!--An Item-->
                         <div class="item">
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="item-details">
                                     <div class="item-buy">
-                                        <asp:LinkButton runat="server" OnClientClick="return confirm('Are you sure you want to buy this item?')">
+                                        <asp:LinkButton CommandArgument='<%# Eval("ItemID") %>' OnCommand="btnBuy_Command" runat="server" ID="btnBuy" OnClientClick="return confirm('Are you sure you want to buy this item?')">
                                         <i class="fa-solid fa-cart-shopping"></i>&nbsp;Buy
                                         </asp:LinkButton>
                                     </div>
@@ -98,6 +98,14 @@
 
                 btnTitle2.style.borderBottom = "none";
                 btnTitle2.style.backgroundColor = "#fff1a5";
+            }
+
+            function purchased() {
+                alert("You has successfully purchased the item.");
+            }
+
+            function coinInsufficient() {
+                alert("You do not have sufficient coin to purchase this item.");
             }
 
         </script>
