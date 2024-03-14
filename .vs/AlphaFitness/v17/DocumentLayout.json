@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\contents.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\contents.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\alphafitness\\dashboard\\coinshop.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\dashboard\\coinshop.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|c:\\users\\koyas\\onedrive\\documents\\github\\alphafitness\\alphafitness\\contents.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|solutionrelative:alphafitness\\contents.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1795623E-996B-4DFD-8E0E-633F1B382F6A}|AlphaFitness\\AlphaFitness.csproj|C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\alphafitness\\dashboard\\coinshop.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -25,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,13 +41,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Contents.Master.cs",
               "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Contents.Master.cs",
               "RelativeDocumentMoniker": "AlphaFitness\\Contents.Master.cs",
               "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Contents.Master.cs",
               "RelativeToolTip": "AlphaFitness\\Contents.Master.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAcwF8AAAAWAAAA",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAmwF8AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-14T15:09:50.032Z",
               "EditorCaption": ""
@@ -75,15 +75,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CoinShop.aspx.cs",
               "DocumentMoniker": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\CoinShop.aspx.cs",
               "RelativeDocumentMoniker": "AlphaFitness\\Dashboard\\CoinShop.aspx.cs",
               "ToolTip": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\AlphaFitness\\AlphaFitness\\Dashboard\\CoinShop.aspx.cs",
               "RelativeToolTip": "AlphaFitness\\Dashboard\\CoinShop.aspx.cs",
-              "ViewState": "AQIAACMBAAAAAAAAAAAuwMEAAAA7AAAA",
+              "ViewState": "AQIAALYAAAAAAAAAAAAgwMoAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-13T15:33:15.743Z"
+              "WhenOpened": "2024-03-13T15:33:15.743Z",
+              "EditorCaption": ""
             }
           ]
         }
