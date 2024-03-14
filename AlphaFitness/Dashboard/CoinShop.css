@@ -91,10 +91,10 @@
     margin-top: auto;
     padding: 10px;
     width: 100%;
-
+    height:  150px;
 }
 
-.item-buy {
+.item-buy, .item-purchased {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -107,13 +107,13 @@
     height: 30px;
 }
 
-    .item-buy > * {
+    .item-buy > *, .item-purchased > * {
         text-decoration: none;
         width: 100%;
         align-content: center;
     }
 
-    .item-buy a {
+    .item-buy a, .item-purchased a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -129,6 +129,7 @@
             transition: font-size .1s ease-in;
             border-radius: 15px;
         }
+
 
 
 .item-price {

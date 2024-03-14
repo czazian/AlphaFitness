@@ -21,8 +21,9 @@
 
                 <asp:Repeater OnItemDataBound="itemRepeater_ItemDataBound" runat="server" ID="itemRepeater">
                     <ItemTemplate>
+                        <asp:HiddenField runat="server" ID="itemID" Value='<%# Eval("ItemID") %>' />
                         <!--An Item-->
-                        <div class="item">
+                        <asp:Panel runat="server" ID="wrapper" class="item">
                             <div class="item-image">
                                 <asp:Image runat="server" Style="border-radius: 8px;" CssClass="imgFigure" ID="img" ImageUrl='<%# Eval("Category").Equals("Title") ? Eval("ItemUrl") : "~/Image/Element/pdf.png" %>' />
                             </div>
@@ -34,14 +35,19 @@
                                     <i class='bx bx-coin' style="color: gold; margin-top: 3px;"></i>&nbsp;<asp:Label ID="lblPrice" runat="server" Text='<%# Eval("RequireCoin") + " Coins"%>'></asp:Label>
                                 </div>
                                 <div class="item-details">
-                                    <div class="item-buy">
-                                        <asp:LinkButton CommandArgument='<%# Eval("ItemID") %>' OnCommand="btnBuy_Command" runat="server" ID="btnBuy" OnClientClick="return confirm('Are you sure you want to buy this item?')">
+                                    <asp:Panel runat="server" ID="buyContainer" CssClass="item-buy">
+                                        <asp:LinkButton CommandArgument='<%# Eval("ItemID") %>' OnCommand="btnBuy_Command" runat="server" ID="btnBuy" OnClientClick="return confirm('Are you sure you want to buy this item?');refresh();">
                                         <i class="fa-solid fa-cart-shopping"></i>&nbsp;Buy
                                         </asp:LinkButton>
-                                    </div>
+                                    </asp:Panel>
+                                    <asp:Panel Visible="false" runat="server" ID="purchasedPanel" CssClass="item-purchased">
+                                        <asp:LinkButton Enabled="false" runat="server" ID="purchasedBtn">
+                                        <i class="fa-solid fa-circle-check"></i></i>&nbsp;Purchased
+                                        </asp:LinkButton>
+                                    </asp:Panel>
                                 </div>
                             </div>
-                        </div>
+                        </asp:Panel>
                     </ItemTemplate>
 
 
@@ -107,7 +113,6 @@
             function coinInsufficient() {
                 alert("You do not have sufficient coin to purchase this item.");
             }
-
         </script>
 
     </div>

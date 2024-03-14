@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,28 +16,45 @@ namespace AlphaFitness.Dashboard
 {
     public partial class CoinShop : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //Display the item
-            SqlConnection conn;
-            string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
-            conn = new SqlConnection(str);
-
-            conn.Open();
-
-            string retrieve = "SELECT ItemID, ItemName, ItemUrl, RequireCoin, Category\r\nFROM dbo.Item\r\nWHERE Category = 'Title'\r\nORDER BY\r\n    CASE\r\n        WHEN ItemID NOT IN (SELECT ItemID FROM dbo.PurchasedItem) THEN 0\r\n        ELSE 1\r\n    END,\r\n    ItemID;";
-            SqlCommand cmd = new SqlCommand(retrieve, conn);
-
-            SqlDataReader item = cmd.ExecuteReader(); //More than 1 value
-
-            if (item.HasRows)
+            if (!IsPostBack)
             {
-                itemRepeater.DataSource = item;
-                itemRepeater.DataBind();
-            }
+                string cat = Request.QueryString["cat"];
 
-            conn.Close();
+                if (cat == null || cat == "Title")
+                {
+                    cat = "Title";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "title();", true);
+                }
+                else if (cat == "PDF")
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "content();", true);
+                }
+
+                //Display the item
+                SqlConnection conn;
+                string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn = new SqlConnection(str);
+
+                conn.Open();
+
+                string retrieve = "SELECT ItemID, ItemName, ItemUrl, RequireCoin, Category\r\nFROM dbo.Item\r\nWHERE Category = @cat\r\nORDER BY\r\n    CASE\r\n        WHEN ItemID NOT IN (SELECT ItemID FROM dbo.PurchasedItem) THEN 0\r\n        ELSE 1\r\n    END,\r\n    ItemID;";
+                SqlCommand cmd = new SqlCommand(retrieve, conn);
+                cmd.Parameters.AddWithValue("@cat", cat);
+
+                SqlDataReader item = cmd.ExecuteReader(); //More than 1 value
+
+                if (item.HasRows)
+                {
+                    itemRepeater.DataSource = item;
+                    itemRepeater.DataBind();
+                }
+
+                conn.Close();
+            }
         }
 
 
@@ -65,17 +86,17 @@ namespace AlphaFitness.Dashboard
 
         protected void btnContent_Click(object sender, EventArgs e)
         {
+
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "content();", true);
 
-            //Connection Establish
+            //Display the item
             SqlConnection conn;
             string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
             conn = new SqlConnection(str);
 
             conn.Open();
 
-            //Command & Execution 
-            string retrieve = "SELECT * FROM Item WHERE Category = 'PDF'";
+            string retrieve = "SELECT ItemID, ItemName, ItemUrl, RequireCoin, Category\r\nFROM dbo.Item\r\nWHERE Category = 'PDF'";
             SqlCommand cmd = new SqlCommand(retrieve, conn);
 
             SqlDataReader item = cmd.ExecuteReader(); //More than 1 value
@@ -85,6 +106,7 @@ namespace AlphaFitness.Dashboard
                 itemRepeater.DataSource = item;
                 itemRepeater.DataBind();
             }
+
             conn.Close();
         }
 
@@ -94,10 +116,12 @@ namespace AlphaFitness.Dashboard
         protected void btnBuy_Command(object sender, CommandEventArgs e)
         {
 
-            //int userID = Convert.ToInt32(Session["UserID"]);
-            int userID = 1; //For Testing Purpose.
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; //For Testing Purpose.
+
 
             string itemID = e.CommandArgument.ToString();
+
             Debug.WriteLine("ITEM ID : " + itemID);
 
             //Get coin amount owned
@@ -173,10 +197,50 @@ namespace AlphaFitness.Dashboard
 
                 if (n1 > 0 && n2 > 0)
                 {
+                    //Show purchased message
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "purchased();", true);
-                    Response.Redirect("~/Dashboard/CoinShop.aspx");
-                }
 
+                    //Check to redirect to which page
+                    SqlConnection conn6;
+                    string str6 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                    conn6 = new SqlConnection(str6);
+
+                    conn6.Open();
+
+                    Debug.WriteLine("ItemID Buy Content = " + itemID);
+
+                    string query6 = "SELECT Category, ItemUrl, ItemName FROM Item WHERE ItemID = @iid";
+                    SqlCommand cmd6 = new SqlCommand(query6, conn6);
+                    cmd6.Parameters.AddWithValue("@iid", itemID);
+
+                    SqlDataReader rdr = cmd6.ExecuteReader();
+
+                    string cat = "";
+                    string url = "";
+                    string itemName = "";
+                    while (rdr.Read())
+                    {
+                        cat = rdr["Category"].ToString();
+                        url = rdr["ItemUrl"].ToString();
+                        itemName = rdr["ItemName"].ToString();
+                    }
+
+                    if (cat == "Title")
+                    {
+                        Response.Redirect("~/Dashboard/CoinShop.aspx?cat=Title");
+                    }
+                    else if(cat == "PDF")
+                    {
+
+                        string redirect = "<script>window.open('"+ ResolveUrl(url) +"'); window.location.href='"+ ResolveUrl("~/Dashboard/CoinShop.aspx?cat=PDF") +"'</script>";
+                        Response.Write(redirect);
+
+                        //Response.Redirect("~/Dashboard/CoinShop.aspx?cat=PDF");
+
+                        //downloadFile(url, itemName);
+                    }
+                    conn6.Close();
+                }
                 conn.Close();
                 conn4.Close();
 
@@ -189,15 +253,68 @@ namespace AlphaFitness.Dashboard
         }
 
 
-        //TO BE CONTINUED -> MAKE THE PURCHASED ITEM GRAY OUT + MAKE THE PDF PURCHASABLE
+        //protected void downloadFile(string url, string ItemName)
+        //{
+        //    if (!string.IsNullOrEmpty(url))
+        //    {
+
+        //        string filePath = Server.MapPath(url);
+
+        //        // Check if the file exists
+        //        if (File.Exists(filePath))
+        //        {
+        //            // Set the content type and header
+        //            Response.ContentType = "application/pdf";
+        //            Response.AppendHeader("Content-Disposition", "attachment; filename=" + ItemName + ".pdf");
+
+        //            // Write the file content to the response stream
+        //            Response.TransmitFile(filePath);
+        //            Response.Flush();
+        //        }
+        //    }
+        //}
+
+
+
         protected void itemRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            int userID = Convert.ToInt32(Session["UserID"]);
+            //int userID = 1; //For Testing Purpose.
+
             //Have to compare the Item in DB -> PurchasedItem in DB
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
+                Panel panel = e.Item.FindControl("wrapper") as Panel;
+                LinkButton btn = e.Item.FindControl("btnBuy") as LinkButton;
+                HiddenField itemIDHiddenField = e.Item.FindControl("itemID") as HiddenField;
+                Panel panelBuy = e.Item.FindControl("buyContainer") as Panel;
+                Panel panelPurchased = e.Item.FindControl("purchasedPanel") as Panel;
+                string itemID = itemIDHiddenField.Value;
 
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT p.ItemID, i.Category FROM PurchasedItem p, Item i WHERE p.ItemID = i.ItemID AND UserID = @userID", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@userID", userID);
+                        SqlDataReader reader1 = cmd.ExecuteReader();
+
+                        while (reader1.Read())
+                        {
+                            if (itemID == reader1["ItemID"].ToString() && reader1["Category"].ToString() == "Title")
+                            {
+                                panel.Style.Add("opacity", "0.3");
+                                btn.Enabled = false;
+                                btn.Visible = false;
+                                panelBuy.Visible = false;
+                                panelPurchased.Visible = true;
+                            } 
+                        }
+
+                    }
+                    conn.Close();
+                }
             }
         }
-
     }
 }
