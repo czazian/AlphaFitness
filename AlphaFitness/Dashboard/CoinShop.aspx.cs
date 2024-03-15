@@ -98,8 +98,9 @@ namespace AlphaFitness.Dashboard
 
             conn.Open();
 
-            string retrieve = "SELECT ItemID, ItemName, ItemUrl, RequireCoin, Category\r\nFROM dbo.Item\r\nWHERE Category = 'PDF'";
+            string retrieve = "SELECT ItemID, ItemName, ItemUrl, RequireCoin, Category\r\nFROM dbo.Item\r\nWHERE Category = 'PDF' \r\nORDER BY\r\n    CASE\r\n        WHEN ItemID NOT IN (SELECT ItemID FROM dbo.PurchasedItem WHERE UserID = @userID) THEN 0\r\n        ELSE 1\r\n    END,\r\n    ItemID;";
             SqlCommand cmd = new SqlCommand(retrieve, conn);
+            cmd.Parameters.AddWithValue("@userID", Session["UserID"].ToString());
 
             SqlDataReader item = cmd.ExecuteReader(); //More than 1 value
 
