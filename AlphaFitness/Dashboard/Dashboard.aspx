@@ -14,7 +14,7 @@
             <div class="top-right">
                 <div class="dayButtons">
                     <div class="week-no">
-                        Week&nbsp;<asp:Label runat="server" ID="weekNo" Text="2" />
+                        Week&nbsp;<asp:Label runat="server" ID="weekNo" />
                     </div>
                 </div>
                 <div class="days">
@@ -56,7 +56,7 @@
                             <div class="m-icon">
                                 <i class='i bx bx-run'></i>
                             </div>
-                            <asp:LinkButton runat="server" CssClass="doneBtn">
+                            <asp:LinkButton runat="server"  OnClientClick="return confirm('Are you sure you have done?');" CssClass="doneBtn" ID="runDone" OnClick="runDone_Click">
                             <i class='bx bx-check'></i>
                             </asp:LinkButton>
                         </div>
@@ -74,7 +74,7 @@
                             <div class="m-icon">
                                 <i class="fa-regular fa-heart"></i>
                             </div>
-                            <asp:LinkButton runat="server" CssClass="doneBtn">
+                            <asp:LinkButton OnClientClick="return confirm('Are you sure you have done?');" runat="server" CssClass="doneBtn" ID="mediDone" OnClick="mediDone_Click">
                             <i class='bx bx-check'></i>
                             </asp:LinkButton>
                         </div>
@@ -113,7 +113,7 @@
                         <div class="m-mid">
                             <p class="m-title">All Complete</p>
                             <p class="m-description">
-                                <asp:Label runat="server" ID="completedMission" Text="1" />/4 Missions
+                                <asp:Label runat="server" ID="completedMission" Text="0" />/3 Missions
                             </p>
                         </div>
                         <div class="m-bottom">
@@ -159,10 +159,18 @@
                     <table>
                         <tr>
                             <td>
-                                <label for="txtCarbo">Calories Consumed (cal)</label>
+                                <label for="txtWeight">Weight (KG)</label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="TextBox1" class="form-control" />
+                                <asp:TextBox runat="server" ID="txtWeight" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="txtHeight">Height (CM)</label>
+                            </td>
+                            <td>
+                                <asp:TextBox runat="server" ID="txtHeight" class="form-control" />
                             </td>
                         </tr>
                         <tr>
@@ -170,15 +178,15 @@
                                 <label for="txtCarbo">Carbo (g)</label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="TextBox2" class="form-control" />
+                                <asp:TextBox runat="server" ID="txtCarbo" class="form-control" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for="txtHeart">Heart Rate (bpm)</label>
+                                <label for="txtHeartRate">Heart Rate (bpm)</label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="TextBox3" class="form-control" />
+                                <asp:TextBox runat="server" ID="txtHeartRate" class="form-control" />
                             </td>
                         </tr>
                         <tr>
@@ -186,7 +194,7 @@
                                 <label for="txtWater">Water Drink (ml)</label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="TextBox4" class="form-control" />
+                                <asp:TextBox runat="server" ID="txtWater" class="form-control" />
                             </td>
                         </tr>
                         <tr>
@@ -194,13 +202,13 @@
                                 <label for="txtExercise">Time Exercised (minutes)</label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="TextBox5" class="form-control" />
+                                <asp:TextBox runat="server" ID="txtExercise" class="form-control" />
                             </td>
                         </tr>
                     </table>
                     <div class="btn-group">
                         <asp:LinkButton CssClass="btb" runat="server" ID="lbnClear">
-                            Remove&nbsp;<i class="fa-solid fa-trash"></i>
+                            Clear All&nbsp;<i class="fa-solid fa-trash"></i>
                         </asp:LinkButton>
                         <asp:LinkButton CssClass="btb" runat="server" ID="lbnSubmit">
                             Submit&nbsp;<i class="fa-solid fa-circle-check"></i>

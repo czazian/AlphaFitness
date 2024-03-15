@@ -92,9 +92,9 @@ namespace AlphaFitness
         protected void Page_Init(object sender, EventArgs e)
         {
 
-            //GET USER INFO PART
-            int userIDD = Convert.ToInt32(Session["UserID"]);
-            //int userIDD = 1; // For Testing Purpose
+            //GET USER INFO PART -> 2 In Master
+            //int userIDD = Convert.ToInt32(Session["UserID"]);
+            int userIDD = 1; // For Testing Purpose
 
 
             SqlConnection conn3;
@@ -213,8 +213,8 @@ namespace AlphaFitness
 
 
             //NOTIFICATION PART
-            int userID = Convert.ToInt32(Session["UserID"]);
-            //int userID = 1; // For Testing Purpose
+            //int userID = Convert.ToInt32(Session["UserID"]);
+            int userID = 1; // For Testing Purpose
 
             SqlConnection conn2;
             string str2 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;

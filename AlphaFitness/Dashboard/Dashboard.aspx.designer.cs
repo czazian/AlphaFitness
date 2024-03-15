@@ -105,6 +105,15 @@ namespace AlphaFitness.Dashboard
         protected global::System.Web.UI.WebControls.Panel m1;
 
         /// <summary>
+        /// runDone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton runDone;
+
+        /// <summary>
         /// m3 control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace AlphaFitness.Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel m3;
+
+        /// <summary>
+        /// mediDone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton mediDone;
 
         /// <summary>
         /// m2 control.
@@ -150,49 +168,58 @@ namespace AlphaFitness.Dashboard
         protected global::System.Web.UI.WebControls.Label caloriesValue;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtWeight;
 
         /// <summary>
-        /// TextBox2 control.
+        /// txtHeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtHeight;
 
         /// <summary>
-        /// TextBox3 control.
+        /// txtCarbo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtCarbo;
 
         /// <summary>
-        /// TextBox4 control.
+        /// txtHeartRate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtHeartRate;
 
         /// <summary>
-        /// TextBox5 control.
+        /// txtWater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox txtWater;
+
+        /// <summary>
+        /// txtExercise control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExercise;
 
         /// <summary>
         /// lbnClear control.

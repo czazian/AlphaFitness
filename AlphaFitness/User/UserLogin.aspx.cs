@@ -75,13 +75,14 @@ namespace AlphaFitness.User
 
                 conn.Open();
 
-                string query = "INSERT INTO [User] (UserName, Email, Password, ProfileImage, DateOfJoin) VALUES (@name, @email, @password, @image, @doj)";
+                string query = "INSERT INTO [User] (UserName, Email, Password, ProfileImage, DateOfJoin, DateNow) VALUES (@name, @email, @password, @image, @doj, @dn)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@password", hashedPassword);
                 cmd.Parameters.AddWithValue("@image", defaultImagePath);
                 cmd.Parameters.AddWithValue("@doj", dateTime);
+                cmd.Parameters.AddWithValue("@dn", dateTime);
 
                 int i = cmd.ExecuteNonQuery();
 
