@@ -35,16 +35,27 @@
                                     <i class='bx bx-coin' style="color: gold; margin-top: 3px;"></i>&nbsp;<asp:Label ID="lblPrice" runat="server" Text='<%# Eval("RequireCoin") + " Coins"%>'></asp:Label>
                                 </div>
                                 <div class="item-details">
+
                                     <asp:Panel runat="server" ID="buyContainer" CssClass="item-buy">
                                         <asp:LinkButton CommandArgument='<%# Eval("ItemID") %>' OnCommand="btnBuy_Command" runat="server" ID="btnBuy" OnClientClick="return confirm('Are you sure you want to buy this item?');refresh();">
                                         <i class="fa-solid fa-cart-shopping"></i>&nbsp;Buy
                                         </asp:LinkButton>
                                     </asp:Panel>
+
                                     <asp:Panel Visible="false" runat="server" ID="purchasedPanel" CssClass="item-purchased">
                                         <asp:LinkButton Enabled="false" runat="server" ID="purchasedBtn">
                                         <i class="fa-solid fa-circle-check"></i></i>&nbsp;Purchased
                                         </asp:LinkButton>
                                     </asp:Panel>
+                                    
+
+                                    <!--For PDF Download(Already purchased)-->
+                                    <asp:Panel Visible="false" runat="server" ID="PDFDownload" CssClass="item-purchased">
+                                        <asp:LinkButton OnCommand="downloadBtn_Command" CommandArgument='<%# Eval("ItemUrl") %>' runat="server" ID="downloadBtn">
+                                        <i class="fa-solid fa-file-arrow-down"></i>&nbsp;Download
+                                        </asp:LinkButton>
+                                    </asp:Panel>
+
                                 </div>
                             </div>
                         </asp:Panel>
