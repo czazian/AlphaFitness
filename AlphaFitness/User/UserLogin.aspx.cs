@@ -260,6 +260,44 @@ namespace AlphaFitness.User
                 {
                     //Session
                     Session["UserID"] = reader["UserID"].ToString();
+
+
+
+                    //Check if user does not have any day -> If yes, add the first day
+                    using (SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+                    {
+                        conn2.Open();
+                        using (SqlCommand cmd2 = new SqlCommand("SELECT Count(*) FROM [Day] WHERE UserID = @userID", conn2))
+                        {
+                            cmd2.Parameters.AddWithValue("@userID", Session["UserID"]);
+
+                            int n = Convert.ToInt32(cmd2.ExecuteScalar());
+
+                            conn2.Close();
+
+                            if (n == 0) //Means the user is new to this app
+                            {
+                                using (SqlConnection conn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+                                {
+                                    conn3.Open();
+                                    using (SqlCommand ccmd = new SqlCommand("INSERT INTO Day (DayNo, UserID) VALUES (1, @userID)" + " SELECT SCOPE_IDENTITY()" , conn3))
+                                    {
+                                        ccmd.Parameters.AddWithValue("@userID", Session["UserID"]);
+
+                                        string insertedDayID = Convert.ToString(ccmd.ExecuteScalar());
+
+                                        Response.Redirect("~/User/CreateFirstEvent.aspx?dayID=" + insertedDayID);
+                                    }
+                                    conn3.Close();
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+
                 }
 
                 //Redirect
@@ -270,6 +308,11 @@ namespace AlphaFitness.User
             {
                 loginerr.Text = "*Email or Password wrong, please try again.";
             }
+
+
+
+
+
         }
 
         //Verification Code Processing

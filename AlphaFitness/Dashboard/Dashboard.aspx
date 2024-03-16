@@ -56,7 +56,7 @@
                             <div class="m-icon">
                                 <i class='i bx bx-run'></i>
                             </div>
-                            <asp:LinkButton runat="server"  OnClientClick="return confirm('Are you sure you have done?');" CssClass="doneBtn" ID="runDone" OnClick="runDone_Click">
+                            <asp:LinkButton runat="server" OnClientClick="return confirm('Are you sure you have done?');" CssClass="doneBtn" ID="runDone" OnClick="runDone_Click">
                             <i class='bx bx-check'></i>
                             </asp:LinkButton>
                         </div>
@@ -155,70 +155,118 @@
                 <div class="box-title">
                     Wellness Tracker
                 </div>
-                <div class="right-content">
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="txtWeight">Weight (KG)</label>
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtWeight" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="txtHeight">Height (CM)</label>
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtHeight" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="txtCarbo">Carbo (g)</label>
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtCarbo" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="txtHeartRate">Heart Rate (bpm)</label>
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtHeartRate" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="txtWater">Water Drink (ml)</label>
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtWater" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="txtExercise">Time Exercised (minutes)</label>
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtExercise" class="form-control" />
-                            </td>
-                        </tr>
-                    </table>
-                    <div class="btn-group">
-                        <asp:LinkButton CssClass="btb" runat="server" ID="lbnClear">
+
+                <!--An instance for update panel-->
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+
+                <script type="text/javascript" language="javascript">
+                    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+                    function EndRequestHandler(sender, args) {
+                        if (args.get_error() != undefined) {
+                            args.set_errorHandled(true);
+                        }
+                    }
+                </script>
+
+                <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="lbnClear" />
+                        <asp:AsyncPostBackTrigger ControlID="lbnSubmit" />
+                    </Triggers>
+                    <ContentTemplate>
+
+                        <div class="right-content">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="txtWeight">Weight (KG)</label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox placeholder="Example : 50" runat="server" ID="txtWeight" class="form-control" /><br />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Double" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtWeight" />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Integer" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtWeight" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="txtHeight">Height (CM)</label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox runat="server" placeholder="Example : 170" ID="txtHeight" class="form-control" /><br />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Integer" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtHeight" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="txtCarbo">Carbo (g)</label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox placeholder="Example : 123.00" runat="server" ID="txtCarbo" class="form-control" /><br />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Double" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtCarbo" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="txtHeartRate">Heart Rate (bpm)</label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox placeholder="Example : 110" runat="server" ID="txtHeartRate" class="form-control" /><br />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Double" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtHeartRate" />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Integer" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtHeartRate" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="txtWater">Water Drink (ml)</label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox placeholder="Example : 500" runat="server" ID="txtWater" class="form-control" /><br />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Double" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtWater" />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Integer" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtWater" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="txtExercise">Time Exercised (minutes)</label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox placeholder="Example : 60" runat="server" ID="txtExercise" class="form-control" /><br />
+                                        <asp:CompareValidator Display="Dynamic" Operator="DataTypeCheck" Type="Integer" runat="server" ErrorMessage="Please enter the correct value." ForeColor="red" ControlToValidate="txtExercise" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="btn-group">
+                                <asp:LinkButton CausesValidation="false" OnClick="lbnClear_Click" CssClass="btb" runat="server" ID="lbnClear">
                             Clear All&nbsp;<i class="fa-solid fa-trash"></i>
-                        </asp:LinkButton>
-                        <asp:LinkButton CssClass="btb" runat="server" ID="lbnSubmit">
+                                </asp:LinkButton>
+                                <asp:LinkButton OnClick="lbnSubmit_Click" CssClass="btb" runat="server" ID="lbnSubmit">
                             Submit&nbsp;<i class="fa-solid fa-circle-check"></i>
-                        </asp:LinkButton>
-                    </div>
+                                </asp:LinkButton>
+                            </div>
+
+
+                            <div style="color: red; margin-top:10px; line-height: 20px; text-align: center;">
+                                <asp:Label Style="margin: 20px 0px;" runat="server" ID="atleastOne" Visible="false" />
+                            </div>
+                        </div>
+
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                <div style="color: red; line-height: 20px; text-align: center;">
+                    *When submitting the form, any empty input fields will be assumed to have a value of 0.*
                 </div>
+
             </div>
         </div>
 
 
     </div>
 
+    <script>
+        function insertSuccessful() {
+            alert("Body metrics successfully inserted!");
+        }
+    </script>
 </asp:Content>

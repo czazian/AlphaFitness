@@ -194,6 +194,7 @@
     <Content Include="Tutorial\weightLossTraining.aspx" />
     <Content Include="Tutorial\yogaStretching.aspx" />
     <Content Include="User\ChangePassword.aspx" />
+    <Content Include="User\CreateFirstEvent.aspx" />
     <Content Include="User\EditProfile.css" />
     <Content Include="User\OtherPersonProfile.aspx" />
     <Content Include="User\UserLogin.aspx" />
@@ -334,6 +335,13 @@
     </Compile>
     <Compile Include="User\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CreateFirstEvent.aspx.cs">
+      <DependentUpon>CreateFirstEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CreateFirstEvent.aspx.designer.cs">
+      <DependentUpon>CreateFirstEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\OtherPersonProfile.aspx.cs">
       <DependentUpon>OtherPersonProfile.aspx</DependentUpon>
