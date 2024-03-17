@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -81,6 +82,15 @@ namespace AlphaFitness.Analysis
 
             conn2.Close();
 
+
+            //RecommendFood Section
+            String showRecommendFood = "SELECT * FROM [RecommendFood]";
+
+            //bind to a data source
+            SqlDataSource1.SelectCommand = showRecommendFood;
+            SqlDataSource1.DataBind();
+            Repeater1.DataBind();
+
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
             {
                 //get today body metric data
@@ -109,28 +119,50 @@ namespace AlphaFitness.Analysis
                         if (string.IsNullOrEmpty(calories.Text))
                         {
                             calories.Text = defaultValue.ToString();
+                            caloriesData.Value = defaultValue.ToString();
+                        }
+                        else {
+                            caloriesData.Value = reader2["Calories"].ToString();
                         }
 
                         if (string.IsNullOrEmpty(carbo.Text))
                         {
                             carbo.Text = defaultValue.ToString();
+                            carboData.Value = defaultValue.ToString();
+                        }
+                        else {
+                            carboData.Value = reader2["Carbo"].ToString();
                         }
 
                         if (string.IsNullOrEmpty(heart.Text))
                         {
                             heart.Text = defaultValue.ToString();
+                            heartData.Value = defaultValue.ToString();
+                        }
+                        else
+                        {
+                            heartData.Value = reader2["HeartRate"].ToString();
                         }
 
                         if (string.IsNullOrEmpty(water.Text))
                         {
                             water.Text = defaultValue.ToString();
+                            waterData.Value = defaultValue.ToString();
+                        }
+                        else
+                        {
+                            waterData.Value = reader2["Water"].ToString();
                         }
 
                         if (string.IsNullOrEmpty(exercise.Text))
                         {
                             exercise.Text = defaultValue.ToString();
+                            exerciseData.Value = defaultValue.ToString();
                         }
-
+                        else
+                        {
+                            exerciseData.Value = reader2["Exercised"].ToString();
+                        }
                     }
                 }
                 else

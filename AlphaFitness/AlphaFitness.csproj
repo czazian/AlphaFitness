@@ -118,7 +118,6 @@
     <Content Include="Analysis\Analysis.css" />
     <Content Include="Analysis\CaloriesGraph.js" />
     <Content Include="Analysis\HeartRate.js" />
-    <Content Include="Analysis\ReportPieChart.js" />
     <Content Include="Analysis\WeightLoss.js" />
     <Content Include="App_Data\AlphaFitness.mdf" />
     <Content Include="App_Data\AlphaFitness_log.ldf">
