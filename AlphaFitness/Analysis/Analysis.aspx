@@ -10,7 +10,7 @@
 
         <div class="sales-boxes">
             <div class="recent-sales box">
-                <div class="title">Welcome back xxxxxx!</div>
+                <div class="title">Welcome back <asp:Label runat="server" ID="username" /> !</div>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                 <div class="right-side">
                     <div class="box-topic">Calories tracker</div>
                     <div class="indicator">
-                        <span id="ContentPlaceHolder1_lblCaloriesT">0</span>
+                        <span id="ContentPlaceHolder1_lblCaloriesT"><asp:Label ID="calories" runat="server" Text="0"></asp:Label></span>
                         &nbsp cal
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="right-side">
                     <div class="box-topic">Carbo tracker</div>
                     <div class="indicator">
-                        <span id="ContentPlaceHolder1_lblCarboT">0</span>
+                        <span id="ContentPlaceHolder1_lblCarboT"><asp:Label ID="carbo" runat="server" Text="0"></asp:Label></span>
                         &nbsp car
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="right-side">
                     <div class="box-topic">Heart tracker</div>
                     <div class="indicator">
-                        <span id="ContentPlaceHolder1_lblHeartT">0</span>
+                        <span id="ContentPlaceHolder1_lblHeartT"><asp:Label ID="heart" runat="server" Text="0"></asp:Label></span>
                         &nbsp bpm
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="right-side">
                     <div class="box-topic">Water tracker</div>
                     <div class="indicator">
-                        <span id="ContentPlaceHolder1_lblWaterT">0</span>
+                        <span id="ContentPlaceHolder1_lblWaterT"><asp:Label ID="water" runat="server" Text="0"></asp:Label></span>
                         &nbsp oz
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <div class="right-side">
                     <div class="box-topic">Exercise tracker</div>
                     <div class="indicator">
-                        <span id="ContentPlaceHolder1_lblExerciseT">0</span>
+                        <span id="ContentPlaceHolder1_lblExerciseT"><asp:Label ID="exercise" runat="server" Text="0"></asp:Label></span>
                         &nbsp min
                     </div>
                 </div>
