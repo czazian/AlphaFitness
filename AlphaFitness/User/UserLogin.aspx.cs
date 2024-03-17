@@ -149,7 +149,7 @@ namespace AlphaFitness.User
         {
             //Getting user id with email 
             SqlConnection conn;
-            string str = ConfigurationManager.ConnectionStrings["ApexOnlineShopDb"].ConnectionString;
+            string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
             conn = new SqlConnection(str);
 
             conn.Open();

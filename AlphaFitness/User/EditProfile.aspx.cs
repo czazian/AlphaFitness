@@ -15,7 +15,7 @@ namespace AlphaFitness.User
         {
             ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "run();", true);
 
-            string customerID = Session["UserID"].ToString();
+            string userID = Session["UserID"].ToString();
 
             SqlConnection conn;
             string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
@@ -24,7 +24,7 @@ namespace AlphaFitness.User
             conn.Open();
             string query = "SELECT * FROM [User] WHERE UserID = @id";
             SqlCommand command = new SqlCommand(query, conn);
-            command.Parameters.AddWithValue("@id", customerID);
+            command.Parameters.AddWithValue("@id", userID);
 
             SqlDataReader reader = command.ExecuteReader();
 
@@ -32,10 +32,11 @@ namespace AlphaFitness.User
             {
                 while (reader.Read())
                 {
-                    profileimg.ImageUrl = reader["Image"].ToString();
-                    txtUsername.Text = reader["Name"].ToString();
-                    txtWeight.Text = reader["PhoneNo"].ToString();
-                    txtHeight.Text = reader["Address"].ToString();
+                    profileimg.ImageUrl = reader["ProfileImage"].ToString();
+                    txtUsername.Text = reader["UserName"].ToString();
+                    txtWeight.Text = reader["Weight"].ToString();
+                    txtHeight.Text = reader["Height"].ToString();
+                    
                 }
             }
 
@@ -44,18 +45,18 @@ namespace AlphaFitness.User
         protected void Delete_Click(object sender, EventArgs e)
         {
 
-            string customerID = Session["CustomerID"].ToString();
+            string userID = Session["UserID"].ToString();
 
             //Update to db here
             SqlConnection conn;
-            string str = ConfigurationManager.ConnectionStrings["ApexOnlineShopDb"].ConnectionString;
+            string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
             conn = new SqlConnection(str);
 
             conn.Open();
-            string query = "UPDATE Customer SET Image = @img WHERE CustomerID = @id";
+            string query = "UPDATE [User] SET ProfileImage = @img WHERE UserID = @id";
             SqlCommand command = new SqlCommand(query, conn);
             command.Parameters.AddWithValue("@img", "~/Image/Profile/default.jpg");
-            command.Parameters.AddWithValue("@id", customerID);
+            command.Parameters.AddWithValue("@id", userID);
 
             int n = command.ExecuteNonQuery();
 
@@ -82,7 +83,7 @@ namespace AlphaFitness.User
             {
                 try
                 {
-                    string customerID = Session["CustomerID"].ToString();
+                    string userID = Session["UserID"].ToString();
                     //Saving file to destination
                     string filename = FileUpload1.FileName;
                     string path = Server.MapPath("~/Image/Profile/");
@@ -93,14 +94,14 @@ namespace AlphaFitness.User
 
                     //Update to db here
                     SqlConnection conn;
-                    string str = ConfigurationManager.ConnectionStrings["ApexOnlineShopDb"].ConnectionString;
+                    string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
                     conn = new SqlConnection(str);
 
                     conn.Open();
-                    string query = "UPDATE Customer SET Image = @img WHERE CustomerID = @id";
+                    string query = "UPDATE [User] SET ProfileImage = @img WHERE UserID = @id";
                     SqlCommand command = new SqlCommand(query, conn);
                     command.Parameters.AddWithValue("@img", "~/Image/Profile/" + filename);
-                    command.Parameters.AddWithValue("@id", customerID);
+                    command.Parameters.AddWithValue("@id", userID);
 
                     int n = command.ExecuteNonQuery();
 
@@ -129,8 +130,8 @@ namespace AlphaFitness.User
 
         protected void goLogout_Click(object sender, EventArgs e)
         {
-            Session.Remove("CustomerID");
-            Response.Redirect("~/Customer/Home.aspx");
+            Session.Remove("UserID");
+            Response.Redirect("~/User/UserLogin.aspx");
         }
 
         protected void Change_TextChanged(object sender, EventArgs e)
@@ -139,19 +140,19 @@ namespace AlphaFitness.User
             edit.Enabled = true;
 
             //Processing
-            string customerID = Session["CustomerID"].ToString();
+            string userID = Session["UserID"].ToString();
             string oriName = "";
-            string oriPhone = "";
-            string oriAddress = "";
+            string oriWeight = "";
+            string oriHeight = "";
 
             SqlConnection conn;
-            string str = ConfigurationManager.ConnectionStrings["ApexOnlineShopDb"].ConnectionString;
+            string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
             conn = new SqlConnection(str);
 
             conn.Open();
-            string query = "SELECT * FROM Customer WHERE CustomerID = @id";
+            string query = "SELECT * FROM [User] WHERE UserrID = @id";
             SqlCommand command = new SqlCommand(query, conn);
-            command.Parameters.AddWithValue("@id", customerID);
+            command.Parameters.AddWithValue("@id", userID);
 
             SqlDataReader reader = command.ExecuteReader();
 
@@ -159,9 +160,9 @@ namespace AlphaFitness.User
             {
                 while (reader.Read())
                 {
-                    oriName = reader["Name"].ToString();
-                    oriPhone = reader["PhoneNo"].ToString();
-                    oriAddress = reader["Address"].ToString();
+                    oriName = reader["UserName"].ToString();
+                    oriWeight = reader["Weight"].ToString();
+                    oriHeight = reader["Height"].ToString();
                 }
 
                 if (oriName != txtUsername.Text)
@@ -173,7 +174,7 @@ namespace AlphaFitness.User
                     modified1.Text = "";
                 }
 
-                if (oriPhone != txtWeight.Text)
+                if (oriWeight != txtWeight.Text)
                 {
                     modified2.Text = " - Modified";
                 }
@@ -182,7 +183,7 @@ namespace AlphaFitness.User
                     modified2.Text = "";
                 }
 
-                if (oriAddress != txtHeight.Text)
+                if (oriHeight != txtHeight.Text)
                 {
                     modified3.Text = " - Modified";
                 }
@@ -194,21 +195,26 @@ namespace AlphaFitness.User
 
         }
 
+        protected void Change_IndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         protected void edit_Click(object sender, EventArgs e)
         {
-            string customerID = Session["CustomerID"].ToString();
+            string userID = Session["UserID"].ToString();
 
             SqlConnection conn;
-            string str = ConfigurationManager.ConnectionStrings["ApexOnlineShopDb"].ConnectionString;
+            string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
             conn = new SqlConnection(str);
 
             conn.Open();
-            string query = "UPDATE Customer SET Name = @name, PhoneNo = @phone, Address = @address WHERE CustomerID = @id";
+            string query = "UPDATE [User] SET UserName = @name, Weight = @weight, Height = @height WHERE UserID = @id";
             SqlCommand command = new SqlCommand(query, conn);
             command.Parameters.AddWithValue("@name", txtUsername.Text);
-            command.Parameters.AddWithValue("@phone", txtWeight.Text);
-            command.Parameters.AddWithValue("@address", txtHeight.Text);
-            command.Parameters.AddWithValue("@id", customerID);
+            command.Parameters.AddWithValue("@weight", txtWeight.Text);
+            command.Parameters.AddWithValue("@height", txtHeight.Text);
+            command.Parameters.AddWithValue("@id", userID);
             int n = command.ExecuteNonQuery();
 
 

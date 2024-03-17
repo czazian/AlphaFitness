@@ -47,7 +47,9 @@
         </div>
 
 
-
+        <!--An instance for update panel-->
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="edit" />
@@ -85,7 +87,7 @@
                         </div>
 
                         <div class="form-floating title">
-                            <asp:DropDownList AutoPostBack="true" runat="server" ID="ddlTitle" class="form-control" />
+                            <asp:DropDownList AutoPostBack="true" OnSelectedIndexChanged="Change_IndexChanged" runat="server" ID="ddlTitle" class="form-control" />
                             <label for="txtTitle">Title</label>
                             <div class="msg">
                                 <asp:Label CssClass="lblMsg" runat="server" ID="modified4" />
