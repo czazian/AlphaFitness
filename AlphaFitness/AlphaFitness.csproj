@@ -193,6 +193,7 @@
     <Content Include="Tutorial\weightLossTraining.aspx" />
     <Content Include="Tutorial\yogaStretching.aspx" />
     <Content Include="User\ChangePassword.aspx" />
+    <Content Include="User\ChangePassword.css" />
     <Content Include="User\CreateFirstEvent.aspx" />
     <Content Include="User\EditProfile.css" />
     <Content Include="User\OtherPersonProfile.aspx" />

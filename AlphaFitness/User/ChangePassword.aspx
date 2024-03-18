@@ -20,58 +20,50 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link href="UserLogin.css" rel="stylesheet" type="text/css" />
+    <link href="ChangePassword.css" rel="stylesheet" type="text/css" />
 
     <link rel="icon" type="image/x-icon" href='<%= ResolveUrl("~/Image/Element/web-icon.jpg") %>'>
 </head>
 
 <body>
-    <div class="background">
-        <form runat="server" id="form1">
-            <div class="container" id="main">
-                <div class="sign-in" style="width:100%;">
-                        <h1 style="text-align:center; padding:20px 20px;">Change Your Password</h1>
-
-                        <!--An instance for update panel-->
-                        <asp:ScriptManager ID="ScriptManager1" runat="server">
-                        </asp:ScriptManager>
-                        <script type="text/javascript" language="javascript">
-                            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
-                            function EndRequestHandler(sender, args) {
-                                if (args.get_error() != undefined) {
-                                    args.set_errorHandled(true);
-                                }
+    <form runat="server" id="form1">
+        <div class="background">
+        </div>
+        <div class="container" id="main">
+            <div class="sign-in">
+                <div class="aform">
+                    <h3>Change Your Password</h3>
+                    <!--An instance for update panel-->
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+                    <script type="text/javascript" language="javascript">
+                        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+                        function EndRequestHandler(sender, args) {
+                            if (args.get_error() != undefined) {
+                                args.set_errorHandled(true);
                             }
-                        </script>
+                        }
+                    </script>
 
-                        <asp:UpdatePanel runat="server" ID="UpdatePanel1">
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="changePW" />
-                            </Triggers>
-                            <ContentTemplate>
-                                <div>
-                                    <div class="input-field" style="text-align:center;">
-                                        <asp:TextBox TextMode="Password" CssClass="password" runat="server" ID="pass1" placeholder="Enter Password 1" />
-                                        <i class="uil uil-user"></i>
-                                    </div>
-                                    <div class="input-field" style="text-align:center;">
-                                        <asp:TextBox TextMode="Password" CssClass="password" runat="server" ID="pass2" placeholder="Enter Password 2" />
-                                        <i class="fa-solid fa-eye-slash showHidePw"></i>
-                                        <asp:Label Style="color: red; width: 100%; display: flex; flex-flow: row nowrap; justify-content: right;" runat="server" ID="error2" />
-                                    </div>
-
-                                    <div class="input-field button">
-                                        <asp:Button ID="changePW" runat="server" Text="Change Password" OnClick="Unnamed_Click" />
-                                    </div>
-                                </div>
-
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-
+                    <asp:UpdatePanel runat="server" ID="UpdatePanel1">
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="changePW" />
+                        </Triggers>
+                        <ContentTemplate>
+                            <asp:TextBox TextMode="Password" CssClass="password" runat="server" ID="pass1" placeholder="Enter Password 1" />
+                            <div style="position: relative">
+                                <asp:TextBox TextMode="Password" CssClass="password" runat="server" ID="pass2" placeholder="Enter Password 2" />
+                                <i style="position: absolute; right: 2px; top: 15px;" class="fa-solid fa-eye-slash showHidePw"></i>
+                                <asp:Label Style="color: red; width: 100%; display: flex; flex-flow: row nowrap; justify-content: right;" runat="server" ID="error2" />
+                            </div>
+                            <asp:Button CssClass="changePW" Style="width: 100%;" ID="changePW" runat="server" Text="Change Password" OnClick="Unnamed_Click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+        <script src="UserLogin.js" type="text/javascript"></script>
+    </form>
 
 </body>
 </html>
