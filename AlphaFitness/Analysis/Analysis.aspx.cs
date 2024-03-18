@@ -74,7 +74,7 @@ namespace AlphaFitness.Analysis
 
             string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
             SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn2);
-            cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays + 1));
+            cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
             cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
 
@@ -84,12 +84,12 @@ namespace AlphaFitness.Analysis
 
 
             //RecommendFood Section
-            String showRecommendFood = "SELECT * FROM [RecommendFood]";
+            //String showRecommendFood = "SELECT * FROM [RecommendFood]";
 
             //bind to a data source
-            SqlDataSource1.SelectCommand = showRecommendFood;
-            SqlDataSource1.DataBind();
-            Repeater1.DataBind();
+            //SqlDataSource1.SelectCommand = showRecommendFood;
+            //SqlDataSource1.DataBind();
+            //Repeater1.DataBind();
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
             {
@@ -109,28 +109,20 @@ namespace AlphaFitness.Analysis
                     {
                         int defaultValue = 0;
 
-                        calories.Text = reader2["Calories"].ToString(); 
+                        calories.Text = reader2["Calories"].ToString();
                         carbo.Text = reader2["Carbo"].ToString();
                         heart.Text = reader2["HeartRate"].ToString();
                         water.Text = reader2["Water"].ToString();
                         exercise.Text = reader2["Exercised"].ToString();
 
                         //Default Values
-                        if (string.IsNullOrEmpty(calories.Text))
-                        {
-                            calories.Text = defaultValue.ToString();
-                            caloriesData.Value = defaultValue.ToString();
-                        }
-                        else {
-                            caloriesData.Value = reader2["Calories"].ToString();
-                        }
-
                         if (string.IsNullOrEmpty(carbo.Text))
                         {
                             carbo.Text = defaultValue.ToString();
                             carboData.Value = defaultValue.ToString();
                         }
-                        else {
+                        else
+                        {
                             carboData.Value = reader2["Carbo"].ToString();
                         }
 
@@ -176,7 +168,136 @@ namespace AlphaFitness.Analysis
                 }
 
                 con.Close();
-            }            
+            }
+
+
+
+
+
+
+
+
+
+            ///For recommended foods operations///
+            //Get the calories value
+            SqlConnection connn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString);
+            connn1.Open();
+
+            string queryConn = "SELECT TotalCalories FROM TotalCalories WHERE DayID = @dayID AND UserID = @userID";
+            SqlCommand cmdConn = new SqlCommand(queryConn, connn1);
+            cmdConn.Parameters.AddWithValue("@dayID", dayID);
+            cmdConn.Parameters.AddWithValue("@userID", Convert.ToInt32(userID));
+            double totalCalories = Convert.ToDouble(cmdConn.ExecuteScalar());
+
+            Debug.WriteLine("Calories = " + totalCalories);
+
+            calories.Text = totalCalories.ToString();
+
+            connn1.Close();
+
+            //Get the calories calculation
+            using (SqlConnection con2 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+            {
+                con2.Open();
+
+                string query2 = "SELECT Activity, Weight, Height, Age, Gender FROM [User] WHERE UserID = @userID";
+                SqlCommand cmd2 = new SqlCommand(query2, con2);
+                cmd2.Parameters.AddWithValue("@userID", userID);
+
+                SqlDataReader rdr = cmd2.ExecuteReader();
+
+                string activity = "";
+                double weight = 0;
+                double height = 0;
+                int age = 0;
+                string gender = "";
+
+                while (rdr.Read())
+                {
+                    activity = rdr["Activity"].ToString();
+                    weight = Convert.ToDouble(rdr["Weight"]);
+                    height = Convert.ToDouble(rdr["Height"]);
+                    age = Convert.ToInt32(rdr["Age"]);
+                    gender = rdr["Gender"].ToString();
+                }
+
+
+                //BMR CALCULATION
+                double bmr = 0;
+                Debug.WriteLine("GENDER = " + gender);
+                if (gender == "M")
+                {
+                    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+                }
+                else if (gender == "F")
+                {
+                    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+                }
+
+
+                //Type Value - Activity
+                double typeValue = 0;
+                Debug.WriteLine("Activity = " + activity);
+                if (activity == "Sedentary")
+                {
+                    typeValue = 1.2;
+                }
+                else if (activity == "Lightly")
+                {
+                    typeValue = 1.375;
+                }
+                else if (activity == "Moderately")
+                {
+                    typeValue = 1.55;
+                }
+                else if (activity == "Very")
+                {
+                    typeValue = 1.725;
+                }
+                else if (activity == "Extra")
+                {
+                    typeValue = 1.9;
+                }
+
+                //Calculate Calories
+                double suggestedCalories = bmr * typeValue;
+                Debug.WriteLine("SUGGESTED CALORIES = " + suggestedCalories);
+
+                //Changing the style of calories
+                double warning = suggestedCalories - 500;
+                Debug.WriteLine("WARNING CALORIES = " + warning);
+
+                con2.Close();
+
+
+                //Get Foods not which calories exceeding the warning value
+                using (SqlConnection conn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+                {
+                    conn3.Open();
+                    using (SqlCommand cmd3 = new SqlCommand("SELECT TOP 5 FoodName, FoodCalories, FoodImg FROM (SELECT TOP 20 FoodName, FoodCalories, FoodImg FROM FOOD WHERE (@totalCalories + FoodCalories) <= @warningCalories ORDER BY FoodID) AS SubQueryAlias;", conn3))
+                    {
+                        cmd3.Parameters.AddWithValue("@totalCalories", totalCalories);
+                        cmd3.Parameters.AddWithValue("@warningCalories", suggestedCalories);
+                        SqlDataReader recommendedFoods = cmd3.ExecuteReader();
+                        Repeater1.DataSource = recommendedFoods;
+                        Repeater1.DataBind();
+
+                        if (Repeater1.Items.Count == 0)
+                        {
+                            ExceedCaloriesLimit.Visible = true;
+                            ExceedCaloriesLimit.Text = "You have exceeded your total daily suggested calories.";
+                        } else
+                        {
+                            ExceedCaloriesLimit.Visible = false;
+                        }
+                    }
+                    conn3.Close();
+                }
+
+
+            }
+
+
         }
     }
 }

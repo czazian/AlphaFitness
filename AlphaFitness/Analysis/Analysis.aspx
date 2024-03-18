@@ -109,9 +109,10 @@
             </div>
             <div class="info2 box">
                 <div class="title">Recommend Food</div>
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                <asp:Repeater ID="Repeater1" runat="server">
                     <HeaderTemplate>
                         <table>
+                            
                             <hr />
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -120,10 +121,10 @@
                                 <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("FoodImg") %>' />
                             </td>
                             <td align="left" style="vertical-align: middle;">
-                                <%# Eval("Food") %>
+                                <%# Eval("FoodName") %>
                             </td>
                             <td align="right" style="vertical-align: middle;">
-                                <%# Eval("FCalories") %> cal
+                                <%# Eval("FoodCalories") %> cal
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -131,6 +132,7 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
+                <asp:Label runat="server" ID="ExceedCaloriesLimit" Visible="false" ForeColor="Red"/>
             </div>
         </div>
 
@@ -148,9 +150,6 @@
         </div>
 
     </div>
-
-
-     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AlphaFitness %>"></asp:SqlDataSource>
 
 
     <script src="CaloriesGraph.js"></script>
