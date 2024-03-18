@@ -158,10 +158,10 @@
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mac', 'Apr', 'May', 'Jun'],
+                labels: ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'],
                 datasets: [{
                     label: 'Monthly Calorie Intake',
-                    data: [2000, 3000, 1500, 3550, 2200, 1750],
+                    data: [2000, 3000, 1500, 3550, 2200, 1750,2500],
                     borderWidth: 1
                 }]
             },

@@ -171,13 +171,6 @@ namespace AlphaFitness.Analysis
             }
 
 
-
-
-
-
-
-
-
             ///For recommended foods operations///
             //Get the calories value
             SqlConnection connn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString);
