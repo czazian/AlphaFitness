@@ -116,9 +116,6 @@
   <ItemGroup>
     <Content Include="Analysis\Analysis.aspx" />
     <Content Include="Analysis\Analysis.css" />
-    <Content Include="Analysis\CaloriesGraph.js" />
-    <Content Include="Analysis\HeartRate.js" />
-    <Content Include="Analysis\WeightLoss.js" />
     <Content Include="App_Data\AlphaFitness.mdf" />
     <Content Include="App_Data\AlphaFitness_log.ldf">
       <DependentUpon>AlphaFitness.mdf</DependentUpon>
@@ -193,6 +190,7 @@
     <Content Include="Tutorial\weightLossTraining.aspx" />
     <Content Include="Tutorial\yogaStretching.aspx" />
     <Content Include="User\ChangePassword.aspx" />
+    <Content Include="User\ChangePassword.css" />
     <Content Include="User\CreateFirstEvent.aspx" />
     <Content Include="User\EditProfile.css" />
     <Content Include="User\OtherPersonProfile.aspx" />
