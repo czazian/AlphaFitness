@@ -13,54 +13,55 @@ namespace AlphaFitness.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            string dayIDD = Request.QueryString["dayID"];
-            int userID = Convert.ToInt32(Session["UserID"]);
-            //int userID = 1; //For Testing Purpose.
-
-
-
-            using (SqlConnection con2 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+            if (!IsPostBack)
             {
-                con2.Open();
+                string dayIDD = Request.QueryString["dayID"];
+                int userID = Convert.ToInt32(Session["UserID"]);
+                //int userID = 1; //For Testing Purpose.
 
-                string cmdInsert1 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
-                SqlCommand c1 = new SqlCommand(cmdInsert1, con2);
-                c1.Parameters.AddWithValue("@mt", "run");
-                c1.Parameters.AddWithValue("@mc", 0);
-                c1.Parameters.AddWithValue("@dayID", dayIDD);
-                c1.Parameters.AddWithValue("@userID", userID);
-                c1.ExecuteNonQuery();
 
-                string cmdInsert2 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
-                SqlCommand c2 = new SqlCommand(cmdInsert2, con2);
-                c2.Parameters.AddWithValue("@mt", "medi");
-                c2.Parameters.AddWithValue("@mc", 0);
-                c2.Parameters.AddWithValue("@dayID", dayIDD);
-                c2.Parameters.AddWithValue("@userID", userID);
-                c2.ExecuteNonQuery();
 
-                string cmdInsert3 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
-                SqlCommand c3 = new SqlCommand(cmdInsert3, con2);
-                c3.Parameters.AddWithValue("@mt", "water");
-                c3.Parameters.AddWithValue("@mc", 0);
-                c3.Parameters.AddWithValue("@dayID", dayIDD);
-                c3.Parameters.AddWithValue("@userID", userID);
-                c3.ExecuteNonQuery();
+                using (SqlConnection con2 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+                {
+                    con2.Open();
 
-                string cmdInsert4 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
-                SqlCommand c4 = new SqlCommand(cmdInsert4, con2);
-                c4.Parameters.AddWithValue("@mt", "all");
-                c4.Parameters.AddWithValue("@mc", 0);
-                c4.Parameters.AddWithValue("@dayID", dayIDD);
-                c4.Parameters.AddWithValue("@userID", userID);
+                    string cmdInsert1 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
+                    SqlCommand c1 = new SqlCommand(cmdInsert1, con2);
+                    c1.Parameters.AddWithValue("@mt", "run");
+                    c1.Parameters.AddWithValue("@mc", 0);
+                    c1.Parameters.AddWithValue("@dayID", dayIDD);
+                    c1.Parameters.AddWithValue("@userID", userID);
+                    c1.ExecuteNonQuery();
 
-                c4.ExecuteNonQuery();
+                    string cmdInsert2 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
+                    SqlCommand c2 = new SqlCommand(cmdInsert2, con2);
+                    c2.Parameters.AddWithValue("@mt", "medi");
+                    c2.Parameters.AddWithValue("@mc", 0);
+                    c2.Parameters.AddWithValue("@dayID", dayIDD);
+                    c2.Parameters.AddWithValue("@userID", userID);
+                    c2.ExecuteNonQuery();
 
-                con2.Close();
+                    string cmdInsert3 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
+                    SqlCommand c3 = new SqlCommand(cmdInsert3, con2);
+                    c3.Parameters.AddWithValue("@mt", "water");
+                    c3.Parameters.AddWithValue("@mc", 0);
+                    c3.Parameters.AddWithValue("@dayID", dayIDD);
+                    c3.Parameters.AddWithValue("@userID", userID);
+                    c3.ExecuteNonQuery();
 
+                    string cmdInsert4 = "INSERT INTO Mission (MissionType, MissionComplete, DayID, UserID) VALUES (@mt, @mc, @dayID, @userID)";
+                    SqlCommand c4 = new SqlCommand(cmdInsert4, con2);
+                    c4.Parameters.AddWithValue("@mt", "all");
+                    c4.Parameters.AddWithValue("@mc", 0);
+                    c4.Parameters.AddWithValue("@dayID", dayIDD);
+                    c4.Parameters.AddWithValue("@userID", userID);
+
+                    c4.ExecuteNonQuery();
+
+                    con2.Close();
+
+                }
             }
-
         }
 
         protected void done_Click(object sender, EventArgs e)
