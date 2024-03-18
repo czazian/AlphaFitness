@@ -181,7 +181,7 @@
                             <asp:HyperLink runat="server" ID="HyperLink2" Text="Profile" NavigateUrl="~/User/UserProfile.aspx">
                     Profile
                             </asp:HyperLink>
-                            <asp:HyperLink runat="server" ID="HyperLink1" Text="Edit Profile" NavigateUrl="~/User/UserProfile.aspx">
+                            <asp:HyperLink runat="server" ID="HyperLink1" Text="Edit Profile" NavigateUrl="User/EditProfile.aspx">
                             </asp:HyperLink>
                         </div>
                     </div>

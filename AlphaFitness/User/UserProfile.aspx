@@ -46,9 +46,9 @@
                                 <div style="height: inherit; text-align: right;">:</div>
                             </th>
                             <td>
-                                <div class="title-obtain">
-                                    <asp:Image runat="server" ID="Image4" CssClass="titleImg" ImageUrl="~/Image/Title/5.png" />
-                                </div>
+                                <asp:Panel runat="server" ID="imgPanel" class="title-obtain">
+                                    <asp:Image Visible="false" runat="server" ID="titltImg" CssClass="titleImg" />
+                                </asp:Panel>
                         </tr>
                         <tr>
                             <th>Date Of Join

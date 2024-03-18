@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
@@ -24,7 +25,7 @@ namespace AlphaFitness.Community
 
             conn.Open();
 
-            string retrieve = "SELECT \r\n    P.*, \r\n    U.*, \r\n    ISNULL(CommentCount.Count, 0) AS CommentCount,\r\n    ISNULL(LikeCount.Count, 0) AS LikeCount,\r\n    ISNULL(LikedUsers.Users, '') AS LikedUsers\r\nFROM   \r\n    [dbo].[Post] P \r\nJOIN    \r\n    [dbo].[User] U ON P.UserID = U.UserID \r\nLEFT JOIN    \r\n    (SELECT         \r\n         [PostID],         \r\n         COUNT(*) AS Count    \r\n     FROM         \r\n         [dbo].[Comment]   \r\n     GROUP BY    \r\n         [PostID]) AS CommentCount ON P.[PostID] = CommentCount.[PostID]\r\nLEFT JOIN    \r\n    (SELECT         \r\n         [PostID],         \r\n         COUNT(*) AS Count    \r\n     FROM         \r\n         [dbo].[LikedPerson]   \r\n     GROUP BY    \r\n         [PostID]) AS LikeCount ON P.[PostID] = LikeCount.[PostID]\r\nLEFT JOIN    \r\n    (SELECT \r\n         [PostID],\r\n         STRING_AGG([UserID], ', ') AS Users\r\n     FROM\r\n         [dbo].[LikedPerson]\r\n     GROUP BY\r\n         [PostID]) AS LikedUsers ON P.[PostID] = LikedUsers.[PostID]\r\nORDER BY \r\n    P.PostTime DESC;\r\n";
+            string retrieve = "SELECT \r\n    P.*, \r\n    U.*, \r\n    I.*, \r\n    Pu.*,\r\n    ISNULL(CommentCount.Count, 0) AS CommentCount, \r\n    ISNULL(LikeCount.Count, 0) AS LikeCount, \r\n    ISNULL(LikedUsers.Users, '') AS LikedUser,\r\n    I.ItemUrl AS EquippedImageUrl\r\nFROM \r\n    [dbo].[Post] P \r\nJOIN \r\n    [dbo].[User] U ON P.UserID = U.UserID \r\nLEFT JOIN \r\n    (SELECT [PostID], COUNT(*) AS Count FROM [dbo].[Comment] GROUP BY [PostID]) AS CommentCount ON P.[PostID] = CommentCount.[PostID] \r\nLEFT JOIN \r\n    (SELECT [PostID], COUNT(*) AS Count FROM [dbo].[LikedPerson] GROUP BY [PostID]) AS LikeCount ON P.[PostID] = LikeCount.[PostID] \r\nLEFT JOIN \r\n    (SELECT [PostID], STRING_AGG([UserID], ', ') AS Users FROM [dbo].[LikedPerson] GROUP BY [PostID]) AS LikedUsers ON P.[PostID] = LikedUsers.[PostID] \r\nLEFT JOIN \r\n    (SELECT *,\r\n            ROW_NUMBER() OVER (PARTITION BY UserID ORDER BY Equipped DESC) AS RowNum\r\n     FROM [dbo].[PurchasedItem]\r\n     WHERE Equipped = 1) Pu \r\n        ON U.[UserID] = Pu.[UserID] AND Pu.RowNum = 1\r\nLEFT JOIN \r\n    [dbo].[Item] I ON Pu.[ItemID] = I.[ItemID]\r\nORDER BY \r\n    P.PostTime DESC;\r\n";
 
             SqlCommand cmd = new SqlCommand(retrieve, conn);
 
@@ -291,6 +292,41 @@ namespace AlphaFitness.Community
                 }
 
                 conn1.Close();
+
+
+
+
+
+
+
+
+                //Hide the user title if the user dont have or not equipped.
+                System.Web.UI.WebControls.Image img = e.Item.FindControl("img") as System.Web.UI.WebControls.Image;
+                Panel titleCon = e.Item.FindControl("titleCon") as Panel;
+                HiddenField User_ID = e.Item.FindControl("UserIDD") as HiddenField;
+                string uidd = User_ID.Value;
+
+                SqlConnection conn;
+                string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn = new SqlConnection(str);
+
+                conn.Open();
+
+                string query = "SELECT COUNT(*) FROM Item i, PurchasedItem p WHERE i.ItemID = p.ItemID AND i.Category = 'Title' AND p.Equipped = 1 AND UserID = @userID";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@userID", uidd);
+
+                int num = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+                if (num == 0)
+                {
+                    img.Visible = false;
+                } else
+                {
+                    img.Visible = true;
+                }
+
             }
         }
     }

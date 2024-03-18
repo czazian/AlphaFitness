@@ -66,6 +66,7 @@
         <asp:Repeater runat="server" ID="postRepeater" OnItemDataBound="postRepeater_ItemDataBound">
             <ItemTemplate>
                 <asp:HiddenField runat="server" ID="hdnID" Value='<%# Eval("PostID") %>' />
+                <asp:HiddenField runat="server" ID="UserIDD" Value='<%# Eval("UserID") %>' />
                 <div class="post">
                     <div class="top-community">
                         <div class="person-image">
@@ -78,9 +79,9 @@
                                 <div class="person-name">
                                     <asp:Label runat="server" Text='<%# Eval("UserName") %>' />
                                 </div>
-                                <div class="title-obtain">
-                                    <asp:Image runat="server" ID="img" CssClass="titleImg" ImageUrl="~/Image/Title/2.png" />
-                                </div>
+                                <asp:Panel runat="server" ID="titleCon" class="title-obtain">
+                                    <asp:Image runat="server" ID="img" Visible="false" CssClass="titleImg" ImageUrl='<%# Eval("EquippedImageUrl") %>' />
+                                </asp:Panel>
                             </div>
                             <div class="person-date">
                                 <asp:Label runat="server" Text='<%# Eval("PostTime") %>' />
