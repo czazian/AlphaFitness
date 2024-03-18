@@ -84,7 +84,7 @@
         </div>
         <div class="sales-boxes">
             <div class="info1 box">
-                <div class="title">Calories Graph<span class="smlT">on this year</span></div>
+                <div class="title">Calories Graph<span class="smlT">on this week</span></div>
                 <hr />
                 <canvas id="line"></canvas>
             </div>
@@ -138,7 +138,7 @@
 
         <div class="sales-boxes">
             <div class="info1 box">
-                <div class="title">Weight Loss Analysis<span class="smlT">over 12 months</span></div>
+                <div class="title">Weight Loss Analysis<span class="smlT">over this week</span></div>
                 <hr />
                 <canvas id="weightLoss"></canvas>
             </div>
@@ -151,9 +151,30 @@
 
     </div>
 
-
-    <script src="CaloriesGraph.js"></script>
     <script>
+        //calories graph
+        const ctx = document.getElementById('line');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mac', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Monthly Calorie Intake',
+                    data: [2000, 3000, 1500, 3550, 2200, 1750],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        //pie chart
         const ctx2 = document.getElementById('pie');
         const d1 = document.getElementById('<%= caloriesData.ClientID %>').value;
         const d2 = document.getElementById('<%= carboData.ClientID %>').value;
@@ -172,8 +193,81 @@
                 }]
             },
         });
+
+
+        //weight loss graph
+        const ctx3 = document.getElementById('weightLoss');
+
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mac', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                datasets: [{
+                    label: 'Monthly Weight loss',
+                    data: [81, 79, 75, 73, 70, 72, 68, 65],
+                    borderWidth: 2,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+
+
+        //radar chart
+        const ctx4 = document.getElementById('heartRate');
+
+        const data2 = {
+            labels: [
+                'Swimming',
+                'Drinking',
+                'Sleeping',
+                'Running',
+                'Coding',
+                'Cycling',
+                'Reading'
+            ],
+            datasets: [{
+                label: '26 Mac 2024 (Tues)',
+                data: [126, 81, 79, 137, 94, 122, 77],
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+            }, {
+                label: '27 Mac 2024 (Wed)',
+                data: [119, 91, 83, 146, 86, 133, 79],
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgb(54, 162, 235)',
+                pointBackgroundColor: 'rgb(54, 162, 235)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(54, 162, 235)'
+            }]
+        };
+
+        new Chart(ctx4, {
+            type: 'radar',
+            data: data2,
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                }
+            },
+        });
     </script>
-    <script src="WeightLoss.js"></script>
-    <script src="HeartRate.js"></script>
 
 </asp:Content>
