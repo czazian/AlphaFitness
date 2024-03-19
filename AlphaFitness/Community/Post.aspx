@@ -49,7 +49,7 @@
                                 <asp:Label runat="server" ID="postedUser" />
                             </div>
                             <div class="title-obtain">
-                                <asp:Image runat="server" ID="img" CssClass="titleImg" ImageUrl="~/Image/Title/2.png" />
+                                <asp:Image runat="server" ID="img" CssClass="titleImg" />
                             </div>
                         </div>
                         <div class="person-date">
@@ -88,8 +88,11 @@
 
 
                     <!--One comment-->
-                    <asp:Repeater runat="server" ID="commentRepeater">
+                    <asp:Repeater runat="server" ID="commentRepeater" OnItemDataBound="commentRepeater_ItemDataBound">
                         <ItemTemplate>
+
+                            <asp:HiddenField runat="server" ID="userID" Value='<%# Eval("UserID") %>' />
+
                             <div class="bottom-community">
                                 <div class="commenter-image">
                                     <asp:ImageButton OnCommand="commenterImg_Command" CommandArgument='<%# Eval("UserID") %>' CausesValidation="false" ImageUrl='<%# Eval("ProfileImage") %>' runat="server" ID="commenterImg" Width="58" Height="58" Style="border-radius: 10px;" />
@@ -101,7 +104,7 @@
                                                 <asp:Label runat="server" Text='<%# Eval("UserName") %>' />
                                             </div>
                                             <div class="title-obtain">
-                                                <asp:Image runat="server" ID="img" CssClass="titleImg" ImageUrl="~/Image/Title/2.png" />
+                                                <asp:Image runat="server" ID="img" CssClass="titleImg" ImageUrl='<%# Eval("EquippedImageUrl") %>' />
                                             </div>
                                         </div>
                                         <div class="commenter-date">

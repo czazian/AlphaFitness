@@ -33,6 +33,8 @@ namespace AlphaFitness.Community
 
             SqlDataReader posts = cmd.ExecuteReader();
 
+            int postOwnerUserID = 0;
+
             if (posts.HasRows)
             {
                 while (posts.Read())
@@ -42,6 +44,7 @@ namespace AlphaFitness.Community
                     postedUser.Text = posts["UserName"].ToString();
                     postedUserImage.ImageUrl = posts["ProfileImage"].ToString();
                     comment.Text = posts["PostContent"].ToString();
+                    postOwnerUserID = Convert.ToInt32(posts["UserID"]);
                 }
             }
 
@@ -52,18 +55,72 @@ namespace AlphaFitness.Community
 
 
 
+
+            //Display the equipped title
+            using (SqlConnection conn5 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+            {
+                conn5.Open();
+                using (SqlCommand cmd5 = new SqlCommand("SELECT i.ItemUrl FROM PurchasedItem p, Item i WHERE p.ItemID = i.ItemID AND p.UserID = @userID AND i.Category = 'Title' AND p.Equipped = 1", conn5))
+                {
+                    cmd5.Parameters.AddWithValue("@userID", postOwnerUserID);
+                    object url = cmd5.ExecuteScalar();
+
+                    if (url != null)
+                    {
+                        string urlDes = url.ToString();
+                        if (!string.IsNullOrEmpty(urlDes))
+                        {
+                            img.ImageUrl = urlDes;
+
+                        }
+                        else
+                        {
+                            img.ImageUrl = "~/Image/Title/transparent.png";
+                        }
+                    }
+                }
+                conn5.Close();
+
+
+
+
+
+                SqlConnection conn6;
+                string str6 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn6 = new SqlConnection(str6);
+
+                conn6.Open();
+
+                string query6 = "SELECT COUNT(*) FROM Item i, PurchasedItem p WHERE i.ItemID = p.ItemID AND i.Category = 'Title' AND p.Equipped = 1 AND UserID = @userID";
+                SqlCommand cmd6 = new SqlCommand(query6, conn6);
+                cmd6.Parameters.AddWithValue("@userID", postOwnerUserID);
+
+                int num = Convert.ToInt32(cmd6.ExecuteScalar());
+
+
+                if (num == 0)
+                {
+                    img.Visible = false;
+                }
+                else
+                {
+                    img.Visible = true;
+                }
+
+            }
+
+
+
+
+
+            //COMMENTS
             SqlConnection conn2;
             string str2 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
             conn2 = new SqlConnection(str2);
 
             conn2.Open();
 
-            string query2 = "SELECT DISTINCT * " +
-                "FROM Comment c, Post p, [User] u " +
-                "WHERE c.PostID = p.PostID " +
-                "AND c.UserID = u.UserID " +
-                "AND p.PostID = @postID " +
-                "ORDER BY c.CommentTime DESC";
+            string query2 = "WITH EquippedItems AS (\r\n    SELECT \r\n        u.UserID,\r\n        i.ItemID,\r\n        i.ItemUrl AS EquippedImageUrl,\r\n        ROW_NUMBER() OVER (PARTITION BY u.UserID ORDER BY pi.Equipped DESC) AS RowNum\r\n    FROM \r\n        [User] u\r\n    JOIN \r\n        PurchasedItem pi ON u.UserID = pi.UserID AND pi.Equipped = 1\r\n    JOIN \r\n        Item i ON pi.ItemID = i.ItemID\r\n)\r\nSELECT DISTINCT c.*, p.*, u.*, e.EquippedImageUrl\r\nFROM \r\n    Comment c\r\nJOIN \r\n    Post p ON c.PostID = p.PostID\r\nJOIN \r\n    [User] u ON c.UserID = u.UserID\r\nJOIN \r\n    EquippedItems e ON u.UserID = e.UserID AND e.RowNum = 1\r\nWHERE \r\n    p.PostID = @postID\r\nORDER BY \r\n    c.CommentTime DESC;";
             SqlCommand cmd2 = new SqlCommand(query2, conn2);
             cmd2.Parameters.AddWithValue("@postID", postID);
 
@@ -78,6 +135,15 @@ namespace AlphaFitness.Community
             numOfComments.Text = commentRepeater.Items.Count.ToString();
 
             conn2.Close();
+
+
+
+
+
+
+
+
+
 
 
 
@@ -380,6 +446,35 @@ namespace AlphaFitness.Community
                 conn2.Close();
             }
             conn2.Close();
+        }
+
+        protected void commentRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            System.Web.UI.WebControls.Image img = e.Item.FindControl("img") as System.Web.UI.WebControls.Image;
+            HiddenField User_ID = e.Item.FindControl("userID") as HiddenField;
+            string userID = User_ID.Value;
+
+            SqlConnection conn;
+            string str = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+            conn = new SqlConnection(str);
+
+            conn.Open();
+
+            string query = "SELECT COUNT(*) FROM Item i, PurchasedItem p WHERE i.ItemID = p.ItemID AND i.Category = 'Title' AND p.Equipped = 1 AND UserID = @userID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+            int num = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+            if (num == 0)
+            {
+                img.Visible = false;
+            }
+            else
+            {
+                img.Visible = true;
+            }
         }
     }
 }
