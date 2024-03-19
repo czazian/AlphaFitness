@@ -108,7 +108,18 @@
                     <div class="edit-btn">
                         <asp:Button OnClick="edit_Click" CausesValidation="false" Enabled="false" ID="edit" CssClass="border btn btn-edit" runat="server" Text="Edit Profile" />
                     </div>
+                    <script type="text/javascript">
+                        function showBrowseDialog() {
+                            var fileuploadctrl = document.getElementById('<%= FileUpload1.ClientID %>');
+                            fileuploadctrl.click();
+                        }
 
+                        function upload() {
+                            var btn = document.getElementById('<%= hideBtn.ClientID %>');
+                            btn.click();
+                        }
+
+                    </script>
                 </ContentTemplate>
             </asp:UpdatePanel>
 
