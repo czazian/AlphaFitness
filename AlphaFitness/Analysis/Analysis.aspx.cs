@@ -38,6 +38,13 @@ namespace AlphaFitness.Analysis
                 while (reader.Read())
                 {
                     username.Text = reader["UserName"].ToString();
+                    beginWeightData.Value = reader["Weight"].ToString();
+                    beginHeightData.Value = reader["Height"].ToString();
+
+                    DateTime dt1 = Convert.ToDateTime(reader["DateOfJoin"]);
+                    beginDateJoin.Value = dt1.ToString("MMMM, dd yyyy");
+                    DateTime dt2 = Convert.ToDateTime(reader["DateNow"]);
+                    beginDateNow.Value = dt2.ToString("MMMM, dd yyyy");
                 }
             }
             else
@@ -116,6 +123,16 @@ namespace AlphaFitness.Analysis
                         exercise.Text = reader2["Exercised"].ToString();
 
                         //Default Values
+                        if (string.IsNullOrEmpty(calories.Text))
+                        {
+                            calories.Text = defaultValue.ToString();
+                            caloriesData.Value = defaultValue.ToString();
+                        }
+                        else
+                        {
+                            caloriesData.Value = reader2["Calories"].ToString();
+                        }
+
                         if (string.IsNullOrEmpty(carbo.Text))
                         {
                             carbo.Text = defaultValue.ToString();
@@ -154,6 +171,24 @@ namespace AlphaFitness.Analysis
                         else
                         {
                             exerciseData.Value = reader2["Exercised"].ToString();
+                        }
+
+                        if (string.IsNullOrEmpty(reader2["Weight"].ToString()))
+                        {
+                            nowWeightData.Value = beginWeightData.Value;
+                        }
+                        else
+                        {
+                            nowWeightData.Value = reader2["Weight"].ToString();
+                        }
+
+                        if (string.IsNullOrEmpty(reader2["Height"].ToString()))
+                        {
+                            nowHeightData.Value = beginHeightData.Value;
+                        }
+                        else
+                        {
+                            nowHeightData.Value = reader2["Height"].ToString();
                         }
                     }
                 }

@@ -84,10 +84,17 @@
         </div>
         <div class="sales-boxes">
             <div class="info1 box">
-                <div class="title">Calories Graph<span class="smlT">on this week</span></div>
+                <div class="title">Weight Loss Analysis<span class="smlT">over this week</span></div>
                 <hr />
-                <canvas id="line"></canvas>
+                <canvas id="weightLoss"></canvas>
+                <asp:HiddenField ID="beginWeightData" Value="" runat="server" />
+                <asp:HiddenField ID="beginHeightData" Value="" runat="server" />
+                <asp:HiddenField ID="beginDateJoin" Value="" runat="server" />
+                <asp:HiddenField ID="beginDateNow" Value="" runat="server" />
+                <asp:HiddenField ID="nowWeightData" Value="" runat="server" />
+                <asp:HiddenField ID="nowHeightData" Value="" runat="server" />
             </div>
+
             <div class="info2 box">
                 <div class="title">Report<span class="smlT">on this week</span></div>
                 <hr />
@@ -112,12 +119,12 @@
                 <asp:Repeater ID="Repeater1" runat="server">
                     <HeaderTemplate>
                         <table>
-                            
+
                             <hr />
                     </HeaderTemplate>
                     <ItemTemplate>
                         <tr>
-                            <td style="padding:0px 15px 0px 20px;">
+                            <td style="padding: 0px 15px 0px 20px;">
                                 <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("FoodImg") %>' />
                             </td>
                             <td align="left" style="vertical-align: middle;">
@@ -132,15 +139,15 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-                <asp:Label runat="server" ID="ExceedCaloriesLimit" Visible="false" ForeColor="Red"/>
+                <asp:Label runat="server" ID="ExceedCaloriesLimit" Visible="false" ForeColor="Red" />
             </div>
         </div>
 
         <div class="sales-boxes">
             <div class="info1 box">
-                <div class="title">Weight Loss Analysis<span class="smlT">over this week</span></div>
+                <div class="title">Calories Graph<span class="smlT">on this week</span></div>
                 <hr />
-                <canvas id="weightLoss"></canvas>
+                <canvas id="line"></canvas>
             </div>
             <div class="info2 box">
                 <div class="title">Heart Rate</div>
@@ -183,12 +190,13 @@
         const d5 = document.getElementById('<%= exerciseData.ClientID %>').value;
 
         new Chart(ctx2, {
-            type: 'pie',
+            type: 'doughnut',
             data: {
-                labels: ['Calories', 'Carbo', 'Calories', 'Water', 'Exercise'],
+                labels: ['Water', 'HeartRate', 'Calories', 'Carbo', 'Exercise'],
+                
                 datasets: [{
                     label: 'Total Intake',
-                    data: [d1, d2, d3, d4, d5],
+                    data: [d4, d3, d1, d2, d5],
                     borderWidth: 1
                 }]
             },
@@ -197,24 +205,42 @@
 
         //weight loss graph
         const ctx3 = document.getElementById('weightLoss');
+        //begin data
+        const dBeginWeight = document.getElementById('<%= beginWeightData.ClientID %>').value;
+        const dBeginHeight = document.getElementById('<%= beginHeightData.ClientID %>').value;
+        const dBeginDateJoin = document.getElementById('<%= beginDateJoin.ClientID %>').value;
+        //now data
+        const dNowWeight = document.getElementById('<%= nowWeightData.ClientID %>').value;
+        const dNowHeight = document.getElementById('<%= nowHeightData.ClientID %>').value;
+        const dBeginDateNow = document.getElementById('<%= beginDateNow.ClientID %>').value;
+
 
         new Chart(ctx3, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: ['Jan', 'Feb', 'Mac', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                labels: ['Weight', 'Height'],
                 datasets: [{
-                    label: 'Monthly Weight loss',
-                    data: [81, 79, 75, 73, 70, 72, 68, 65],
+                    label: 'Begin (' + dBeginDateJoin + ')',
+                    data: [dBeginWeight, dBeginHeight],
                     borderWidth: 2,
                     fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
+                    borderColor: 'rgb(5, 3, 5)',
                     tension: 0.3
-                }]
+                }, {
+                    label: 'Now (' + dBeginDateNow + ')',
+                    data: [dNowWeight, dNowHeight],
+                        borderWidth: 2,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.3
+                    }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: false
+                         ticks: {
+                            stepSize: 10, // Set the interval between ticks on the y-axis
+                        }
                     }
                 }
             }
@@ -235,35 +261,65 @@
                 'Reading'
             ],
             datasets: [{
-                label: '26 Mac 2024 (Tues)',
+                label: 'Heart Rate (bpm)',
                 data: [126, 81, 79, 137, 94, 122, 77],
                 fill: true,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgb(255, 99, 132)',
-                pointBackgroundColor: 'rgb(255, 99, 132)',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)', // Swimming
+                    'rgba(54, 162, 235, 0.2)',  // Drinking
+                    'rgba(255, 206, 86, 0.2)',  // Sleeping
+                    'rgba(75, 192, 192, 0.2)',  // Running
+                    'rgba(153, 102, 255, 0.2)', // Coding
+                    'rgba(255, 159, 64, 0.2)',  // Cycling
+                    'rgba(255, 0, 255, 0.2)'    // Reading
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',  // Swimming
+                    'rgb(54, 162, 235)',   // Drinking
+                    'rgb(255, 206, 86)',   // Sleeping
+                    'rgb(75, 192, 192)',   // Running
+                    'rgb(153, 102, 255)',  // Coding
+                    'rgb(255, 159, 64)',   // Cycling
+                    'rgb(255, 0, 255)'     // Reading
+                ],
+                pointBackgroundColor: [
+                    'rgb(255, 99, 132)',  // Swimming
+                    'rgb(54, 162, 235)',   // Drinking
+                    'rgb(255, 206, 86)',   // Sleeping
+                    'rgb(75, 192, 192)',   // Running
+                    'rgb(153, 102, 255)',  // Coding
+                    'rgb(255, 159, 64)',   // Cycling
+                    'rgb(255, 0, 255)'     // Reading
+                ],
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(255, 99, 132)'
-            }, {
-                label: '27 Mac 2024 (Wed)',
-                data: [119, 91, 83, 146, 86, 133, 79],
-                fill: true,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgb(54, 162, 235)',
-                pointBackgroundColor: 'rgb(54, 162, 235)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(54, 162, 235)'
+                pointHoverBorderColor: [
+                    'rgb(255, 99, 132)',  // Swimming
+                    'rgb(54, 162, 235)',   // Drinking
+                    'rgb(255, 206, 86)',   // Sleeping
+                    'rgb(75, 192, 192)',   // Running
+                    'rgb(153, 102, 255)',  // Coding
+                    'rgb(255, 159, 64)',   // Cycling
+                    'rgb(255, 0, 255)'     // Reading
+                ]
             }]
         };
 
+
         new Chart(ctx4, {
-            type: 'radar',
+            type: 'polarArea',
             data: data2,
             options: {
-                elements: {
-                    line: {
-                        borderWidth: 3
+                responsive: true,
+                scales: {
+                    r: {
+                        pointLabels: {
+                            display: true,
+                            centerPointLabels: true,
+                            font: {
+                                size: 18
+                            }
+                        }
                     }
                 }
             },

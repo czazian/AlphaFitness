@@ -69,6 +69,60 @@ namespace AlphaFitness.Analysis
         protected global::System.Web.UI.WebControls.Label exercise;
 
         /// <summary>
+        /// beginWeightData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField beginWeightData;
+
+        /// <summary>
+        /// beginHeightData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField beginHeightData;
+
+        /// <summary>
+        /// beginDateJoin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField beginDateJoin;
+
+        /// <summary>
+        /// beginDateNow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField beginDateNow;
+
+        /// <summary>
+        /// nowWeightData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField nowWeightData;
+
+        /// <summary>
+        /// nowHeightData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField nowHeightData;
+
+        /// <summary>
         /// caloriesData control.
         /// </summary>
         /// <remarks>
