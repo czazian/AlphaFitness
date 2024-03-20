@@ -38,8 +38,8 @@ namespace AlphaFitness.Analysis
                 while (reader.Read())
                 {
                     username.Text = reader["UserName"].ToString();
-                    beginWeightData.Value = reader["Weight"].ToString();
-                    beginHeightData.Value = reader["Height"].ToString();
+                    beginWeightData.Value = reader["BeginWeight"].ToString();
+                    beginHeightData.Value = reader["BeginHeight"].ToString();
 
                     DateTime dt1 = Convert.ToDateTime(reader["DateOfJoin"]);
                     beginDateJoin.Value = dt1.ToString("MMMM, dd yyyy");

@@ -128,6 +128,8 @@
     <Content Include="Dashboard\CoinShop.css" />
     <Content Include="Dashboard\Dashboard.aspx" />
     <Content Include="Dashboard\Dashboard.css" />
+    <Content Include="Food\FoodTracking.aspx" />
+    <Content Include="Food\FoodTracking.css" />
     <Content Include="Global.asax" />
     <Content Include="Image\Element\loginBackground.jpg" />
     <Content Include="Image\Element\logo1.png" />
@@ -244,6 +246,13 @@
     </Compile>
     <Compile Include="Dashboard\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Food\FoodTracking.aspx.cs">
+      <DependentUpon>FoodTracking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Food\FoodTracking.aspx.designer.cs">
+      <DependentUpon>FoodTracking.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -386,7 +395,6 @@
   <ItemGroup>
     <Folder Include="APIs\" />
     <Folder Include="Badge\" />
-    <Folder Include="Food\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

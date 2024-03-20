@@ -79,7 +79,7 @@ namespace AlphaFitness.User
             {
                 con2.Open();
 
-                string query = "UPDATE [User] SET Weight = @weight, Height = @height, Activity = @active, Age =  @age, Gender = @gender WHERE UserID = @userID";
+                string query = "UPDATE [User] SET Weight = @weight, Height = @height, Activity = @active, Age =  @age, Gender = @gender, BeginWeight = @Bweight, Height = @Bheight WHERE UserID = @userID";
                 SqlCommand cmd = new SqlCommand(query, con2);
 
                 cmd.Parameters.AddWithValue("@weight", weight);
@@ -88,6 +88,8 @@ namespace AlphaFitness.User
                 cmd.Parameters.AddWithValue("@age", age);
                 cmd.Parameters.AddWithValue("@gender", gender);
                 cmd.Parameters.AddWithValue("@userID", userID);
+                cmd.Parameters.AddWithValue("@Bweight", weight);
+                cmd.Parameters.AddWithValue("@Bheight", height);
 
 
                 int n = cmd.ExecuteNonQuery();

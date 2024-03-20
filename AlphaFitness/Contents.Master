@@ -87,7 +87,7 @@
                     </asp:HyperLink>
                 </li>
                 <li id="foodLi" runat="server">
-                    <asp:HyperLink runat="server" ID="foodLink">
+                    <asp:HyperLink runat="server" ID="foodLink" NavigateUrl="~/Food/FoodTracking.aspx">
                     <i class="fa-solid fa-utensils"></i>
                     <span class="links_name">Consumed Food</span>
                     </asp:HyperLink>
