@@ -84,7 +84,7 @@
         </div>
         <div class="sales-boxes">
             <div class="info1 box">
-                <div class="title">Weight Loss Analysis<span class="smlT">over this week</span></div>
+                <div class="title">Weight & Height Analysis<span class="smlT"> comparison from the beginning to now</span></div>
                 <hr />
                 <canvas id="weightLoss"></canvas>
                 <asp:HiddenField ID="beginWeightData" Value="" runat="server" />

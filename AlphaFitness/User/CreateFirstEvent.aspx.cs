@@ -79,7 +79,7 @@ namespace AlphaFitness.User
             {
                 con2.Open();
 
-                string query = "UPDATE [User] SET Weight = @weight, Height = @height, Activity = @active, Age =  @age, Gender = @gender, BeginWeight = @Bweight, Height = @Bheight WHERE UserID = @userID";
+                string query = "UPDATE [User] SET Weight = @weight, Height = @height, Activity = @active, Age =  @age, Gender = @gender, BeginWeight = @Bweight, BeginHeight = @Bheight WHERE UserID = @userID";
                 SqlCommand cmd = new SqlCommand(query, con2);
 
                 cmd.Parameters.AddWithValue("@weight", weight);
