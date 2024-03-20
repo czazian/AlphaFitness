@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -324,6 +325,33 @@ namespace AlphaFitness.Analysis
 
 
             }
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+            {
+                //meal for today operation
+
+                con.Open();
+                using (SqlCommand cmd4 = new SqlCommand("SELECT * FROM [Intake] WHERE DayID = @dayID AND UserID = userID;", con))
+                {
+                    cmd4.Parameters.AddWithValue("@dayID", dayID);
+                    cmd4.Parameters.AddWithValue("@userID", Convert.ToInt32(userID));
+                    SqlDataReader todayMeal = cmd4.ExecuteReader();
+                    Repeater2.DataSource = todayMeal;
+                    Repeater2.DataBind();
+
+                    if (Repeater2.Items.Count == 0)
+                    {
+                        NoConsumedFood.Visible = true;
+                        NoConsumedFood.Text = "<div style='padding:10%;'>You haven't share your consumed food today! Please go and input now.</div>";
+                    }
+                    else
+                    {
+                        NoConsumedFood.Visible = false;
+                    }
+                }
+                con.Close();
+            }
+
 
 
         }

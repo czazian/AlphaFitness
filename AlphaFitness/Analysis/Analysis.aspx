@@ -109,10 +109,38 @@
         <div class="sales-boxes">
             <div class="info1 box">
                 <div class="title">Meal for Today</div>
-                <hr />
-
-                <div class="sales-details">
-                </div>
+                <asp:Repeater ID="Repeater2" runat="server">
+                    <HeaderTemplate>
+                        <table>
+                            <tr style="border-bottom: 1pt solid black;">
+                                <td style="padding: 10px 15px 10px 20px;">No</td>
+                                <td align="center" style="vertical-align: middle;">Food Name</td>
+                                <td align="center" style="vertical-align: middle;">Calories</td>
+                                <td align="right" style="vertical-align: middle;">Amount</td>
+                            </tr>
+                            <hr />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <tr>
+                            <td style="padding: 10px 15px 0px 20px;">
+                                <%# Container.ItemIndex + 1 %>.
+                            </td>
+                            <td align="center" style="vertical-align: middle; padding: 10px 15px 0px 20px;">
+                                <%# Eval("FoodName") %>
+                            </td>
+                            <td align="center" style="vertical-align: middle; padding: 10px 15px 0px 20px;">
+                                <%# Eval("Calories") %> cal
+                            </td>
+                            <td align="right" style="vertical-align: middle; padding: 10px 15px 0px 20px;">
+                                <%# Eval("Quantity") %> items
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </table>
+                    </FooterTemplate>
+                </asp:Repeater>
+                <asp:Label runat="server" ID="NoConsumedFood" style="padding:30% 0% 0% 10%;" Visible="false" ForeColor="Red" />
             </div>
             <div class="info2 box">
                 <div class="title">Recommend Food</div>
@@ -139,13 +167,13 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-                <asp:Label runat="server" ID="ExceedCaloriesLimit" Visible="false" ForeColor="Red" />
+                <asp:Label runat="server" ID="ExceedCaloriesLimit" style="padding-left:10%;" Visible="false" ForeColor="Red" />
             </div>
         </div>
 
         <div class="sales-boxes">
             <div class="info1 box">
-                <div class="title">Calories Graph<span class="smlT">on this week</span></div>
+                <div class="title">Calories Graph<span class="smlT">on last week</span></div>
                 <hr />
                 <canvas id="line"></canvas>
             </div>
@@ -167,15 +195,15 @@
             data: {
                 labels: ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'],
                 datasets: [{
-                    label: 'Monthly Calorie Intake',
-                    data: [2000, 3000, 1500, 3550, 2200, 1750,2500],
+                    label: 'Weekly Calorie Intake',
+                    data: [1300, 1560, 890, 1750, 1660, 1250,1420],
                     borderWidth: 1
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: false
                     }
                 }
             }
