@@ -64,7 +64,7 @@
                             </th>
                             <td>
                                 <div class="title-obtain">
-                                    <asp:Image runat="server" ID="titltImg" CssClass="titleImg" ImageUrl="~/Image/Title/5.png" />
+                                    <asp:Image runat="server" ID="Image4" CssClass="titleImg" ImageUrl="~/Image/Title/5.png" />
                                 </div>
                         </tr>
                         <tr>
