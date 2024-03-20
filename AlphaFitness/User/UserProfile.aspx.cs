@@ -105,8 +105,8 @@ namespace AlphaFitness.User
                 else
                 {
                     titltImg.Visible = true;
-                }
 
+                }
             }
         }
     }
