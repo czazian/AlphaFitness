@@ -72,6 +72,15 @@ namespace AlphaFitness.Food
                     cmdAddIntake.ExecuteNonQuery();
                 }
             }
+
+            // Get the latest DayID for the current user
+            int latestDayID = GetLatestDayID(Convert.ToInt32(userID));
+
+            // Calculate total calories for the latest DayID
+            int totalCalories = CalculateTotalCaloriesForDayID(latestDayID);
+
+            // Store the total calories for the latest DayID
+            StoreTotalCalories(Convert.ToInt32(userID), latestDayID, totalCalories);
         }
 
         protected void FoodSelect_Click(object sender, EventArgs e)
@@ -106,6 +115,18 @@ namespace AlphaFitness.Food
                     cmdAddIntake.ExecuteNonQuery();
                 }
             }
+
+
+
+            // Get the latest DayID for the current user
+            int latestDayID = GetLatestDayID(Convert.ToInt32(userID));
+
+            // Calculate total calories for the latest DayID
+            int totalCalories = CalculateTotalCaloriesForDayID(latestDayID);
+
+            // Store the total calories for the latest DayID
+            StoreTotalCalories(Convert.ToInt32(userID), latestDayID, totalCalories);
+
         }
 
         // Function to retrieve the calorie value for a given food name from the Food table
@@ -152,23 +173,7 @@ namespace AlphaFitness.Food
             return dayID;
         }
 
-        protected void TotalCalory_Click(object sender, EventArgs e)
-        {
-            // Get the UserID from the session
-            int userID = Convert.ToInt32(Session["UserID"]);
-
-            // Get the latest DayID for the current user
-            int latestDayID = GetLatestDayID(userID);
-
-            // Calculate total calories for the latest DayID
-            int totalCalories = CalculateTotalCaloriesForDayID(latestDayID);
-
-            // Store the total calories for the latest DayID
-            StoreTotalCalories(userID, latestDayID, totalCalories);
-
-            // Insert the same total calories into the BodyMetric table
-            InsertTotalCaloriesIntoBodyMetric(latestDayID, totalCalories);
-        }
+ 
 
         // Function to calculate total calories for a given DayID
         private int CalculateTotalCaloriesForDayID(int dayID)
@@ -273,24 +278,6 @@ namespace AlphaFitness.Food
             }
         }
 
-        private void InsertTotalCaloriesIntoBodyMetric(int dayID, int totalCalories)
-        {
-            string mainconn = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
-            using (SqlConnection sqlconn = new SqlConnection(mainconn))
-            {
-                sqlconn.Open();
-                using (SqlCommand cmdInsertCalories = sqlconn.CreateCommand())
-                {
-                    cmdInsertCalories.CommandType = CommandType.Text;
-                    cmdInsertCalories.CommandText = "INSERT INTO dbo.BodyMetric (Calories, DayID) VALUES (@Calories, @DayID)";
-                    cmdInsertCalories.Parameters.AddWithValue("@Calories", totalCalories);
-                    cmdInsertCalories.Parameters.AddWithValue("@DayID", dayID);
-
-                    // Execute the insert command
-                    cmdInsertCalories.ExecuteNonQuery();
-                }
-            }
-        }
 
         protected void cbxAddYourself_CheckedChanged(object sender, EventArgs e)
         {

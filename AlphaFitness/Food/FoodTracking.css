@@ -106,6 +106,7 @@ td {
     transition: background-color .15s ease-in;
     cursor: pointer;
     text-align: center;
+    margin-left: 65px;
 }
 
     .btnBTM:hover {

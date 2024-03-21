@@ -190,9 +190,10 @@ namespace AlphaFitness.Dashboard
 
             conn9.Open();
 
-            string query9 = "SELECT Equipped FROM PurchasedItem WHERE ItemID = @itemID";  //0 = not equipped
+            string query9 = "SELECT Equipped FROM PurchasedItem WHERE ItemID = @itemID AND UserID = @userID";  //0 = not equipped
             SqlCommand cmd9 = new SqlCommand(query9, conn9);
             cmd9.Parameters.AddWithValue("@itemID", itemID);
+            cmd9.Parameters.AddWithValue("@userID", userID);
 
             equipped = Convert.ToInt32(cmd9.ExecuteScalar());
 
@@ -215,12 +216,12 @@ namespace AlphaFitness.Dashboard
 
                 conn.Open();
 
-                string query;
+                string query = "";
                 if (cate == "Title")
                 {
                     query = "INSERT INTO PurchasedItem VALUES (@UserID, @ItemID, 0)";  //0 = not equipped
                 }
-                else
+                else if (cate == "PDF")
                 {
                     query = "INSERT INTO PurchasedItem VALUES (@UserID, @ItemID, 1)";  //1 = not equipped
                 }

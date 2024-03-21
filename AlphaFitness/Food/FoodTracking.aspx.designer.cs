@@ -141,15 +141,6 @@ namespace AlphaFitness.Food
         protected global::System.Web.UI.WebControls.Button AddFoodBtn;
 
         /// <summary>
-        /// TotalCalory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TotalCalory;
-
-        /// <summary>
         /// DetailedInformationDiv control.
         /// </summary>
         /// <remarks>

@@ -85,7 +85,7 @@
                         <tr style="padding-left: 10px;">
                             <td colspan="2" class="auto-style1">
                                 <asp:Button CssClass="btnBTM" ID="AddFoodBtn" runat="server" Text="Submit" OnClick="FoodAdd_Click" />
-                                <asp:Button CssClass="btnBTM" ID="TotalCalory" runat="server" Text="Calculate total calory" OnClick="TotalCalory_Click" />
+<%--                                <asp:Button CssClass="btnBTM" ID="TotalCalory" runat="server" Text="Calculate total calory" OnClick="TotalCalory_Click" />--%>
                             </td>
                         </tr>
 
