@@ -15,6 +15,15 @@ namespace AlphaFitness.Food
     {
 
         /// <summary>
+        /// pnlPredifined control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPredifined;
+
+        /// <summary>
         /// FoodList control.
         /// </summary>
         /// <remarks>
@@ -30,7 +39,7 @@ namespace AlphaFitness.Food
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList FoodQuantity;
+        protected global::System.Web.UI.WebControls.TextBox FoodQuantity;
 
         /// <summary>
         /// FoodSelect control.
@@ -40,6 +49,33 @@ namespace AlphaFitness.Food
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button FoodSelect;
+
+        /// <summary>
+        /// rangevalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rangevalidator;
+
+        /// <summary>
+        /// cbxAddYourself control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbxAddYourself;
+
+        /// <summary>
+        /// pnlAddOwn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAddOwn;
 
         /// <summary>
         /// Label1 control.
@@ -112,5 +148,14 @@ namespace AlphaFitness.Food
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button TotalCalory;
+
+        /// <summary>
+        /// DetailedInformationDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DetailedInformationDiv;
     }
 }

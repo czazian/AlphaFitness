@@ -1,4 +1,176 @@
-﻿.home-section .main-content {
-    position: relative;
-    padding-top: 104px;
+﻿input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input, select {
+    border-radius: 8px;
+}
+
+.home-content {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+home-section {
+    background-color: #e5f1e7; /* Light green background color */
+    padding: 20px; /* Add padding around the content */
+}
+
+.home-section .main-content {
+    position: relative;
+    /*padding-top: 104px; /* Add padding to the top of the main content */
+    /* background-color: #e5f1e7; /* Light green background color */
+    width: 95%;
+    background-color: #fff; /* White background for boxes */
+    border-radius: 8px; /* Add rounded corners to boxes */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow to boxes */
+    padding: 20px 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 25px;
+    color: #fca503;
+}
+
+.box {
+    padding: 20px 0px;
+}
+
+.calorie-box {
+    width: calc(100% - 10px);
+    font-size: 18px;
+    margin: 0px 15px;
+}
+
+.btnAdd {
+    height: 43px;
+    width: 60px;
+    border: none;
+    font-weight: 500;
+    background-color: gold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .15s ease-in;
+}
+
+    .btnAdd:hover {
+        transition: .15s ease-out;
+        background-color: #ff964c;
+        color: white;
+    }
+
+.addFood-box {
+    margin: 15px;
+}
+
+.txtFOOD:focus {
+    outline: 1px solid gold;
+    border: none;
+}
+
+.txtQty:focus {
+    outline: 1px solid gold;
+    border: none;
+}
+
+.validate {
+    font-size: 15px;
+    padding: 8px 0px;
+}
+
+td {
+    padding: 10px;
+}
+
+.btnBTM {
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    background-color: gold;
+    transition: background-color .15s ease-in;
+    cursor: pointer;
+    text-align: center;
+}
+
+    .btnBTM:hover {
+        transition: .15s ease-out;
+        background-color: #ff964c;
+        color: white;
+    }
+
+
+.txtAddOwn {
+    border:none;
+    outline : 1px solid grey;
+}
+
+    .txtAddOwn:focus {
+        outline: 1px solid gold;
+    }
+
+
+/* Example styles for other elements within .main-content */
+/*.home-section .main-content .box {
+            background-color: #fff;*/ /* White background for boxes */
+/*border-radius: 8px;*/ /* Add rounded corners to boxes */
+/*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/ /* Add shadow to boxes */
+/*padding: 20px;*/ /* Add padding inside boxes */
+/*}*/
+/*.main-boxes {*/
+/*background-color: #9fdf9d;*/ /* Background color for the box */
+/*border-radius: 8px;*/ /* Add rounded corners */
+/*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/ /* Add subtle box shadow */
+/*}*/
+.calorie-info-box {
+    padding: 20px;
+    border: 2px solid rgb(252, 186, 3);
+    border-radius: 8px;
+    background-color: lightgoldenrodyellow;
+    color: #fca503;
+    line-height: 25px;
+    text-align: center;
+    font-size: 15px;
+}
+
+    .calorie-info-box h2 {
+        font-size: 24px; /* Larger font size for the heading */
+        margin-bottom: 10px; /* Add some space below the heading */
+    }
+
+.detailed-info {
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd; /* Solid border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 20px; /* Padding inside the box */
+}
+
+    .detailed-info h3 {
+        margin-top: 0;
+        font-size: 18px;
+    }
+
+    .detailed-info ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .detailed-info li {
+        margin-bottom: 5px;
+    }

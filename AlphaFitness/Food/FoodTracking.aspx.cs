@@ -80,7 +80,7 @@ namespace AlphaFitness.Food
 
             // Get the selected food ID and quantity
             string foodName = FoodList.SelectedItem.Text;
-            int quantity = Convert.ToInt32(FoodQuantity.SelectedValue);
+            int quantity = Convert.ToInt32(FoodQuantity.Text);
 
             int dayID = GetDayID(userID); // Retrieve the DayID
 
@@ -289,6 +289,36 @@ namespace AlphaFitness.Food
                     // Execute the insert command
                     cmdInsertCalories.ExecuteNonQuery();
                 }
+            }
+        }
+
+        protected void cbxAddYourself_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxAddYourself.Checked)
+            {
+                pnlAddOwn.Visible = true;
+                AddFood.Enabled = true;
+                TextBox2.Enabled = true;
+                AddCalory.Enabled = true;
+                AddFood.CausesValidation = true;
+                TextBox2.CausesValidation = true;
+                AddCalory.CausesValidation = true;
+
+                FoodQuantity.CausesValidation = false;
+                pnlPredifined.Visible = false;
+
+            } else
+            {
+                pnlAddOwn.Visible = false;
+                AddFood.Enabled = false;
+                TextBox2.Enabled = false;
+                AddCalory.Enabled = false;
+                AddFood.CausesValidation = false;
+                TextBox2.CausesValidation = false;
+                AddCalory.CausesValidation = false;
+
+                FoodQuantity.CausesValidation = true;
+                pnlPredifined.Visible = true;
             }
         }
     }
