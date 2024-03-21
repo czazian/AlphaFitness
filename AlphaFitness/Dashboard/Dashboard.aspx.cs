@@ -72,7 +72,7 @@ namespace AlphaFitness.Dashboard
 
 
                 //Get user date now
-                DateTime userdateNow;
+                DateTime userdateNow2;
 
 
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
@@ -81,11 +81,11 @@ namespace AlphaFitness.Dashboard
                     using (SqlCommand cmd = new SqlCommand("SELECT DateNow FROM [User] WHERE UserID = @userID", conn))
                     {
                         cmd.Parameters.AddWithValue("@userID", userID);
-                        userdateNow = Convert.ToDateTime(cmd.ExecuteScalar());
+                        userdateNow2 = Convert.ToDateTime(cmd.ExecuteScalar());
                     }
                     conn.Close();
                 }
-                userdateNow = userdateNow.Date;
+                string userdateNow = userdateNow2.ToString("dd/MM/yyyy");
 
 
 
@@ -156,13 +156,14 @@ namespace AlphaFitness.Dashboard
                 {
 
                     // Get today's date & date to check
-                    DateTime td = DateTime.Now;
+                    DateTime td2 = DateTime.Now;
+                    string td = td2.ToString("dd/MM/yyyy");
 
                     //If a day is passed, create a new day -> With 4 Missions 
-                    Debug.WriteLine("TD = " + td);
+                    Debug.WriteLine("TD = " + Convert.ToDateTime(td));
                     Debug.WriteLine("User's NOW = " + userdateNow);
 
-                    if (!(td.Date == userdateNow.Date))
+                    if (!td.Equals(userdateNow))
                     {
 
                         //Update User datenow
@@ -1014,8 +1015,9 @@ namespace AlphaFitness.Dashboard
         }
 
 
-        protected void resetADay(DateTime td, int userID)
+        protected void resetADay(string td, int userID)
         {
+            Debug.WriteLine("--> Date has been reset!");
             SqlConnection conn6;
             string str6 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
             conn6 = new SqlConnection(str6);
@@ -1024,7 +1026,7 @@ namespace AlphaFitness.Dashboard
 
             string q = "UPDATE [User] SET DateNow = @newDateNow WHERE UserID = @userID";
             SqlCommand qc = new SqlCommand(q, conn6);
-            qc.Parameters.AddWithValue("@newDateNow", td);
+            qc.Parameters.AddWithValue("@newDateNow", Convert.ToDateTime(td));
             qc.Parameters.AddWithValue("@userID", userID);
 
             qc.ExecuteNonQuery();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
@@ -285,6 +286,8 @@ namespace AlphaFitness.User
                                         ccmd.Parameters.AddWithValue("@userID", Session["UserID"]);
 
                                         string insertedDayID = Convert.ToString(ccmd.ExecuteScalar());
+
+                                        Debug.WriteLine("--> First User First Date has been created!");
 
                                         Response.Redirect("~/User/CreateFirstEvent.aspx?dayID=" + insertedDayID);
                                     }
