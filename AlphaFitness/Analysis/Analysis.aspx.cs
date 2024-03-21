@@ -46,6 +46,9 @@ namespace AlphaFitness.Analysis
                     beginDateJoin.Value = dt1.ToString("MMMM, dd yyyy");
                     DateTime dt2 = Convert.ToDateTime(reader["DateNow"]);
                     beginDateNow.Value = dt2.ToString("MMMM, dd yyyy");
+
+
+                    
                 }
             }
             else
@@ -105,11 +108,13 @@ namespace AlphaFitness.Analysis
 
                 con.Open();
 
-                string query2 = "SELECT * FROM [BodyMetric] WHERE DayID = @dayID";
+                string query2 = "SELECT SUM(Carbo) AS Carbo, SUM(HeartRate) AS HeartRate, SUM(Water) AS Water, SUM(Exercised) AS Exercised FROM BodyMetric b, Day d WHERE b.DayID = d.DayID AND b.DayID = @dayID AND d.UserID = @userID";
                 SqlCommand cmd2 = new SqlCommand(query2, con);
                 cmd2.Parameters.AddWithValue("@dayID", dayID);
+                cmd2.Parameters.AddWithValue("@userID", userID);
 
                 SqlDataReader reader2 = cmd2.ExecuteReader();
+                
 
                 if (reader2.HasRows)
                 {
@@ -117,22 +122,12 @@ namespace AlphaFitness.Analysis
                     {
                         int defaultValue = 0;
 
-                        calories.Text = reader2["Calories"].ToString();
                         carbo.Text = reader2["Carbo"].ToString();
                         heart.Text = reader2["HeartRate"].ToString();
                         water.Text = reader2["Water"].ToString();
                         exercise.Text = reader2["Exercised"].ToString();
 
                         //Default Values
-                        if (string.IsNullOrEmpty(calories.Text))
-                        {
-                            calories.Text = defaultValue.ToString();
-                            caloriesData.Value = defaultValue.ToString();
-                        }
-                        else
-                        {
-                            caloriesData.Value = reader2["Calories"].ToString();
-                        }
 
                         if (string.IsNullOrEmpty(carbo.Text))
                         {
@@ -174,23 +169,7 @@ namespace AlphaFitness.Analysis
                             exerciseData.Value = reader2["Exercised"].ToString();
                         }
 
-                        if (string.IsNullOrEmpty(reader2["Weight"].ToString()))
-                        {
-                            nowWeightData.Value = beginWeightData.Value;
-                        }
-                        else
-                        {
-                            nowWeightData.Value = reader2["Weight"].ToString();
-                        }
-
-                        if (string.IsNullOrEmpty(reader2["Height"].ToString()))
-                        {
-                            nowHeightData.Value = beginHeightData.Value;
-                        }
-                        else
-                        {
-                            nowHeightData.Value = reader2["Height"].ToString();
-                        }
+                        
                     }
                 }
                 else
@@ -204,12 +183,71 @@ namespace AlphaFitness.Analysis
                 }
 
                 con.Close();
+
+                
+            }
+
+            using (SqlConnection con3 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+            {
+                con3.Open();
+
+                string query3 = "SELECT * FROM BodyMetric b, Day d WHERE b.DayID = d.DayID AND b.DayID = @dayID AND d.UserID = @userID";
+                SqlCommand cmd3 = new SqlCommand(query3, con3);
+                cmd3.Parameters.AddWithValue("@dayID", dayID);
+                cmd3.Parameters.AddWithValue("@userID", userID);
+
+                SqlDataReader reader3 = cmd3.ExecuteReader();
+
+                if (reader3.HasRows)
+                {
+                    while (reader3.Read())
+                    {
+                        if (string.IsNullOrEmpty(reader3["Weight"].ToString()))
+                        {
+                            nowWeightData.Value = beginWeightData.Value;
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(reader3["Weight"]) == 0)
+                            {
+                                nowWeightData.Value = beginWeightData.Value;
+                            }
+                            else {
+                                nowWeightData.Value = reader3["Weight"].ToString();
+                            }
+                            
+                        }
+
+                        if (string.IsNullOrEmpty(reader3["Height"].ToString()))
+                        {
+                            nowHeightData.Value = beginHeightData.Value;
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(reader3["Height"]) == 0)
+                            {
+                                nowHeightData.Value = beginHeightData.Value;
+                            }
+                            else
+                            {
+                                nowHeightData.Value = reader3["Height"].ToString();
+                            }
+                                                    }
+                    }
+                }
+                else
+                {
+                    nowWeightData.Value = beginWeightData.Value;
+                    nowHeightData.Value = beginHeightData.Value;
+                }
+
+                con3.Close();
             }
 
 
-            ///For recommended foods operations///
-            //Get the calories value
-            SqlConnection connn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString);
+                ///For recommended foods operations///
+                //Get the calories value
+                SqlConnection connn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString);
             connn1.Open();
 
             string queryConn = "SELECT TotalCalories FROM TotalCalories WHERE DayID = @dayID AND UserID = @userID";

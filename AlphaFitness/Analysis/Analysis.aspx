@@ -196,7 +196,7 @@
                 labels: ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'],
                 datasets: [{
                     label: 'Weekly Calorie Intake',
-                    data: [1300, 1560, 890, 1750, 1660, 1250,1420],
+                    data: [2300, 2460, 1890, 1655, 2160, 1750,1495],
                     borderWidth: 1
                 }]
             },
