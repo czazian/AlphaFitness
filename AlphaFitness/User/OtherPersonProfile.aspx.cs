@@ -45,6 +45,59 @@ namespace AlphaFitness.User
                     //Image4.ImageUrl = user["Email"].ToString();
                 }
             }
+
+            //Display the equipped title
+            using (SqlConnection conn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString))
+            {
+                conn3.Open();
+                using (SqlCommand cmd3 = new SqlCommand("SELECT i.ItemUrl FROM PurchasedItem p, Item i WHERE p.ItemID = i.ItemID AND p.UserID = @userID AND i.Category = 'Title' AND p.Equipped = 1", conn3))
+                {
+                    cmd3.Parameters.AddWithValue("@userID", userid);
+                    object url = cmd3.ExecuteScalar();
+
+                    if (url != null)
+                    {
+                        string urlDes = url.ToString();
+                        if (!string.IsNullOrEmpty(urlDes))
+                        {
+                            titltImg.ImageUrl = urlDes;
+
+                        }
+                        else
+                        {
+                            titltImg.ImageUrl = "~/Image/Title/transparent.png";
+                        }
+                    }
+                }
+                conn3.Close();
+
+
+
+
+
+                SqlConnection conn4;
+                string str4 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
+                conn4 = new SqlConnection(str4);
+
+                conn4.Open();
+
+                string query4 = "SELECT COUNT(*) FROM Item i, PurchasedItem p WHERE i.ItemID = p.ItemID AND i.Category = 'Title' AND p.Equipped = 1 AND UserID = @userID";
+                SqlCommand cmd4 = new SqlCommand(query4, conn4);
+                cmd4.Parameters.AddWithValue("@userID", userid);
+
+                int num = Convert.ToInt32(cmd4.ExecuteScalar());
+
+
+                if (num == 0)
+                {
+                    titltImg.Visible = false;
+                }
+                else
+                {
+                    titltImg.Visible = true;
+                }
+
+            }
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)

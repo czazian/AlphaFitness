@@ -120,6 +120,7 @@ namespace AlphaFitness.User
                         "alert",
                         "alert('Your profile photo has been successfully reset to default!');window.location ='EditProfile.aspx';",
                         true);
+                Response.Redirect("~/User/EditProfile.aspx");
             }
             else
             {
@@ -165,6 +166,7 @@ namespace AlphaFitness.User
                                 "alert",
                                 "alert('Your profile photo has been successfully updated!');window.location ='EditProfile.aspx';",
                                 true);
+                        Response.Redirect("~/User/EditProfile.aspx");
                     }
                     else
                     {

@@ -63,7 +63,7 @@
 
 
         <!--a post-->
-        <asp:Repeater runat="server" ID="postRepeater" OnItemDataBound="postRepeater_ItemDataBound">
+        <asp:Repeater EnableViewState="false" runat="server" ID="postRepeater" OnItemDataBound="postRepeater_ItemDataBound">
             <ItemTemplate>
                 <asp:HiddenField runat="server" ID="hdnID" Value='<%# Eval("PostID") %>' />
                 <asp:HiddenField runat="server" ID="UserIDD" Value='<%# Eval("UserID") %>' />
