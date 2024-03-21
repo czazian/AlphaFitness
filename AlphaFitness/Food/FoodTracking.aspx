@@ -39,7 +39,7 @@
                     <tr>
                         <td colspan="2">
                             <asp:RequiredFieldValidator CssClass="validate" Display="Dynamic" runat="server" ForeColor="Red" ErrorMessage="Please do not leave quantity empty." ControlToValidate="FoodQuantity" />
-                            <asp:RangeValidator ID="rangevalidator" Type="Integer" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Quantity must not be more 0." runat="server" ControlToValidate="FoodQuantity" MinimumValue="1" MaximumValue="100" />
+                            <asp:RangeValidator ID="rangevalidator" Type="Integer" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Quantity must be within 0 to 100." runat="server" ControlToValidate="FoodQuantity" MinimumValue="1" MaximumValue="100" />
                         </td>
                     </tr>
                 </table>
