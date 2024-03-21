@@ -120,6 +120,7 @@
     <Content Include="App_Data\AlphaFitness_log.ldf">
       <DependentUpon>AlphaFitness.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\System.Web.DataVisualization.dll" />
     <Content Include="Community\Community.aspx" />
     <Content Include="Community\Community.css" />
     <Content Include="Community\Post.aspx" />
@@ -178,6 +179,7 @@
     <Content Include="Style\reset.css" />
     <Content Include="Style\style.css" />
     <Content Include="Image\Profile\user.png" />
+    <Content Include="System.Web.DataVisualization.dll" />
     <Content Include="Tutorial\bodybuidling.aspx" />
     <Content Include="Tutorial\cardioSession.aspx" />
     <Content Include="Tutorial\dumbbell.aspx" />
@@ -392,7 +394,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
