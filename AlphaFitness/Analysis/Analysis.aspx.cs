@@ -75,7 +75,7 @@ namespace AlphaFitness.Analysis
                 conn1.Close();
             }
 
-            TimeSpan difference = today - dateOfJoin;
+            TimeSpan difference = today.Date - dateOfJoin.Date;
 
             SqlConnection conn2;
             string str5 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
@@ -85,7 +85,7 @@ namespace AlphaFitness.Analysis
 
             string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
             SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn2);
-            cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+            cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
             cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
 

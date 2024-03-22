@@ -180,8 +180,8 @@ namespace AlphaFitness
                 sr.Close();
             }
 
-            string weathername = checkWhetherCode(result);
-            //string weathername = "Thunder";
+            //string weathername = checkWhetherCode(result);
+            string weathername = "Thunder";
             //wname.Text = weathername;
 
             if (weathername == "Sunny")

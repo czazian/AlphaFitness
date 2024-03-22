@@ -89,22 +89,21 @@ namespace AlphaFitness.Dashboard
 
 
 
-                TimeSpan difference = today - dateOfJoin;
-                int dayInTheWeek = Convert.ToInt32(difference.TotalDays) % 7;
-                if (Convert.ToInt32(difference.TotalDays) == 7)
+                TimeSpan difference = today.Date - dateOfJoin.Date;
+                int dayInTheWeek = Convert.ToInt32(difference.TotalDays + 1) % 7;
+                if (Convert.ToInt32(difference.TotalDays + 1) == 7)
                 {
                     dayInTheWeek = 7;
                 }
 
-
-                int weekNum = (Convert.ToInt32(difference.TotalDays) / 7) + 1;
+                int weekNum = (Convert.ToInt32(difference.TotalDays / 7) + 1);
 
                 Debug.WriteLine("Day in week " + dayInTheWeek);
                 Debug.WriteLine("Ween no. " + weekNum);
-                Debug.WriteLine("DIFFERENCE : " + difference);
+                Debug.WriteLine("DIFFERENCE : " + difference.TotalDays);
 
                 //Update Day of Login
-                lblNumberOfDays.Text = Math.Round(difference.TotalDays).ToString();
+                lblNumberOfDays.Text = (difference.TotalDays + 1).ToString() ;
 
 
 
@@ -160,7 +159,7 @@ namespace AlphaFitness.Dashboard
                     string td = td2.ToString("dd/MM/yyyy");
 
                     //If a day is passed, create a new day -> With 4 Missions 
-                    Debug.WriteLine("TD = " + Convert.ToDateTime(td));
+                    Debug.WriteLine("TD = " + td);
                     Debug.WriteLine("User's NOW = " + userdateNow);
 
                     if (!td.Equals(userdateNow))
@@ -168,6 +167,7 @@ namespace AlphaFitness.Dashboard
 
                         //Update User datenow
                         resetADay(td, userID);
+                        Debug.WriteLine("RESETed A DAY");
 
                         //Day
                         SqlConnection conn4;
@@ -178,7 +178,7 @@ namespace AlphaFitness.Dashboard
 
                         string insertNewDay = "INSERT INTO Day (DayNo, UserID) VALUES (@dayNo, @userID)";
                         SqlCommand cmdDay = new SqlCommand(insertNewDay, conn4);
-                        cmdDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+                        cmdDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
                         cmdDay.Parameters.AddWithValue("@userID", userID);
 
                         int successful = cmdDay.ExecuteNonQuery();
@@ -188,7 +188,7 @@ namespace AlphaFitness.Dashboard
                         if (successful > 0)
                         {
 
-
+                            Debug.WriteLine("RESETed A DAY -> A NEW DAY CREATED");
                             //Get Day ID
                             //Get today's dayID
                             SqlConnection conn5;
@@ -199,7 +199,7 @@ namespace AlphaFitness.Dashboard
 
                             string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
                             SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-                            cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+                            cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
                             cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
                             int dayID = Convert.ToInt32(cmdFindDay.ExecuteScalar());
@@ -269,7 +269,7 @@ namespace AlphaFitness.Dashboard
 
                     string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
                     SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-                    cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+                    cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
                     cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
                     int dayD = Convert.ToInt32(cmdFindDay.ExecuteScalar());
@@ -321,7 +321,7 @@ namespace AlphaFitness.Dashboard
 
                     string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
                     SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-                    cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+                    cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
                     cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
                     int dayD = Convert.ToInt32(cmdFindDay.ExecuteScalar());
@@ -374,7 +374,7 @@ namespace AlphaFitness.Dashboard
 
                     string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
                     SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-                    cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+                    cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
                     cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
                     int dayD = Convert.ToInt32(cmdFindDay.ExecuteScalar());
@@ -421,7 +421,7 @@ namespace AlphaFitness.Dashboard
 
                     string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
                     SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-                    cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+                    cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
                     cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
                     int dayD = Convert.ToInt32(cmdFindDay.ExecuteScalar());
@@ -470,7 +470,7 @@ namespace AlphaFitness.Dashboard
 
                     string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
                     SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-                    cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+                    cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
                     cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
                     int dayD = Convert.ToInt32(cmdFindDay.ExecuteScalar());
@@ -484,7 +484,7 @@ namespace AlphaFitness.Dashboard
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@dayID", dayD);
                     cmd.Parameters.AddWithValue("@userID", userID);
-                    
+
                     double calories = Convert.ToDouble(cmd.ExecuteScalar());
 
                     caloriesValue.Text = calories.ToString();
@@ -612,7 +612,7 @@ namespace AlphaFitness.Dashboard
                 conn1.Close();
             }
 
-            TimeSpan difference = today - dateOfJoin;
+            TimeSpan difference = today.Date - dateOfJoin.Date;
 
             SqlConnection conn5;
             string str5 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
@@ -622,7 +622,7 @@ namespace AlphaFitness.Dashboard
 
             string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
             SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-            cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+            cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
             cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
 
@@ -829,7 +829,7 @@ namespace AlphaFitness.Dashboard
                 conn1.Close();
             }
 
-            TimeSpan difference = today - dateOfJoin;
+            TimeSpan difference = today.Date - dateOfJoin.Date;
 
             SqlConnection conn5;
             string str5 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
@@ -839,7 +839,7 @@ namespace AlphaFitness.Dashboard
 
             string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
             SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-            cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+            cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
             cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
             int dayID = Convert.ToInt32(cmdFindDay.ExecuteScalar());
@@ -1067,7 +1067,7 @@ namespace AlphaFitness.Dashboard
                 conn1.Close();
             }
 
-            TimeSpan difference = today - dateOfJoin;
+            TimeSpan difference = today.Date - dateOfJoin.Date;
 
             SqlConnection conn5;
             string str5 = ConfigurationManager.ConnectionStrings["AlphaFitness"].ConnectionString;
@@ -1077,7 +1077,7 @@ namespace AlphaFitness.Dashboard
 
             string cmdFindDayQuery = "SELECT DayID FROM Day WHERE DayNo = @dayNo AND UserID = @userID";
             SqlCommand cmdFindDay = new SqlCommand(cmdFindDayQuery, conn5);
-            cmdFindDay.Parameters.AddWithValue("@dayNo", Math.Round(difference.TotalDays));
+            cmdFindDay.Parameters.AddWithValue("@dayNo", difference.TotalDays + 1);
             cmdFindDay.Parameters.AddWithValue("@userID", userID);
 
             int dayID = Convert.ToInt32(cmdFindDay.ExecuteScalar());
