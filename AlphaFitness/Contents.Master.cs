@@ -157,7 +157,7 @@ namespace AlphaFitness
             ddlWeather.DataTextField = "CityName";
             ddlWeather.DataValueField = "CityID";
             ddlWeather.DataBind();
-            // ddlWeather.SelectedIndex = 57;
+            ddlWeather.SelectedIndex = 57;
 
 
             //Weather Process
@@ -180,8 +180,8 @@ namespace AlphaFitness
                 sr.Close();
             }
 
-            //string weathername = checkWhetherCode(result);
-            string weathername = "Thunder";
+            string weathername = checkWhetherCode(result);
+            //string weathername = "Thunder";
             //wname.Text = weathername;
 
             if (weathername == "Sunny")
