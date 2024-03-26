@@ -171,19 +171,6 @@
             </div>
         </div>
 
-        <div class="sales-boxes">
-            <div class="info1 box">
-                <div class="title">Calories Graph<span class="smlT">on last week</span></div>
-                <hr />
-                <canvas id="line"></canvas>
-            </div>
-            <div class="info2 box">
-                <div class="title">Heart Rate</div>
-                <hr />
-                <canvas id="heartRate"></canvas>
-            </div>
-        </div>
-
     </div>
 
     <script>

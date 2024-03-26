@@ -51,6 +51,11 @@
             }
         }
 
+
+        function sessionExpired() {
+            alert("Session expired, you will be redirected to the login page.");
+        }
+
     </script>
 </head>
 

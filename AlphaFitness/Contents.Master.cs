@@ -44,7 +44,7 @@ namespace AlphaFitness
             ScriptManager.RegisterStartupScript(this, GetType(), "script", "$(function () {initialStates(); });", true);
 
             ////Weather API
-            string uri = "http://api.weatherbit.io/v2.0/current?city_id=" + cityid + "&country=MY&key=20fb41c9e8af48d9bf83e46cfe98a47f";
+            string uri = "http://api.weatherbit.io/v2.0/current?city_id=" + cityid + "&country=MY&key=c7182ad58f52430ea9784f132d952b0a";
             WebRequest request = WebRequest.Create(uri);
             request.Method = "GET";
 
@@ -91,6 +91,15 @@ namespace AlphaFitness
 
         protected void Page_Init(object sender, EventArgs e)
         {
+
+            if(Session != null)
+            {
+                if(Session.IsNewSession)
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "script", "$(function () {sessionExpired(); });", true);
+                    Response.Redirect("~/User/UserLogin.aspx");
+                }
+            }
 
             //GET USER INFO PART -> 2 In Master
             int userIDD = Convert.ToInt32(Session["UserID"]);
@@ -165,7 +174,7 @@ namespace AlphaFitness
             ddlWeather.SelectedIndex = checkIndex(cityid);
 
             ////Weather API
-            string uri = "http://api.weatherbit.io/v2.0/current?city_id=" + cityid + "&country=MY&key=20fb41c9e8af48d9bf83e46cfe98a47f";
+            string uri = "http://api.weatherbit.io/v2.0/current?city_id=" + cityid + "&country=MY&key=c7182ad58f52430ea9784f132d952b0a";
             WebRequest request = WebRequest.Create(uri);
             request.Method = "GET";
 
